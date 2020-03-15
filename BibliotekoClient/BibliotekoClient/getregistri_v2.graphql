@@ -1,0 +1,10 @@
+﻿query q {
+  registri(isbn: "978-1617291326") {
+    id
+    isbn
+    title
+    authors
+    summary
+    imageurl
+  }
+}

@@ -1,0 +1,21 @@
+﻿mutation m($bibliotekoID: String!, $petskribo: InputPetskribo!) {
+  addPetskribo(bibliotekoID: $bibliotekoID, petskribo: $petskribo) {
+    id
+    content {
+       id
+       registri {
+          isbn
+          title
+          authors
+          summary
+       }
+       logbook
+       owner
+    }
+    address {
+       freeformaddress
+       country
+       countrycode
+    }
+  }
+}

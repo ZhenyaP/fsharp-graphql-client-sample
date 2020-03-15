@@ -1,0 +1,10 @@
+﻿query q($isbn: String!) {
+  registri(isbn: $isbn) {
+    id
+    isbn
+    title
+    authors
+    summary
+    imageurl
+  }
+}

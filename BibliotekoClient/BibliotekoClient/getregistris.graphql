@@ -1,0 +1,10 @@
+﻿query q {
+  registris {
+    id
+    isbn
+    title
+    authors
+    summary
+    imageurl
+  }
+}
