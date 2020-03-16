@@ -1,4 +1,4 @@
-﻿mutation m(
+﻿mutation addPetskriboToBiblioteko(
   $bibliotekoID: String!
   $petskribo: InputPetskribo!
   $UserId: String!
@@ -9,25 +9,14 @@
     UserId: $UserId
   ) {
     id
-    content {
-      id
-      registri {
-        isbn
-        title
-        authors
-        summary
-      }
-      logbook
-      owner
+    registri {
+      isbn
+      title
+      authors
+      summary
     }
-    address {
-      freeformaddress
-      country
-      countrycode
-      street
-      buildingnumber
-      postalcode
-    }
+    logbook
+    owner
   }
 }
 

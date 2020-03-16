@@ -1,0 +1,60 @@
+﻿query getBibliotekos {
+  bibliotekos {
+    id
+    content {
+        ...borrowedFields
+        ...ownedFields
+        ...lentFields
+    }
+    address {
+        freeformaddress
+        country
+        countrycode
+        street
+        buildingnumber
+        postalcode
+    }
+  }
+}
+
+fragment borrowedFields on Borrowed {
+    id
+    registri {
+        id
+        isbn
+        title
+        authors
+        summary
+        imageurl
+    }
+    logbook
+    owner
+}
+
+fragment ownedFields on Owned {
+    id
+    registri {
+        id
+        isbn
+        title
+        authors
+        summary
+        imageurl
+    }
+    logbook
+    owner
+}
+
+fragment lentFields on Lent {
+    id
+    registri {
+        id
+        isbn
+        title
+        authors
+        summary
+        imageurl
+    }
+    logbook
+    owner
+}

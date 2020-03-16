@@ -1,0 +1,21 @@
+﻿mutation addPetskriboToBiblioteko(
+  $bibliotekoID: String!
+  $petskribo: InputPetskribo!
+  $UserId: String!
+) {
+  addPetskribo(
+    bibliotekoID: $bibliotekoID
+    petskribo: $petskribo
+    UserId: $UserId
+  ) {
+    id
+    registri {
+      isbn
+      title
+      authors
+      summary
+    }
+    logbook
+    owner
+  }
+}

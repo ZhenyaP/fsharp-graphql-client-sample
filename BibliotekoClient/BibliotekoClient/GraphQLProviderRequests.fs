@@ -8,11 +8,13 @@ module GraphQLProviderRequests =
 
     type BiblProvider = GraphQLProvider<"http://localhost:7071/GraphQL">
         
-    let getRegistriOperation = BiblProvider.Operation<"getregistri.graphql">()
-    let getRegistrisOperation = BiblProvider.Operation<"getregistris.graphql">()
+    let getRegistriOperation = BiblProvider.Operation<"queries/getregistri.graphql">()
+    let getRegistrisOperation = BiblProvider.Operation<"queries/getregistris.graphql">()
+    let getBibliotekosOperation = BiblProvider.Operation<"queries/getbibliotekos.graphql">()
+    let addPetskriboOperation = BiblProvider.Operation<"queries/addpetskribo.graphql">()
 
     let asyncQueryRegistriByIsbn () : Async<Registri> =    
-        async {         
+        async {     
             let! result = getRegistriOperation.AsyncRun(isbn = "978-1617291326")
             if result.Errors.Length > 0 then failwith (sprintf "getRegistriByIsbn query operation failed with error: %A\n" result.Errors)
             let registriEntity = result.Data.Value.Registri.Value
@@ -46,36 +48,16 @@ module GraphQLProviderRequests =
             return registries
             }
 
-    //let asyncRunQuery<'T when 'T :> BaseDomainType> (query: Async<BiblProvider.Operations.Q.OperationResult * 'T>) =
-    (*
-    let asyncRunQuery (query: Async<BiblProvider.Operations.Q.OperationResult>) =
-        async {
-            let! result = query
-            //let! result, domainEntity = query
-            //let registri = result.Data.Value.Registri.Value
-            //printfn "%s: %A\n" typeof<'T>.DeclaringType.Name domainEntity
-            //sprintf "%A" (match result.Data with | Some x -> x | None -> failwith "result.Data is None") |> prettifyJson |> printfn "Data: %s\n"
-            printfn "Data: %A\n" result.Data
-            printfn "Errors: %A\n" result.Errors
-            printfn "Custom data: %A\n" result.CustomData
-        }
-    *)
-
-    (*
     let asyncQueryBibliotekos =
-        async {
-            use context = getContext()
-            let operation = BiblProvider.Operation<"getbibliotekos.graphql">()            
-            let! result = operation.AsyncRun(context)
-            let! result = operation.AsyncRun()
+        async {         
+            let! result = getBibliotekosOperation.AsyncRun()
             return result
             }
 
     let asyncAddPetskriboToBiblioteko =
         async {
-            use context = getContext()
-            let operation = BiblProvider.Operation<"addpetskribo.graphql">()
-            let! result = operation.AsyncRun(//context, 
+            //use context = getContext()            
+            let! result = addPetskriboOperation.AsyncRun(//context, 
                                             bibliotekoID = "b5a21dc6-8a84-4ce2-8563-74a118449693", 
                                             petskribo = BiblProvider.Types.InputPetskribo(
                                                         id = "c894880c-4f74-423f-b0eb-80381e586ea9", isbn = "978-1680502541"),
@@ -84,7 +66,6 @@ module GraphQLProviderRequests =
            return result
         }
 
-    let prettifyJson (jsonText:string) =
-        JValue.Parse(jsonText).ToString(Formatting.Indented)
-*)
+    //let prettifyJson (jsonText:string) =
+    //    JValue.Parse(jsonText).ToString(Formatting.Indented)
     

@@ -1,6 +1,6 @@
 ﻿// Learn more about F# at http://fsharp.org
 namespace BibliotekoClient
-
+open GraphQLClientRequests
 //open GraphQLProviderOperations
 
 module Main =
@@ -38,7 +38,7 @@ module Main =
 
         printfn "Registries:"
         GraphQLClientRequests.asyncQueryRegistries |> Async.RunSynchronously |> printfn "%A"
-        (*
+        
         printfn "Bibliotekos - before addPetskribo mutation:"
         GraphQLClientRequests.asyncQueryBibliotekos |> Async.RunSynchronously |> printfn "%A"
 
@@ -50,10 +50,10 @@ module Main =
 
         printfn "Bibliotekos - after addPetskribo mutation:"
         GraphQLClientRequests.asyncQueryBibliotekos |> Async.RunSynchronously |> printfn "%A"        
-        *)
+        
 
     [<EntryPoint>]
     let main argv =
-          callViaGraphQLProvider ()
-          //callViaGraphQLClient ()
+          //callViaGraphQLProvider ()
+          callViaGraphQLClient ()
           0 // return an integer exit code
