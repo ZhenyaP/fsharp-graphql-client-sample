@@ -5,18 +5,16 @@ namespace BibliotekoClient
 
 module Main =
 
-    open GraphQLClientRequests
-
     let callViaGraphQLProvider () =
         printfn "---------------------------------------------"
         printfn "Calls Via GraphQLProvider:"
         printfn "---------------------------------------------"
         printfn ""
         printfn "Registri By ISBN:"
-        GraphQLProviderGetRegistriOperation.asyncRunQuery (GraphQLProviderGetRegistriOperation.asyncQueryRegistriByIsbn()) |> Async.RunSynchronously
+        GraphQLProviderRequests.asyncQueryRegistriByIsbn() |> Async.RunSynchronously |> printfn "%A"
 
         printfn "Registries:"
-        GraphQLProviderGetRegistriesOperation.asyncRunQuery (GraphQLProviderGetRegistriesOperation.asyncQueryRegistries()) |> Async.RunSynchronously
+        GraphQLProviderRequests.asyncQueryRegistris() |> Async.RunSynchronously |> printfn "%A"
 
         (*
         printfn "Before addPetskribo mutation:"

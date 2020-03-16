@@ -10,7 +10,8 @@
     <Content Include="getregistris_response.json" />
     <Content Include="addpetskribo_response.json" />
     <Content Include="getregistri_response.json" />
-    <Compile Include="GraphQLProviderGetRegistriOperation.fs" />
+    <Compile Include="Domain.fs" />
+    <Compile Include="GraphQLProviderRequests.fs" />
     <Compile Include="GraphQLProviderGetRegistriesOperation.fs" />
     <Content Include="getregistri_request.txt" />
     <Content Include="json\introspection.json" />
@@ -22,7 +23,6 @@
     <None Include="getbibliotekos.graphql" />
     <None Include="introspection.graphql" />
     <None Include="getregistris.graphql" />
-    <Compile Include="Domain.fs" />
     <Compile Include="GraphQLClientRequests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
