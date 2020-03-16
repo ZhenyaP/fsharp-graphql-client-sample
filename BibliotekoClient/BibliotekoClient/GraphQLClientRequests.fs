@@ -27,7 +27,7 @@ module GraphQLClientRequests =
     type AddPetskriboResponse = JsonProvider<"responses/addpetskribo_response.json">
 
     let asyncQueryRegistriByIsbn (isbn:string) : Async<Registri> =
-        async {       
+        async {
             // Dispose the connection after using it.
             use connection = new GraphQLClientConnection()
             let request : GraphQLRequest =
@@ -60,7 +60,7 @@ module GraphQLClientRequests =
             return registri
         }
 
-    let asyncQueryRegistries : Async<Registri list> =    
+    let asyncQueryRegistries : Async<Registri list> =
         async {
             // Dispose the connection after using it.
             use connection = new GraphQLClientConnection()
@@ -82,14 +82,14 @@ module GraphQLClientRequests =
                   OperationName = Some "q" }
             let! response = GraphQLClient.sendRequestAsync connection request
             let getRegistrisResponse = RegistrisResponse.Parse(response)
-            let registris = getRegistrisResponse.Data.Registris |> Array.map(fun registri -> 
+            let registris = getRegistrisResponse.Data.Registris |> Array.map(fun registri ->
                            { Id = registri.Id
                              ISBN = registri.Isbn.ToString()
                              Title = registri.Title
                              Authors = registri.Authors |> Array.toList
                              Summary = registri.Summary
                              ImageURL = registri.Imageurl }) |> Array.toList
-            
+
             return registris
           }
 
@@ -164,12 +164,12 @@ fragment lentFields on Lent {
                     OperationName = Some "q" }
             let! response = GraphQLClient.sendRequestAsync connection request
             let getBibliotekosResponse = BibliotekosResponse.Parse(response)
-            let bibliotekos = 
-                getBibliotekosResponse.Data.Bibliotekos 
-                |> Array.map (fun b -> 
-                    {    
+            let bibliotekos =
+                getBibliotekosResponse.Data.Bibliotekos
+                |> Array.map (fun b ->
+                    {
                         Id = b.Id
-                        Address = 
+                        Address =
                             {
                                 FreeformAddress = b.Address.Freeformaddress
                                 Country = b.Address.Country
@@ -178,14 +178,14 @@ fragment lentFields on Lent {
                                 BuildingNumber = b.Address.Buildingnumber
                                 PostalCode = b.Address.Postalcode
                             }
-                        Content = b.Content |> 
-                                     Array.map(fun c -> 
+                        Content = b.Content |>
+                                     Array.map(fun c ->
                                                  Owned {
                                                             Id = c.Id
                                                             Logbook = c.Logbook |> Array.toList
                                                             Owner = c.Owner
-                                                            Registri = 
-                                                            {   
+                                                            Registri =
+                                                            {
                                                                 Id = c.Registri.Id
                                                                 ISBN = c.Registri.Isbn.ToString()
                                                                 Title = c.Registri.Title
@@ -193,15 +193,15 @@ fragment lentFields on Lent {
                                                                 Summary = c.Registri.Summary
                                                                 ImageURL = c.Registri.Imageurl
                                                             }
-                                                        }) 
-                                            |> Array.toList 
-                    }) 
+                                                        })
+                                            |> Array.toList
+                    })
                 |> Array.toList
 
             return bibliotekos
         }
 
-    let asyncAddPetskriboToBiblioteko (bibliotekoID: System.Guid) (petskribo : InputPetskribo) : Async<AddPetskriboResponse.AddPetskribo> =    
+    let asyncAddPetskriboToBiblioteko (bibliotekoID: System.Guid) (petskribo : InputPetskribo) =
         async {
             // Dispose the connection after using it.
             use connection = new GraphQLClientConnection()
@@ -229,7 +229,10 @@ mutation addPetskriboToBiblioteko(
   }
 }
 """
-                  Variables = [| ("bibliotekoID", bibliotekoID |> box); ("petskribo", petskribo |> box) |]
+                  Variables =
+                    [| ("bibliotekoID", bibliotekoID |> box)
+                       ("petskribo", petskribo |> box)
+                       ("UserId", "2fa50fd0-acae-415a-b664-d8f8da1470c5" |> box) |]
                   ServerUrl = "http://localhost:7071/GraphQL"
                   HttpHeaders = [||]
                   OperationName = Some "m" }

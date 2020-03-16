@@ -16,17 +16,13 @@ module Main =
         printfn "Registries:"
         GraphQLProviderRequests.asyncQueryRegistris() |> Async.RunSynchronously |> printfn "%A"
 
-        (*
         printfn "Before addPetskribo mutation:"
-        asyncRunQuery asyncQueryBibliotekos |> Async.RunSynchronously
+        GraphQLProviderRequests.asyncQueryBibliotekos |> Async.RunSynchronously |> printfn "%A"
 
-        asyncRunMutation asyncAddPetskriboToBiblioteko |> Async.RunSynchronously
+        GraphQLProviderRequests.asyncAddPetskriboToBiblioteko |> Async.RunSynchronously |> printfn "%A"
 
         printfn "After addPetskribo mutation:"
-        asyncRunQuery asyncQueryBibliotekos |> Async.RunSynchronously
-
-        runQuery queryBibliotekos
-        *)
+        GraphQLProviderRequests.asyncQueryBibliotekos |> Async.RunSynchronously |> printfn "%A"
 
     let callViaGraphQLClient () =
         printfn "---------------------------------------------"
@@ -38,7 +34,7 @@ module Main =
 
         printfn "Registries:"
         GraphQLClientRequests.asyncQueryRegistries |> Async.RunSynchronously |> printfn "%A"
-        
+
         printfn "Bibliotekos - before addPetskribo mutation:"
         GraphQLClientRequests.asyncQueryBibliotekos |> Async.RunSynchronously |> printfn "%A"
 
@@ -49,11 +45,12 @@ module Main =
         GraphQLClientRequests.asyncAddPetskriboToBiblioteko bibliotekoId petskribo |> Async.RunSynchronously |> printfn "%A"
 
         printfn "Bibliotekos - after addPetskribo mutation:"
-        GraphQLClientRequests.asyncQueryBibliotekos |> Async.RunSynchronously |> printfn "%A"        
-        
+        GraphQLClientRequests.asyncQueryBibliotekos |> Async.RunSynchronously |> printfn "%A"
+
 
     [<EntryPoint>]
     let main argv =
-          //callViaGraphQLProvider ()
-          callViaGraphQLClient ()
+          callViaGraphQLProvider ()
+          //callViaGraphQLClient ()
+          System.Console.ReadKey () |> ignore
           0 // return an integer exit code
