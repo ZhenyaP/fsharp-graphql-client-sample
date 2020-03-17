@@ -1,0 +1,30 @@
+﻿mutation setReaction(
+  $isbn: String!
+  $reaction: InputReaction!
+  $UserId: String!
+) {
+  setReaction(
+    isbn: $isbn
+    reaction: $reaction
+    UserId: $UserId
+  ) {
+    id
+    reviewer
+    content {
+      ... on Reaction {
+        type
+      }
+      ... on Comment {
+        type
+      }
+      ... on ReactionAndComment {
+        reaction {
+            type
+        }
+        comment {
+            type
+        }
+      }
+    }
+  }
+}
