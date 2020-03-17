@@ -11,6 +11,7 @@
     id
     reviewer
     content {
+      __typename
       ... on Reaction {
         type
       }
