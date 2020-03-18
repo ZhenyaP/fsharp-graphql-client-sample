@@ -1,10 +1,31 @@
 ﻿query getRegistriByIsbn($isbn: String!) {
-  registri(isbn: $isbn) {
-    id
-    isbn
-    title
-    authors
-    summary
-    imageurl
-  }
+    registri(isbn: $isbn) {
+        id
+        isbn
+        title
+        authors
+        reviews {
+            id
+            reviewer
+            content {
+                __typename
+                ... on Reaction {
+                    type
+                }
+                ... on Comment {
+                    type
+                }
+                ... on ReactionAndComment {
+                    reaction {
+                        type
+                    }
+                    comment {
+                        type
+                    }
+                }
+            }
+        }
+        summary
+        imageurl
+    }
 }

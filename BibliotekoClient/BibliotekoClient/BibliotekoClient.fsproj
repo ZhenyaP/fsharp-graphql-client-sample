@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <Content Include="json\introspection.json" />
+    <Content Include="requests\setreaction_request.txt" />
     <None Include="queries\setreaction.graphql" />
     <None Include="queries\addpetskribo.graphql" />
     <None Include="queries\addpetskribo_beta_v1.graphql" />
