@@ -20,12 +20,7 @@
 fragment borrowedFields on Borrowed {
     id
     registri {
-        id
-        isbn
-        title
-        authors
-        summary
-        imageurl
+        ...registriFields
     }
     logbook
     owner
@@ -34,12 +29,7 @@ fragment borrowedFields on Borrowed {
 fragment ownedFields on Owned {
     id
     registri {
-        id
-        isbn
-        title
-        authors
-        summary
-        imageurl
+        ...registriFields
     }
     logbook
     owner
@@ -48,13 +38,38 @@ fragment ownedFields on Owned {
 fragment lentFields on Lent {
     id
     registri {
-        id
-        isbn
-        title
-        authors
-        summary
-        imageurl
+        ...registriFields
     }
     logbook
     owner
+}
+
+fragment registriFields on Registri {
+    id
+    isbn
+    title
+    authors
+    reviews {
+        id
+        reviewer
+        content {
+            __typename
+            ... on Reaction {
+                type
+            }
+            ... on Comment {
+                type
+            }
+            ... on ReactionAndComment {
+                reaction {
+                    type
+                }
+                comment {
+                    type
+                }
+            }
+        }
+    }
+    summary
+    imageurl
 }
