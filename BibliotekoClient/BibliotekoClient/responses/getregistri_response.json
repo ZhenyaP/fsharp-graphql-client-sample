@@ -1,13 +1,17 @@
 ﻿{
     "data": {
-        "registri": {
-            "id": "a42cef54-b82a-4e87-8067-b8d87e2b7877",
-            "isbn": "9781617291326",
-            "title": "F# Deep Dives",
-            "authors": [ "Tomas Petricek", "Phil Trelford" ],
-            "summary": "F# Deep Dives presents a collection of real-world F# techniques, each written by expert practitioners. Each chapter presents a new use case where you'll read how the author used F# to solve a complex problem more effectively than would have been possible using a traditional approach. You'll not only see how a specific solution works in a specific domain, you'll also learn how F# developers approach problems, what concepts they use to solve them, and how they integrate F# into existing systems and environments.",
-            "imageurl": "https://images-na.ssl-images-amazon.com/images/I/41gsVLt5ZgL._SX396_BO1,204,203,200_.jpg"
-        }
+      "registri": {
+          "id": "a42cef54-b82a-4e87-8067-b8d87e2b7877",
+          "isbn": "9781617291326",
+          "title": "F# Deep Dives",
+          "authors": [
+              "Tomas Petricek",
+              "Phil Trelford"
+          ],
+          "reviews": [],
+          "summary": "F# Deep Dives presents a collection of real-world F# techniques, each written by expert practitioners. Each chapter presents a new use case where you'll read how the author used F# to solve a complex problem more effectively than would have been possible using a traditional approach. You'll not only see how a specific solution works in a specific domain, you'll also learn how F# developers approach problems, what concepts they use to solve them, and how they integrate F# into existing systems and environments.",
+          "imageurl": "https://images-na.ssl-images-amazon.com/images/I/41gsVLt5ZgL._SX396_BO1,204,203,200_.jpg"
+      }
     },
     "documentId": 733671530,
     "requestType": "Classic"

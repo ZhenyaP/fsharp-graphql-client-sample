@@ -1,31 +1,64 @@
 ﻿mutation addPetskriboToBiblioteko(
-  $bibliotekoID: String!
-  $petskribo: InputPetskribo!
-  $UserId: String!
-) {
-  addPetskribo(
-    bibliotekoID: $bibliotekoID
-    petskribo: $petskribo
-    UserId: $UserId
-  ) {
-    id
-    registri {
-      isbn
-      title
-      authors
-      summary
+    $bibliotekoId: String!
+    $petskribo: InputPetskribo!
+    $userId: String!
+) 
+{
+    addPetskribo(
+        bibliotekoId: $bibliotekoId
+        petskribo: $petskribo
+        userId: $userId
+    ) 
+    {
+        id
+        registri {
+            id
+            isbn
+            title
+            authors
+            reviews {
+                id
+                reviewer
+                content {
+                    __typename
+                    ... on Reaction {
+                        type
+                    }
+                    ... on Comment {
+                        type
+                    }
+                    ... on ReactionAndComment {
+                        reaction {
+                            type
+                        }
+                        comment {
+                            type
+                        }
+                    }
+                }
+            }
+            summary
+            imageurl
+        }
+        logbook
+        owner
     }
-    logbook
-    owner
-  }
 }
 
-
-Variables:
+Variables 1:
 {
-    "bibliotekoID": "b5a21dc6-8a84-4ce2-8563-74a118449693",
+    "bibliotekoId": "b5a21dc6-8a84-4ce2-8563-74a118449693",
     "petskribo": {
       "id": "c894880c-4f74-423f-b0eb-80381e586ea9",
       "isbn": "978-1680502541"
+    }
+  }
+
+Variables 2:
+{
+    "bibliotekoId": "a9a17e0d-9588-4152-9c54-b79db16fce2b",
+    "petskribo": {
+      "id": "4891ef42-789d-44b2-b697-7d9c52e2ccb7",
+      "isbn": "978-1617291326"
     }
   }

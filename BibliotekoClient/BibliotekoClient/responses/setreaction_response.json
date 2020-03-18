@@ -1,0 +1,14 @@
+﻿{
+    "data": {
+        "setReaction": {
+            "id": "c36126b4-b641-4051-a0d1-2188335b2586",
+            "reviewer": "1e987b91-3264-42fc-8bdb-6556ca62c154",
+            "content": {
+                "__typename": "Reaction",
+                "type": "Gripping"
+            }
+        }
+    },
+    "documentId": 106587833,
+    "requestType": "Classic"
+}

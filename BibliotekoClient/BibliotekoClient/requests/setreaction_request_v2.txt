@@ -1,7 +1,7 @@
 ﻿mutation setReaction(
     $isbn: String!
-    $reaction: InputReaction!
-    $userId: String!
+    $reactionId: ID!
+    $reactionType: Int!
 ) 
 {
     setReaction(
@@ -30,4 +30,11 @@
             }
         }
     }
+}
+
+Variables (v2):
+{
+  "isbn": "978-1617291326",
+  "reactionId": "c36126b4-b641-4051-a0d1-2188335b2586",
+  "reactionType": 3
 }
