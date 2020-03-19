@@ -9,15 +9,11 @@
     <None Include="Script.fsx" />
     <Content Include="json\introspection.json" />
     <Content Include="requests\removereaction_request.txt" />
-    <Content Include="requests\setreaction_request_v3.txt" />
-    <Content Include="requests\setreaction_request_v2.txt" />
-    <Content Include="requests\setreaction_request_v1.txt" />
+    <Content Include="requests\setreaction_request.txt" />
     <Content Include="responses\setreaction_response.json" />
     <None Include="queries\removeReaction.graphql" />
     <None Include="queries\setReaction.graphql" />
     <None Include="queries\addpetskribo.graphql" />
-    <None Include="queries\addpetskribo_beta_v1.graphql" />
-    <None Include="queries\getregistri_v2.graphql" />
     <None Include="queries\getregistri.graphql" />
     <None Include="queries\getbibliotekos.graphql" />
     <None Include="queries\introspection.graphql" />
