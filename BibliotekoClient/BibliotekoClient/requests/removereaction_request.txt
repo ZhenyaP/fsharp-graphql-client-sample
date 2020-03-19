@@ -1,42 +1,9 @@
-﻿mutation removeReaction(
-    $reactionId: String!
-) 
+﻿mutation removeReaction($reviewId: ID!)
 {
-    removeReaction(
-        reactionId: $reactionId
-    ) 
-    {
-        id
-        isbn
-        title
-        authors
-        reviews {
-            id
-            reviewer
-            content {
-                __typename
-                ... on Reaction {
-                    type
-                }
-                ... on Comment {
-                    type
-                }
-                ... on ReactionAndComment {
-                    reaction {
-                        type
-                    }
-                    comment {
-                        type
-                    }
-                }
-            }
-        }
-        summary
-        imageurl
-    }
+    removeReaction(reviewId: $reviewId)
 }
 
 Variables:
 {
-  "reactionId": "08531e37-ee43-46c7-a6a1-2d2903cf2a7a"
+  "reviewId": "08531e37-ee43-46c7-a6a1-2d2903cf2a7a"
 }

@@ -10,18 +10,14 @@
             content {
                 __typename
                 ... on Reaction {
-                    type
+                    reaction
                 }
                 ... on Comment {
-                    type
+                    comment
                 }
                 ... on ReactionAndComment {
-                    reaction {
-                        type
-                    }
-                    comment {
-                        type
-                    }
+                    reaction 
+                    comment
                 }
             }
         }
@@ -29,6 +25,8 @@
         imageurl
     }
 }
+
+Variables:
 {
   "isbn": "978-1617291326"
 }

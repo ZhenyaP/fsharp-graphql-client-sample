@@ -15,18 +15,14 @@
         content {
             __typename
             ... on Reaction {
-                type
+                reaction
             }
             ... on Comment {
-                type
+                comment
             }
             ... on ReactionAndComment {
-                reaction {
-                    type
-                }
-                comment {
-                    type
-                }
+                reaction 
+                comment
             }
         }
     }
@@ -37,7 +33,7 @@ Variables 1:
   "isbn": "978-1617291326",
   "reaction": {
       "id": "c36126b4-b641-4051-a0d1-2188335b2586",
-      "reactionType": "Gripping"
+      "kind": "Gripping"
     }
 }
 
@@ -46,6 +42,15 @@ Variables 2:
   "isbn": "978-1680502541",
   "reaction": {
       "id": "08531e37-ee43-46c7-a6a1-2d2903cf2a7a",
-      "reactionType": "Boring"
+      "kind": "Boring"
+    }
+}
+
+Variables 3:
+{
+  "isbn": "978-1617291326",
+  "reaction": {
+      "id": "c36126b4-b641-4051-a0d1-2188335b2586",
+      "kind": "Inspiring"
     }
 }
