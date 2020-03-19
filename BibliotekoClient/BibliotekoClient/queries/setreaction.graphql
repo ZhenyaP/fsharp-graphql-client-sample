@@ -1,20 +1,19 @@
 ﻿mutation setReaction(
     $isbn: String!
-    $reviewId: ID!
-    $reaction: ReactionEnum!
+    $reaction: InputReaction!
     $userId: String!
-)
+) 
 {
     setReaction(
         isbn: $isbn
-        reviewId: $reviewId
         reaction: $reaction
         userId: $userId
-    )
+    ) 
     {
         id
         reviewer
         content {
+            __typename
             ... on Reaction {
                 type
             }

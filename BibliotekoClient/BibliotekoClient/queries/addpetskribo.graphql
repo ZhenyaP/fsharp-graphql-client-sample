@@ -2,13 +2,13 @@
     $bibliotekoId: String!
     $petskribo: InputPetskribo!
     $userId: String!
-)
+) 
 {
     addPetskribo(
         bibliotekoId: $bibliotekoId
         petskribo: $petskribo
         userId: $userId
-    )
+    ) 
     {
         id
         registri {
@@ -20,6 +20,7 @@
                 id
                 reviewer
                 content {
+                    __typename
                     ... on Reaction {
                         type
                     }
