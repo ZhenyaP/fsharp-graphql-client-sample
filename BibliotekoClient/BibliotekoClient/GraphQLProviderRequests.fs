@@ -56,14 +56,15 @@ module GraphQLProviderRequests =
             return registries
             }
 
-    let asyncQueryBibliotekos =
+    let asyncQueryBibliotekos () =
         async {
             use runtimeContext = getContext()
             let! result = getBibliotekosOperation.AsyncRun(runtimeContext)
-            return result
-            }
 
-    let asyncAddPetskriboToBiblioteko =
+            return result.Data.Value.Bibliotekos
+        }
+
+    let asyncAddPetskriboToBiblioteko () =
         async {
             use runtimeContext = getContext()
             let! result = addPetskriboOperation.AsyncRun(runtimeContext,
@@ -73,27 +74,30 @@ module GraphQLProviderRequests =
                                                         isbn = "978-1680502541"),
                                             userId = "2fa50fd0-acae-415a-b664-d8f8da1470c5"
                                            )
-            return result
+
+            return result.Data.Value.AddPetskribo.Value
         }
 
     //let prettifyJson (jsonText:string) =
     //    JValue.Parse(jsonText).ToString(Formatting.Indented)
 
-    let asyncSetReaction =
+    let asyncSetReaction () =
         async {
             use runtimeContext = getContext()
             let! result = setReactionOperation.AsyncRun(runtimeContext,
-                                            reviewId = "B745CA41-CDA1-43CB-AFE6-AF5F69099DA7",
-                                            isbn = "978-1617291326",
-                                            reaction = BiblProvider.Types.ReactionEnum.LoveIt,
-                                            userId = "2fa50fd0-acae-415a-b664-d8f8da1470c5"
-                                            )
-            return result
+                                                        isbn = "978-1617291326",
+                                                        reaction = BiblProvider.Types.InputReaction(
+                                                            BiblProvider.Types.ReactionEnum.LoveIt,
+                                                            "67e8d007-002c-4541-9ca8-0983780cc4d6"),
+                                                        userId = "")  //userId variable value is set in GraphQL server
+            
+            return result.Data.Value.SetReaction.Value
         }
 
-    let asyncRemoveReaction =
+    let asyncRemoveReaction () =
         async {
             use runtimeContext = getContext()
-            let! result = removeReactionOperation.AsyncRun(runtimeContext, reviewId = "B745CA41-CDA1-43CB-AFE6-AF5F69099DA7")
-            return result
+            let! result = removeReactionOperation.AsyncRun(runtimeContext, reviewId = "67e8d007-002c-4541-9ca8-0983780cc4d6")
+            
+            return result.Data.Value.RemoveReaction
         }

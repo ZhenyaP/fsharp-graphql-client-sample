@@ -11,18 +11,38 @@ module Main =
         printfn "---------------------------------------------"
         printfn ""
         printfn "Registri By ISBN:"
-        GraphQLProviderRequests.asyncQueryRegistriByIsbn() |> Async.RunSynchronously |> printfn "%A"
+        GraphQLProviderRequests.asyncQueryRegistriByIsbn () |> Async.RunSynchronously |> printfn "%A"
 
         printfn "Registries:"
-        GraphQLProviderRequests.asyncQueryRegistris() |> Async.RunSynchronously |> printfn "%A"
+        GraphQLProviderRequests.asyncQueryRegistris () |> Async.RunSynchronously |> printfn "%A"
 
-        printfn "Before addPetskribo mutation:"
-        GraphQLProviderRequests.asyncQueryBibliotekos |> Async.RunSynchronously |> printfn "%A"
+        printfn "Bibliotekos - Before addPetskribo mutation:"
+        GraphQLProviderRequests.asyncQueryBibliotekos () |> Async.RunSynchronously |> printfn "%A"
 
-        GraphQLProviderRequests.asyncAddPetskriboToBiblioteko |> Async.RunSynchronously |> printfn "%A"
+        printfn "addPetskribo mutation:"
+        GraphQLProviderRequests.asyncAddPetskriboToBiblioteko () |> Async.RunSynchronously |> printfn "%A"
 
-        printfn "After addPetskribo mutation:"
-        GraphQLProviderRequests.asyncQueryBibliotekos |> Async.RunSynchronously |> printfn "%A"
+        printfn "Bibliotekos - After addPetskribo mutation:"
+        GraphQLProviderRequests.asyncQueryBibliotekos () |> Async.RunSynchronously |> printfn "%A"
+
+        printfn "setReaction mutation:"
+        GraphQLProviderRequests.asyncSetReaction () |> Async.RunSynchronously |> printfn "%A"
+
+        printfn "Registries - after setReaction mutation:"
+        GraphQLProviderRequests.asyncQueryRegistris () |> Async.RunSynchronously |> printfn "%A"
+
+        printfn "Bibliotekos - After setReaction mutation:"
+        GraphQLProviderRequests.asyncQueryBibliotekos () |> Async.RunSynchronously |> printfn "%A"
+
+        printfn "removeReaction mutation:"
+        GraphQLProviderRequests.asyncRemoveReaction () |> Async.RunSynchronously |> printfn "%A"
+        
+        printfn "Registries - after removeReaction mutation:"
+        GraphQLProviderRequests.asyncQueryRegistris () |> Async.RunSynchronously |> printfn "%A"
+
+        printfn "Bibliotekos - After removeReaction mutation:"
+        GraphQLProviderRequests.asyncQueryBibliotekos () |> Async.RunSynchronously |> printfn "%A"
+
 
     let callViaGraphQLClient () =
         printfn "---------------------------------------------"
@@ -33,10 +53,10 @@ module Main =
         GraphQLClientRequests.asyncQueryRegistriByIsbn "978-1617291326" |> Async.RunSynchronously |> printfn "%A"
 
         printfn "Registries:"
-        GraphQLClientRequests.asyncQueryRegistries |> Async.RunSynchronously |> printfn "%A"
+        GraphQLClientRequests.asyncQueryRegistries () |> Async.RunSynchronously |> printfn "%A"
 
         printfn "Bibliotekos - before addPetskribo mutation:"
-        GraphQLClientRequests.asyncQueryBibliotekos |> Async.RunSynchronously |> printfn "%A"
+        GraphQLClientRequests.asyncQueryBibliotekos () |> Async.RunSynchronously |> printfn "%A"
 
         let bibliotekoId = System.Guid "b5a21dc6-8a84-4ce2-8563-74a118449693"
         let petskribo = { isbn = "978-1680502541"
@@ -45,7 +65,7 @@ module Main =
         GraphQLClientRequests.asyncAddPetskriboToBiblioteko bibliotekoId petskribo |> Async.RunSynchronously |> printfn "%A"
 
         printfn "Bibliotekos - after addPetskribo mutation:"
-        GraphQLClientRequests.asyncQueryBibliotekos |> Async.RunSynchronously |> printfn "%A"
+        GraphQLClientRequests.asyncQueryBibliotekos () |> Async.RunSynchronously |> printfn "%A"
 
 
     [<EntryPoint>]

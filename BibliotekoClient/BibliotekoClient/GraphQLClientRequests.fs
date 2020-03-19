@@ -60,7 +60,7 @@ module GraphQLClientRequests =
             return registri
         }
 
-    let asyncQueryRegistries : Async<Registri list> =
+    let asyncQueryRegistries () : Async<Registri list> =
         async {
             // Dispose the connection after using it.
             use connection = new GraphQLClientConnection()
@@ -93,7 +93,7 @@ module GraphQLClientRequests =
             return registris
           }
 
-    let asyncQueryBibliotekos : Async<Biblioteko list> =
+    let asyncQueryBibliotekos () : Async<Biblioteko list> =
         async {
             use connection = new GraphQLClientConnection()
             let request : GraphQLRequest =
