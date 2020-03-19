@@ -6,7 +6,7 @@ module GraphQLProviderRequests =
     open FSharp.Data.GraphQL
     open Domain
 
-    type BiblProvider = GraphQLProvider<"http://localhost:7071/GraphQL">
+    type BiblProvider = GraphQLProvider<"json/introspection.json">
 
     let getRegistriOperation = BiblProvider.Operation<"queries/getregistri.graphql">()
     let getRegistrisOperation = BiblProvider.Operation<"queries/getregistris.graphql">()
@@ -15,9 +15,14 @@ module GraphQLProviderRequests =
     let setReactionOperation = BiblProvider.Operation<"queries/setreaction.graphql">()
     let removeReactionOperation = BiblProvider.Operation<"queries/removereaction.graphql">()
 
+    let getContext() =
+        let context = BiblProvider.GetContext(serverUrl = "http://localhost:7071/GraphQL")
+        context
+
     let asyncQueryRegistriByIsbn () : Async<Registri> =
         async {
-            let! result = getRegistriOperation.AsyncRun(isbn = "978-1617291326")
+            use runtimeContext = getContext()
+            let! result = getRegistriOperation.AsyncRun(runtimeContext, isbn = "978-1617291326")
             if result.Errors.Length > 0 then failwith (sprintf "getRegistriByIsbn query operation failed with error: %A\n" result.Errors)
             let registriEntity = result.Data.Value.Registri.Value
             //TODO: Make GraphQLProvider generate Guid .NET type for GraphQL field with ID type
@@ -34,7 +39,8 @@ module GraphQLProviderRequests =
 
     let asyncQueryRegistris () : Async<Registri list> =
         async {
-            let! result = getRegistrisOperation.AsyncRun()
+            use runtimeContext = getContext()
+            let! result = getRegistrisOperation.AsyncRun(runtimeContext)
             if result.Errors.Length > 0 then failwith (sprintf "getRegistris query operation failed with error: %A\n" result.Errors)
             let registriEntities = result.Data.Value.Registris
             let registries = registriEntities |> Array.map(fun registriEntity ->
@@ -52,14 +58,15 @@ module GraphQLProviderRequests =
 
     let asyncQueryBibliotekos =
         async {
-            let! result = getBibliotekosOperation.AsyncRun()
+            use runtimeContext = getContext()
+            let! result = getBibliotekosOperation.AsyncRun(runtimeContext)
             return result
             }
 
     let asyncAddPetskriboToBiblioteko =
         async {
-            //use context = getContext()
-            let! result = addPetskriboOperation.AsyncRun(//context,
+            use runtimeContext = getContext()
+            let! result = addPetskriboOperation.AsyncRun(runtimeContext,
                                             bibliotekoId = "b5a21dc6-8a84-4ce2-8563-74a118449693",
                                             petskribo = BiblProvider.Types.InputPetskribo(
                                                         id = "c894880c-4f74-423f-b0eb-80381e586ea9",
@@ -74,7 +81,8 @@ module GraphQLProviderRequests =
 
     let asyncSetReaction =
         async {
-            let! result = setReactionOperation.AsyncRun(
+            use runtimeContext = getContext()
+            let! result = setReactionOperation.AsyncRun(runtimeContext,
                                             reviewId = "B745CA41-CDA1-43CB-AFE6-AF5F69099DA7",
                                             isbn = "978-1617291326",
                                             reaction = BiblProvider.Types.ReactionEnum.LoveIt,
@@ -85,6 +93,7 @@ module GraphQLProviderRequests =
 
     let asyncRemoveReaction =
         async {
-            let! result = removeReactionOperation.AsyncRun(reviewId = "B745CA41-CDA1-43CB-AFE6-AF5F69099DA7")
+            use runtimeContext = getContext()
+            let! result = removeReactionOperation.AsyncRun(runtimeContext, reviewId = "B745CA41-CDA1-43CB-AFE6-AF5F69099DA7")
             return result
         }

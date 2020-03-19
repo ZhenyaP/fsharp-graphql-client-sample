@@ -1340,7 +1340,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "URI",
                   "ofType": null
                 }
               },
@@ -1516,7 +1516,7 @@
           "description": null,
           "fields": [
             {
-              "name": "type",
+              "name": "reaction",
               "description": "Reaction type",
               "args": [],
               "type": {
@@ -1590,7 +1590,7 @@
           "description": null,
           "fields": [
             {
-              "name": "type",
+              "name": "comment",
               "description": "Comment type",
               "args": [],
               "type": {
@@ -1624,8 +1624,8 @@
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Comment",
+                  "kind": "SCALAR",
+                  "name": "String",
                   "ofType": null
                 }
               },
@@ -1640,8 +1640,8 @@
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Reaction",
+                  "kind": "ENUM",
+                  "name": "ReactionEnum",
                   "ofType": null
                 }
               },
@@ -1830,7 +1830,7 @@
               "description": "Adds book to a library",
               "args": [
                 {
-                  "name": "bibliotekoID",
+                  "name": "bibliotekoId",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
@@ -1858,7 +1858,7 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "UserId",
+                  "name": "userId",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
@@ -1885,7 +1885,7 @@
               "description": "Removes reaction from a book definition",
               "args": [
                 {
-                  "name": "reactionid",
+                  "name": "reviewId",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
@@ -1903,8 +1903,8 @@
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Registri",
+                  "kind": "SCALAR",
+                  "name": "Boolean",
                   "ofType": null
                 }
               },
@@ -1944,7 +1944,7 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "UserId",
+                  "name": "userId",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
@@ -2094,23 +2094,27 @@
           "inputFields": [
             {
               "name": "id",
-              "description": "ID of reaction",
+              "description": null,
               "type": {
                 "kind": "SCALAR",
                 "name": "ID",
                 "ofType": null
               },
-              "defaultValue": ""
+              "defaultValue": "ID of reaction"
             },
             {
-              "name": "reaction",
+              "name": "kind",
               "description": "Reaction of the book definition",
               "type": {
-                "kind": "ENUM",
-                "name": "ReactionEnum",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ReactionEnum",
+                  "ofType": null
+                }
               },
-              "defaultValue": "Boring"
+              "defaultValue": null
             }
           ],
           "interfaces": null,
@@ -2205,6 +2209,6 @@
       ]
     }
   },
-  "documentId": -615292870,
+  "documentId": 914844965,
   "requestType": "Classic"
 }
