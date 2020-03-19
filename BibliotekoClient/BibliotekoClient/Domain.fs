@@ -3,13 +3,13 @@ namespace BibliotekoClient
 
 module Domain =
 
-    type Registri =    
-        { Id : System.Guid 
+    type Registri =
+        { Id : System.Guid
           ISBN : string
           Title : string
           Authors : string list
           Summary : string
-          ImageURL : string }
+          ImageURL : System.Uri }
           with
             interface BaseDomainType
             static member Default = { Id = System.Guid.Empty
@@ -17,7 +17,7 @@ module Domain =
                                       Title = ""
                                       Authors = list.Empty
                                       Summary = ""
-                                      ImageURL = "" }
+                                      ImageURL = null }
     and BaseDomainType = interface end
 
     type PetskriboPosession =

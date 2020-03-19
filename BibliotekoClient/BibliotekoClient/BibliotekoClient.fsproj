@@ -13,7 +13,8 @@
     <Content Include="requests\setreaction_request_v2.txt" />
     <Content Include="requests\setreaction_request_v1.txt" />
     <Content Include="responses\setreaction_response.json" />
-    <None Include="queries\setreaction.graphql" />
+    <None Include="queries\removeReaction.graphql" />
+    <None Include="queries\setReaction.graphql" />
     <None Include="queries\addpetskribo.graphql" />
     <None Include="queries\addpetskribo_beta_v1.graphql" />
     <None Include="queries\getregistri_v2.graphql" />

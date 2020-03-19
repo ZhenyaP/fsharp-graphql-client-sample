@@ -55,7 +55,7 @@ module GraphQLClientRequests =
                              Title = registriEntity.Title
                              Authors = registriEntity.Authors |> Array.toList
                              Summary = registriEntity.Summary
-                             ImageURL = registriEntity.Imageurl }
+                             ImageURL = registriEntity.Imageurl |> System.Uri }
 
             return registri
         }
@@ -88,7 +88,7 @@ module GraphQLClientRequests =
                              Title = registri.Title
                              Authors = registri.Authors |> Array.toList
                              Summary = registri.Summary
-                             ImageURL = registri.Imageurl }) |> Array.toList
+                             ImageURL = registri.Imageurl |> System.Uri }) |> Array.toList
 
             return registris
           }
@@ -191,7 +191,7 @@ fragment lentFields on Lent {
                                                                 Title = c.Registri.Title
                                                                 Authors = c.Registri.Authors |> Array.toList
                                                                 Summary = c.Registri.Summary
-                                                                ImageURL = c.Registri.Imageurl
+                                                                ImageURL = c.Registri.Imageurl |> System.Uri
                                                             }
                                                         })
                                             |> Array.toList
