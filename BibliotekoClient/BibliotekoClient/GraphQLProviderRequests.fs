@@ -62,6 +62,7 @@ module GraphQLProviderRequests =
             let! result = getBibliotekosOperation.AsyncRun(runtimeContext)
 
             return result.Data.Value.Bibliotekos
+            //return result.Data.Value.Bibliotekos.[0].Content.[0].AsBorrowed().Registri.Reviews.[0].Content.AsReaction().Reaction
         }
 
     let asyncAddPetskriboToBiblioteko () =
