@@ -33,28 +33,28 @@ module Main =
         printfn "Bibliotekos - Before addPetskribo mutation:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderRequests.asyncQueryBibliotekos () |> Async.RunSynchronously |> prettifyJson |> printfn "%s"
+        GraphQLProviderRequests.asyncQueryBibliotekos () |> Async.RunSynchronously (*|> prettifyJson*) |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
         printfn "addPetskribo mutation:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderRequests.asyncAddPetskriboToBiblioteko () |> Async.RunSynchronously |> prettifyJson |> printfn "%s"
+        GraphQLProviderRequests.asyncAddPetskriboToBiblioteko () |> Async.RunSynchronously (*|> prettifyJson*) |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
         printfn "Bibliotekos - After addPetskribo mutation:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderRequests.asyncQueryBibliotekos () |> Async.RunSynchronously |> prettifyJson |> printfn "%s"
+        GraphQLProviderRequests.asyncQueryBibliotekos () |> Async.RunSynchronously (*|> prettifyJson*) |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
         printfn "setReaction mutation:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderRequests.asyncSetReaction () |> Async.RunSynchronously |> prettifyJson |> printfn "%s"
+        GraphQLProviderRequests.asyncSetReaction () |> Async.RunSynchronously (*|> prettifyJson*) |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -68,14 +68,14 @@ module Main =
         printfn "Bibliotekos - After setReaction mutation:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderRequests.asyncQueryBibliotekos () |> Async.RunSynchronously |> prettifyJson |> printfn "%s"
+        GraphQLProviderRequests.asyncQueryBibliotekos () |> Async.RunSynchronously (*|> prettifyJson*) |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
         printfn "removeReaction mutation:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderRequests.asyncRemoveReaction () |> Async.RunSynchronously |> prettifyJson |> printfn "%s"
+        GraphQLProviderRequests.asyncRemoveReaction () |> Async.RunSynchronously (*|> prettifyJson*) |> printfn "%A"
         
         printfn ""
         printfn "---------------------------------------------"
@@ -89,7 +89,7 @@ module Main =
         printfn "Bibliotekos - After removeReaction mutation:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderRequests.asyncQueryBibliotekos () |> Async.RunSynchronously |> prettifyJson |> printfn "%s"
+        GraphQLProviderRequests.asyncQueryBibliotekos () |> Async.RunSynchronously (*|> prettifyJson*) |> printfn "%A"
 
 
     let callViaGraphQLClient () =

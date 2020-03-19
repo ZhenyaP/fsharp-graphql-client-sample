@@ -42,7 +42,7 @@
 
 Variables 1:
 {
-    "bibliotekoId": "b5a21dc6-8a84-4ce2-8563-74a118449693",
+    "bibliotekoId": "a9a17e0d-9588-4152-9c54-b79db16fce2b",
     "petskribo": {
       "id": "c894880c-4f74-423f-b0eb-80381e586ea9",
       "isbn": "978-1680502541"
