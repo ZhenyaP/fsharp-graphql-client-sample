@@ -1,6 +1,9 @@
 ﻿ //Learn more about F# at http://fsharp.org
 namespace BibliotekoClient
 
+open Newtonsoft.Json.Linq
+open Newtonsoft.Json
+
 module GraphQLProviderRequests =
 
     open FSharp.Data.GraphQL
@@ -78,9 +81,6 @@ module GraphQLProviderRequests =
 
             return result.Data.Value.AddPetskribo.Value
         }
-
-    //let prettifyJson (jsonText:string) =
-    //    JValue.Parse(jsonText).ToString(Formatting.Indented)
 
     let asyncSetReaction () =
         async {
