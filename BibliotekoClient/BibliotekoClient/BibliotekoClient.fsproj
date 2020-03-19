@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="Script.fsx" />
     <Content Include="json\introspection.json" />
     <Content Include="requests\removereaction_request.txt" />
     <Content Include="requests\setreaction_request_v3.txt" />
