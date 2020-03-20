@@ -3,21 +3,25 @@ namespace BibliotekoClient
 
 open Newtonsoft.Json.Linq
 open Newtonsoft.Json
+open System
 
 module GraphQLProviderRequests =
 
     open FSharp.Data.GraphQL
     open Domain
+    open Chessie.ErrorHandling
 
     type BiblProvider = GraphQLProvider<"json/introspection.json">
 
-    let getRegistriOperation = BiblProvider.Operation<"queries/getregistri.graphql">()
-    let getRegistrisOperation = BiblProvider.Operation<"queries/getregistris.graphql">()
-    let getBibliotekosOperation = BiblProvider.Operation<"queries/getbibliotekos.graphql">()
-    let addPetskriboOperation = BiblProvider.Operation<"queries/addpetskribo.graphql">()
-    let setReactionOperation = BiblProvider.Operation<"queries/setreaction.graphql">()
-    let removeReactionOperation = BiblProvider.Operation<"queries/removereaction.graphql">()
-
+    let addPetskriboOperation = BiblProvider.Operation<"queries/addPetskribo.graphql">()
+    let getBibliotekosOperation = BiblProvider.Operation<"queries/getBibliotekos.graphql">()
+    let getRegistriOperation = BiblProvider.Operation<"queries/getRegistri.graphql">()
+    let getRegistrisOperation = BiblProvider.Operation<"queries/getRegistris.graphql">()  
+    let setReactionOperation = BiblProvider.Operation<"queries/setReaction.graphql">()
+    let removeReactionOperation = BiblProvider.Operation<"queries/removeReaction.graphql">()
+    let removeCommentOperation = BiblProvider.Operation<"queries/removeComment.graphql">()
+    let removeRecenzoOperation = BiblProvider.Operation<"queries/removeRecenzo.graphql">()
+    
     let getContext() =
         let context = BiblProvider.GetContext(serverUrl = "http://localhost:7071/GraphQL")
         context
@@ -59,27 +63,79 @@ module GraphQLProviderRequests =
             return registries
             }
 
-    let asyncQueryBibliotekos () =
+    let asyncQueryBibliotekos () : Async<Biblioteko list> =
         async {
             use runtimeContext = getContext()
             let! result = getBibliotekosOperation.AsyncRun(runtimeContext)
+            let bibliotekos = result.Data.Value.Bibliotekos |> Array.map(fun bibliotekoEntity ->
+                            {   
+                                Id = bibliotekoEntity.Id |> System.Guid.Parse
+                                Address = { 
+                                            FreeformAddress = bibliotekoEntity.Address.Freeformaddress
+                                            Country = bibliotekoEntity.Address.Country
+                                            CountryCode = bibliotekoEntity.Address.Countrycode
+                                            Street = bibliotekoEntity.Address.Street
+                                            BuildingNumber = bibliotekoEntity.Address.Buildingnumber
+                                            PostalCode = bibliotekoEntity.Address.Postalcode 
+                                          }
+                                Content = bibliotekoEntity.Content 
+                                        |> Array.map(
+                                            fun petskriboEntity ->
+                                                let ownedEntity = petskriboEntity.AsOwned()
+                                                let registriEntity = ownedEntity.Registri
+                                                let registri = 
+                                                    {   
+                                                        Id = registriEntity.Id |> System.Guid.Parse
+                                                        ISBN = registriEntity.Isbn
+                                                        Title = registriEntity.Title
+                                                        Authors = registriEntity.Authors |> Array.toList
+                                                        Summary = registriEntity.Summary
+                                                        ImageURL = registriEntity.Imageurl 
+                                                    }
+                                                let result =
+                                                    Owned {
+                                                            Id = ownedEntity.Id |> System.Guid.Parse
+                                                            Registri = registri
+                                                            Logbook = ownedEntity.Logbook |> Array.toList
+                                                            Owner = ownedEntity.Owner |> System.Guid.Parse
+                                                          }
+                                                result) |> Array.toList
+                            })
 
-            return result.Data.Value.Bibliotekos
+            return bibliotekos |> Array.toList
             //return result.Data.Value.Bibliotekos.[0].Content.[0].AsBorrowed().Registri.Reviews.[0].Content.AsReaction().Reaction
         }
 
-    let asyncAddPetskriboToBiblioteko () =
+    let asyncAddPetskriboToBiblioteko () : Async<Petskribo> =
         async {
-            use runtimeContext = getContext()
+            use runtimeContext = getContext()            
             let! result = addPetskriboOperation.AsyncRun(runtimeContext,
                                             bibliotekoId = "b5a21dc6-8a84-4ce2-8563-74a118449693",
                                             petskribo = BiblProvider.Types.InputPetskribo(
                                                         id = "c894880c-4f74-423f-b0eb-80381e586ea9",
                                                         isbn = "978-1680502541"),
-                                            userId = "2fa50fd0-acae-415a-b664-d8f8da1470c5"
+                                            uzantoId = "2fa50fd0-acae-415a-b664-d8f8da1470c5"
                                            )
+            let petskriboEntity = result.Data.Value.AddPetskribo.Value
+            let registriEntity = petskriboEntity.Registri
+            let registri = 
+                {   
+                    Id = registriEntity.Id |> System.Guid.Parse
+                    ISBN = registriEntity.Isbn
+                    Title = registriEntity.Title
+                    Authors = registriEntity.Authors |> Array.toList
+                    Summary = registriEntity.Summary
+                    ImageURL = registriEntity.Imageurl 
+                }
+            let petskribo = 
+                {
+                    Id = petskriboEntity.Id |> System.Guid.Parse
+                    Registri = registri
+                    Logbook = petskriboEntity.Logbook |> Array.toList
+                    Owner = petskriboEntity.Owner |> System.Guid.Parse
+                }
 
-            return result.Data.Value.AddPetskribo.Value
+            return petskribo
         }
 
     let asyncSetReaction () =
@@ -87,18 +143,68 @@ module GraphQLProviderRequests =
             use runtimeContext = getContext()
             let! result = setReactionOperation.AsyncRun(runtimeContext,
                                                         isbn = "978-1617291326",
-                                                        reaction = BiblProvider.Types.InputReaction(
-                                                            BiblProvider.Types.ReactionEnum.LoveIt,
-                                                            "67e8d007-002c-4541-9ca8-0983780cc4d6"),
-                                                        userId = "")  //userId variable value is set in GraphQL server
-            
-            return result.Data.Value.SetReaction.Value
+                                                        recenzoId = "67e8d007-002c-4541-9ca8-0983780cc4d6",
+                                                        reactionKind = BiblProvider.Types.ReactionEnum.LoveIt,
+                                                        uzantoId = "")  //userId variable value is set in GraphQL server
+            let recenzoEntity = result.Data.Value.SetReaction.Value
+            let reactionName = recenzoEntity.Content.AsReaction().Reaction.GetName()
+            let reaction = Enum.Parse(typedefof<Reaction>, reactionName) :?> Reaction
+
+                //match recenzoEntity.Content with 
+                //    | c when c.IsComment() -> 
+                //        let result = Comment (Comment.create (c.AsComment().Comment) |> returnOrFail)
+                //        result
+                //    | c when c.IsReaction() ->
+                //        let reactionName = c.AsReaction().Reaction.GetName()
+                //        let reaction = Enum.Parse(typedefof<Reaction>, reactionName) :?> Reaction
+                //            //match reactionEntity.GetName() with
+                //            //    | BiblProvider.Types.ReactionEnum.Boring -> Reaction.Boring
+                //            //    | BiblProvider.Types.ReactionEnum.Classic -> Reaction.Classic
+                //            //    | BiblProvider.Types.ReactionEnum.Gripping -> Reaction.Gripping
+                //            //    | BiblProvider.Types.ReactionEnum.Inspiring -> Reaction.Inspiring
+                //            //    | BiblProvider.Types.ReactionEnum.LoveIt -> Reaction.LoveIt
+                //            //    | BiblProvider.Types.ReactionEnum.Moving -> Reaction.Moving
+                //        let result = Reaction reaction
+
+                //        result
+                //    | c when c.IsReactionAndComment() ->
+                //        let reactionAndCommentEntity = c.AsReactionAndComment()
+                //        let comment = Comment.create (reactionAndCommentEntity.Comment) |> returnOrFail
+                //        let reactionName = reactionAndCommentEntity.Reaction.GetName()
+                //        let reaction = Enum.Parse(typedefof<Reaction>, reactionName) :?> Reaction
+                //        let result = ReactionAndComment (reaction, comment)
+
+                //        result
+            let recenzo = 
+                { 
+                    Id = recenzoEntity.Id |> System.Guid.Parse
+                    Recenzorer = recenzoEntity.Recenzorer
+                    Content = Reaction reaction
+                }
+                
+            return recenzo
         }
 
     let asyncRemoveReaction () =
         async {
             use runtimeContext = getContext()
-            let! result = removeReactionOperation.AsyncRun(runtimeContext, reviewId = "67e8d007-002c-4541-9ca8-0983780cc4d6")
+            let! result = removeReactionOperation.AsyncRun(runtimeContext, recenzoId = "67e8d007-002c-4541-9ca8-0983780cc4d6")
             
             return result.Data.Value.RemoveReaction
+        }
+
+    let asyncRemoveComment () =
+        async {
+            use runtimeContext = getContext()
+            let! result = removeCommentOperation.AsyncRun(runtimeContext, recenzoId = "67e8d007-002c-4541-9ca8-0983780cc4d6")
+            
+            return result.Data.Value.RemoveComment
+        }
+
+    let asyncRemoveRecenzo () =
+        async {
+            use runtimeContext = getContext()
+            let! result = removeRecenzoOperation.AsyncRun(runtimeContext, recenzoId = "67e8d007-002c-4541-9ca8-0983780cc4d6")
+            
+            return result.Data.Value.RemoveRecenzo
         }

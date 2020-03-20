@@ -1,0 +1,4 @@
+﻿mutation removeRecenzo($recenzoId: ID!)
+{
+    removeRecenzo(recenzoId: $recenzoId)
+}

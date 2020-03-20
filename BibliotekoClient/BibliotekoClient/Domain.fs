@@ -1,6 +1,8 @@
 ﻿// Learn more about F# at http://fsharp.org
 namespace BibliotekoClient
 
+open Chessie.ErrorHandling.Trial
+
 module Domain =
 
     type Registri =
@@ -20,7 +22,27 @@ module Domain =
                                       ImageURL = null }
     and BaseDomainType = interface end
 
-    type PetskriboPosession =
+    type Reaction =
+        | Undefined = 0
+        | LoveIt = 1
+        | Boring = 2
+        | Gripping = 3
+        | Moving = 4
+        | Inspiring = 5
+        | Classic = 6
+    
+    [<Struct>]
+    type Comment = private Comment of string // TODO: Add string min length restrictions
+    
+    module Comment =
+    
+        let create text =
+            // TODO: add validation logic
+            ok (Comment text)
+    
+        let value (Comment text) = text
+
+    type PetskriboPossession =
         | Borrowed of Petskribo
         | Owned of Petskribo
         | Lent of Petskribo
@@ -41,5 +63,24 @@ module Domain =
 
     and Biblioteko =
         { Id : System.Guid
-          Content : PetskriboPosession list
+          Content : PetskriboPossession list
           Address : Address }
+
+    /// Recenzo is a review
+    and Recenzo =
+        { Id : System.Guid
+          /// Reviewer
+          Recenzorer : string
+          Content : RecenzoContent }    
+
+    /// <remarks>
+    /// a review can be either
+    /// (a) both reaction and comment
+    /// (b) only reaction
+    /// (c) only comment
+    /// </remarks>
+    and RecenzoContent =
+        | Reaction of Reaction : Reaction
+        | Comment of Comment : Comment
+        | ReactionAndComment of Reaction : Reaction * Comment : Comment
+

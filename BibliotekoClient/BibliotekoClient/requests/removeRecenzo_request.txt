@@ -1,0 +1,14 @@
+﻿mutation removeRecenzo($recenzoId: ID!)
+{
+    removeRecenzo(recenzoId: $recenzoId)
+}
+
+Variables 1:
+{
+  "recenzoId": "00b8286f-d16b-4a23-bcbd-8cd1c76833ca"
+}
+
+Variables 2:
+{
+  "recenzoId": "08531e37-ee43-46c7-a6a1-2d2903cf2a7a"
+}

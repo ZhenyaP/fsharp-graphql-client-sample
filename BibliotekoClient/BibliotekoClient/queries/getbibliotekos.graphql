@@ -49,9 +49,9 @@ fragment registriFields on Registri {
     isbn
     title
     authors
-    reviews {
+    recenzos {
         id
-        reviewer
+        recenzorer
         content {
             ... on Reaction {
                 reaction

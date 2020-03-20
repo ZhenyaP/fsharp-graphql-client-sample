@@ -1,4 +1,4 @@
-﻿mutation removeReaction($reviewId: ID!)
+﻿mutation removeReaction($recenzoId: ID!)
 {
-    removeReaction(reviewId: $reviewId)
+    removeReaction(recenzoId: $recenzoId)
 }

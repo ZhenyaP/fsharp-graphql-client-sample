@@ -8,22 +8,28 @@
   <ItemGroup>
     <None Include="Script.fsx" />
     <Content Include="json\introspection.json" />
-    <Content Include="requests\removereaction_request.txt" />
-    <Content Include="requests\setreaction_request.txt" />
-    <Content Include="responses\setreaction_response.json" />
+    <None Include="queries\addPetskribo.graphql" />
+    <None Include="queries\getBibliotekos.graphql" />
+    <None Include="queries\getRegistri.graphql" />
+    <None Include="queries\getRegistris.graphql" />
+    <None Include="queries\removeComment.graphql" />
     <None Include="queries\removeReaction.graphql" />
+    <None Include="queries\removeRecenzo.graphql" />
+    <None Include="queries\setComment.graphql" />
     <None Include="queries\setReaction.graphql" />
-    <None Include="queries\addpetskribo.graphql" />
-    <None Include="queries\getregistri.graphql" />
-    <None Include="queries\getbibliotekos.graphql" />
     <None Include="queries\introspection.graphql" />
-    <None Include="queries\getregistris.graphql" />
+    <Content Include="requests\removeReaction_request.txt" />
+    <Content Include="requests\removeComment_request.txt" />
+    <Content Include="requests\removeRecenzo_request.txt" />
+    <Content Include="requests\setComment_request.txt" />
+    <Content Include="requests\setReaction_request.txt" />
+    <Content Include="requests\getRegistri_request.txt" />
+    <None Include="requests\addPetskribo_request.txt" />
+    <Content Include="responses\setreaction_response.json" />
     <Content Include="responses\getbibliotekos_response.json" />
     <Content Include="responses\getregistris_response.json" />
     <Content Include="responses\addpetskribo_response.json" />
     <Content Include="responses\getregistri_response.json" />
-    <Content Include="requests\getregistri_request.txt" />
-    <None Include="requests\addpetskribo_request.txt" />
     <Compile Include="Domain.fs" />
     <Compile Include="GraphQLProviderRequests.fs" />
     <Compile Include="GraphQLClientRequests.fs" />
@@ -31,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="Chessie" Version="0.6.0" />
     <PackageReference Include="FSharp.Data" Version="3.3.3" />
     <PackageReference Include="FSharp.Data.GraphQL.Client" Version="1.0.3" />
     <PackageReference Include="FSharp.Json" Version="0.4.0" />

@@ -1,14 +1,14 @@
-﻿mutation setReaction(
+﻿mutation setComment(
     $isbn: String!
     $recenzoId: ID!
-    $reactionKind: ReactionEnum!
+    $comment: String!
     $uzantoId: String!
 )
 {
-    setReaction(
+    setComment(
         isbn: $isbn
         recenzoId: $recenzoId
-        reactionKind: $reactionKind
+        comment: $comment
         uzantoId: $uzantoId
     ) 
     {
@@ -33,19 +33,19 @@ Variables 1:
 {
   "isbn": "9781680502541",
   "recenzoId": "e8f5df8f-b8a5-461b-880a-facac7670848",
-  "reactionKind": "Gripping"
+  "comment": "It's so Gripping"
 }
 
 Variables 2:
 {
   "isbn": "978-1680502541",
-  "recenzoId": "08531e37-ee43-46c7-a6a1-2d2903cf2a7a",
-  "reactionKind": "Boring"
+  "recenzoId": "f1915bc9-77fc-4e8a-8f73-76e20827e760",
+  "comment": "It's so Boring"
 }
 
 Variables 3:
 {
   "isbn": "978-1617291326",
-  "recenzoId": "c36126b4-b641-4051-a0d1-2188335b2586",
-  "reactionKind": "Inspiring"
+  "recenzoId": "00b8286f-d16b-4a23-bcbd-8cd1c76833ca",
+  "comment": "It's so Inspiring"
 }

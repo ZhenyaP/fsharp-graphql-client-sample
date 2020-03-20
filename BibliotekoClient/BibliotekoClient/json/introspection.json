@@ -948,7 +948,7 @@
             },
             {
               "name": "registri",
-              "description": "Gets a book by ISBN",
+              "description": "Gets a registri by ISBN",
               "args": [
                 {
                   "name": "isbn",
@@ -975,7 +975,7 @@
             },
             {
               "name": "registris",
-              "description": "Gets all books",
+              "description": "Gets all book definitions",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -1010,7 +1010,7 @@
           "fields": [
             {
               "name": "address",
-              "description": "Library address",
+              "description": "Biblioteko address",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -1039,7 +1039,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "UNION",
-                      "name": "PetskriboPosession",
+                      "name": "PetskriboPossession",
                       "ofType": null
                     }
                   }
@@ -1050,7 +1050,7 @@
             },
             {
               "name": "id",
-              "description": "ID of the library",
+              "description": "ID of the Library",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -1179,8 +1179,8 @@
         },
         {
           "kind": "UNION",
-          "name": "PetskriboPosession",
-          "description": "Petskribo posession type",
+          "name": "PetskriboPossession",
+          "description": "Possession type of the physical book",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -1293,7 +1293,7 @@
           "fields": [
             {
               "name": "authors",
-              "description": "Authors of the book",
+              "description": "Authors of the book definition",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -1333,7 +1333,7 @@
             },
             {
               "name": "imageurl",
-              "description": "URL of the book image",
+              "description": "URL of the book definition image",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -1349,7 +1349,7 @@
             },
             {
               "name": "isbn",
-              "description": "ISBN of the book",
+              "description": "ISBN of the book definition",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -1364,8 +1364,8 @@
               "deprecationReason": null
             },
             {
-              "name": "reviews",
-              "description": "Book reviews",
+              "name": "recenzos",
+              "description": "Book definition reviews",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -1389,7 +1389,7 @@
             },
             {
               "name": "summary",
-              "description": "Summary of the book",
+              "description": "Summary of the book definition",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -1405,7 +1405,7 @@
             },
             {
               "name": "title",
-              "description": "Title of the book",
+              "description": "Title of the book definition",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -1428,7 +1428,7 @@
         {
           "kind": "OBJECT",
           "name": "Recenzo",
-          "description": "A book definition review",
+          "description": "A book review",
           "fields": [
             {
               "name": "content",
@@ -1463,7 +1463,7 @@
               "deprecationReason": null
             },
             {
-              "name": "reviewer",
+              "name": "recenzorer",
               "description": "Reviewer",
               "args": [],
               "type": {
@@ -1487,7 +1487,7 @@
         {
           "kind": "UNION",
           "name": "RecenzoContent",
-          "description": "Recenzo content type",
+          "description": "Review content type",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
@@ -1827,7 +1827,7 @@
           "fields": [
             {
               "name": "addPetskribo",
-              "description": "Adds book to a library",
+              "description": "Adds physical book to a library",
               "args": [
                 {
                   "name": "bibliotekoId",
@@ -1858,7 +1858,7 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "userId",
+                  "name": "uzantoId",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
@@ -1881,11 +1881,11 @@
               "deprecationReason": null
             },
             {
-              "name": "removeReaction",
-              "description": "Removes reaction from a book definition",
+              "name": "removeComment",
+              "description": "Removes comment from a review",
               "args": [
                 {
-                  "name": "reviewId",
+                  "name": "recenzoId",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
@@ -1912,8 +1912,70 @@
               "deprecationReason": null
             },
             {
-              "name": "setReaction",
-              "description": "Upserts reaction to a book definition",
+              "name": "removeReaction",
+              "description": "Removes reaction from a review",
+              "args": [
+                {
+                  "name": "recenzoId",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "removeRecenzo",
+              "description": "Removes review from a book definition",
+              "args": [
+                {
+                  "name": "recenzoId",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "setComment",
+              "description": "Upserts review comment to a book definition",
               "args": [
                 {
                   "name": "isbn",
@@ -1930,21 +1992,104 @@
                   "defaultValue": null
                 },
                 {
-                  "name": "reaction",
+                  "name": "recenzoId",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
                     "ofType": {
-                      "kind": "INPUT_OBJECT",
-                      "name": "InputReaction",
+                      "kind": "SCALAR",
+                      "name": "ID",
                       "ofType": null
                     }
                   },
                   "defaultValue": null
                 },
                 {
-                  "name": "userId",
+                  "name": "comment",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "uzantoId",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "OBJECT",
+                "name": "Recenzo",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "setReaction",
+              "description": "Upserts review reaction to a book definition",
+              "args": [
+                {
+                  "name": "isbn",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "recenzoId",
+                  "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "ID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "reactionKind",
+                  "description": "Reaction of the book definition",
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "ENUM",
+                      "name": "ReactionEnum",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                },
+                {
+                  "name": "uzantoId",
                   "description": null,
                   "type": {
                     "kind": "NON_NULL",
@@ -1975,7 +2120,7 @@
         {
           "kind": "OBJECT",
           "name": "Petskribo",
-          "description": "A physical copy of a Registri (Catalog entry)",
+          "description": "A physical copy of a Book Definition (Catalog entry)",
           "fields": [
             {
               "name": "id",
@@ -2069,7 +2214,7 @@
                 "name": "ID",
                 "ofType": null
               },
-              "defaultValue": "ID of the book"
+              "defaultValue": "ID of the registri"
             },
             {
               "name": "isbn",
@@ -2079,42 +2224,7 @@
                 "name": "String",
                 "ofType": null
               },
-              "defaultValue": "ISBN of the book"
-            }
-          ],
-          "interfaces": null,
-          "enumValues": null,
-          "possibleTypes": null
-        },
-        {
-          "kind": "INPUT_OBJECT",
-          "name": "InputReaction",
-          "description": "The book definition reaction",
-          "fields": null,
-          "inputFields": [
-            {
-              "name": "id",
-              "description": null,
-              "type": {
-                "kind": "SCALAR",
-                "name": "ID",
-                "ofType": null
-              },
-              "defaultValue": "ID of reaction"
-            },
-            {
-              "name": "kind",
-              "description": "Reaction of the book definition",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "ENUM",
-                  "name": "ReactionEnum",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
+              "defaultValue": "ISBN of the registri"
             }
           ],
           "interfaces": null,
@@ -2209,6 +2319,6 @@
       ]
     }
   },
-  "documentId": 1848290377,
+  "documentId": -2068318239,
   "requestType": "Classic"
 }

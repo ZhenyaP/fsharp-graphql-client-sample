@@ -1,14 +1,14 @@
-﻿mutation setReaction(
+﻿mutation setComment(
     $isbn: String!
     $recenzoId: ID!
-    $reactionKind: ReactionEnum!
+    $comment: String!
     $uzantoId: String!
 )
 {
-    setReaction(
+    setComment(
         isbn: $isbn
         recenzoId: $recenzoId
-        reactionKind: $reactionKind
+        comment: $comment
         uzantoId: $uzantoId
     ) 
     {

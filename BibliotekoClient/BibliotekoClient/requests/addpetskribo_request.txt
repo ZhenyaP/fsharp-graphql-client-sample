@@ -1,13 +1,13 @@
 ﻿mutation addPetskriboToBiblioteko(
     $bibliotekoId: String!
     $petskribo: InputPetskribo!
-    $userId: String!
+    $uzantoId: String!
 ) 
 {
     addPetskribo(
         bibliotekoId: $bibliotekoId
         petskribo: $petskribo
-        userId: $userId
+        uzantoId: $uzantoId
     ) 
     {
         id
@@ -16,9 +16,9 @@
             isbn
             title
             authors
-            reviews {
+            recenzos {
                 id
-                reviewer
+                recenzorer
                 content {
                     ... on Reaction {
                         reaction
@@ -39,6 +39,7 @@
         owner
     }
 }
+
 
 Variables 1:
 {
