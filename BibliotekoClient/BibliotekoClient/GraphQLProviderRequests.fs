@@ -138,7 +138,7 @@ module GraphQLProviderRequests =
             return petskribo
         }
 
-    let asyncSetReaction () =
+    let asyncSetReaction () : Async<Recenzo> =
         async {
             use runtimeContext = getContext()
             let! result = setReactionOperation.AsyncRun(runtimeContext,
