@@ -66,7 +66,8 @@ module GraphQLProviderMutations =
                                                         //reactionKind = BiblProvider.Types.ReactionEnum.LoveIt,
                                                         uzantoId = "")  //userId variable value is set in GraphQL server
             let recenzoEntity = result.Data.Value.SetReaction.Value
-            let reactionName = recenzoEntity.Content.AsReaction().Reaction.GetName()
+            //let reactionName = recenzoEntity.Content.AsReaction().Reaction.GetName()
+            let reactionName = recenzoEntity.Content.AsReaction().Reaction.GetValue()
             let reaction = Enum.Parse(typedefof<Reaction>, reactionName) :?> Reaction
 
                 //match recenzoEntity.Content with 
