@@ -4,261 +4,207 @@ Calls Via GraphQLProvider:
 
 Registri By ISBN:
 ---------------------------------------------
-{
-  "Id": "a42cef54-b82a-4e87-8067-b8d87e2b7877",
-  "ISBN": "9781617291326",
-  "Title": "F# Deep Dives",
-  "Authors": [
-    "Tomas Petricek",
-    "Phil Trelford"
-  ],
-  "Summary": "F# Deep Dives presents a collection of real-world F# techniques, each written by expert practitioners. Each chapter presents a new use case where you'll read how the author used F# to solve a complex problem more effectively than would have been possible using a traditional approach. You'll not only see how a specific solution works in a specific domain, you'll also learn how F# developers approach problems, what concepts they use to solve them, and how they integrate F# into existing systems and environments.",
-  "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/41gsVLt5ZgL._SX396_BO1,204,203,200_.jpg"
-}
+{ Id = a42cef54-b82a-4e87-8067-b8d87e2b7877
+  ISBN = "9781617291326"
+  Title = "F# Deep Dives"
+  Authors = ["Tomas Petricek"; "Phil Trelford"]
+  Recenzos = []
+  Summary =
+           "F# Deep Dives presents a collection of real-world F# techniques, each written by expert practitioners. Each chapter presents a new use case where you'll read how the author used F# to solve a complex problem more effectively than would have been possible using a traditional approach. You'll not only see how a specific solution works in a specific domain, you'll also learn how F# developers approach problems, what concepts they use to solve them, and how they integrate F# into existing systems and environments."
+  ImageURL =
+            https://images-na.ssl-images-amazon.com/images/I/41gsVLt5ZgL._SX396_BO1,204,203,200_.jpg }
 
 ---------------------------------------------
 Registries:
 ---------------------------------------------
 
-[
-  {
-    "Id": "a42cef54-b82a-4e87-8067-b8d87e2b7877",
-    "ISBN": "9781617291326",
-    "Title": "F# Deep Dives",
-    "Authors": [
-      "Tomas Petricek",
-      "Phil Trelford"
-    ],
-    "Summary": "F# Deep Dives presents a collection of real-world F# techniques, each written by expert practitioners. Each chapter presents a new use case where you'll read how the author used F# to solve a complex problem more effectively than would have been possible using a traditional approach. You'll not only see how a specific solution works in a specific domain, you'll also learn how F# developers approach problems, what concepts they use to solve them, and how they integrate F# into existing systems and environments.",
-    "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/41gsVLt5ZgL._SX396_BO1,204,203,200_.jpg"
-  },
-  {
-    "Id": "e8f5df8f-b8a5-461b-880a-facac7670848",
-    "ISBN": "9781680502541",
-    "Title": "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition",    "Authors": [
-      "Scott Wlaschin "
-    ],
-    "Summary": "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.\r\nDomain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.\r\nModel a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have \"compile-time unit tests,\" and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.\r\nSolve real problems by focusing on real-world requirements for your software.",
-    "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg"
-  }
-]
+[{ Id = a42cef54-b82a-4e87-8067-b8d87e2b7877
+   ISBN = "9781617291326"
+   Title = "F# Deep Dives"
+   Authors = ["Tomas Petricek"; "Phil Trelford"]
+   Recenzos = []
+   Summary =
+            "F# Deep Dives presents a collection of real-world F# techniques, each written by expert practitioners. Each chapter presents a new use case where you'll read how the author used F# to solve a complex problem more effectively than would have been possible using a traditional approach. You'll not only see how a specific solution works in a specific domain, you'll also learn how F# developers approach problems, what concepts they use to solve them, and how they integrate F# into existing systems and environments."
+   ImageURL =
+             https://images-na.ssl-images-amazon.com/images/I/41gsVLt5ZgL._SX396_BO1,204,203,200_.jpg };
+ { Id = e8f5df8f-b8a5-461b-880a-facac7670848
+   ISBN = "9781680502541"
+   Title =
+          "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition"
+   Authors = ["Scott Wlaschin "]
+   Recenzos = []
+   Summary =
+            "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.
+Domain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.
+Model a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have "compile-time unit tests," and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.
+Solve real problems by focusing on real-world requirements for your software."
+   ImageURL =
+             https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg }]
 
 ---------------------------------------------
 Bibliotekos - Before addPetskribo mutation:
 ---------------------------------------------
 
-[
-  {
-    "Id": "a9a17e0d-9588-4152-9c54-b79db16fce2b",
-    "Content": [],
-    "Address": {
-      "FreeformAddress": "FreeformAddress 1",
-      "Country": "Country 1",
-      "CountryCode": "CountryCode 1",
-      "Street": "Street 1",
-      "BuildingNumber": "BuildingNumber 1",
-      "PostalCode": "PostalCode 1"
-    }
-  },
-  {
-    "Id": "b5a21dc6-8a84-4ce2-8563-74a118449693",
-    "Content": [],
-    "Address": {
-      "FreeformAddress": "FreeformAddress 2",
-      "Country": "Country 2",
-      "CountryCode": "CountryCode 2",
-      "Street": "Street 2",
-      "BuildingNumber": "BuildingNumber 2",
-      "PostalCode": "PostalCode 2"
-    }
-  }
-]
+[{ Id = a9a17e0d-9588-4152-9c54-b79db16fce2b
+   Content = []
+   Address = { FreeformAddress = "FreeformAddress 1"
+               Country = "Country 1"
+               CountryCode = "CountryCode 1"
+               Street = "Street 1"
+               BuildingNumber = "BuildingNumber 1"
+               PostalCode = "PostalCode 1" } };
+ { Id = b5a21dc6-8a84-4ce2-8563-74a118449693
+   Content = []
+   Address = { FreeformAddress = "FreeformAddress 2"
+               Country = "Country 2"
+               CountryCode = "CountryCode 2"
+               Street = "Street 2"
+               BuildingNumber = "BuildingNumber 2"
+               PostalCode = "PostalCode 2" } }]
 
 ---------------------------------------------
 addPetskribo mutation:
 ---------------------------------------------
 
-{
-  "Id": "c894880c-4f74-423f-b0eb-80381e586ea9",
-  "Registri": {
-    "Id": "e8f5df8f-b8a5-461b-880a-facac7670848",
-    "ISBN": "9781680502541",
-    "Title": "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition",    "Authors": [
-      "Scott Wlaschin "
-    ],
-    "Summary": "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.\r\nDomain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.\r\nModel a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have \"compile-time unit tests,\" and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.\r\nSolve real problems by focusing on real-world requirements for your software.",
-    "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg"
-  },
-  "Logbook": [
-    "Creation { TimeStamp = 21.03.2020 11:05:22\n           Creator = UzantoID \"29c6b743-d2b2-4619-b0cb-9d76c593633c\" }"
-  ],
-  "Owner": "29c6b743-d2b2-4619-b0cb-9d76c593633c"
-}
+true
 
 ---------------------------------------------
 Bibliotekos - After addPetskribo mutation:
 ---------------------------------------------
 
-[
-  {
-    "Id": "b5a21dc6-8a84-4ce2-8563-74a118449693",
-    "Content": [
-      {
-        "Case": "Owned",
-        "Fields": [
-          {
-            "Id": "c894880c-4f74-423f-b0eb-80381e586ea9",
-            "Registri": {
-              "Id": "e8f5df8f-b8a5-461b-880a-facac7670848",
-              "ISBN": "9781680502541",
-              "Title": "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition",
-              "Authors": [
-                "Scott Wlaschin "
-              ],
-              "Summary": "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.\r\nDomain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.\r\nModel a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have \"compile-time unit tests,\" and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.\r\nSolve real problems by focusing on real-world requirements for your software.",
-              "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg"
-            },
-            "Logbook": [
-              "Creation { TimeStamp = 21.03.2020 11:05:22\n           Creator = UzantoID \"29c6b743-d2b2-4619-b0cb-9d76c593633c\" }"
-            ],
-            "Owner": "29c6b743-d2b2-4619-b0cb-9d76c593633c"
-          }
-        ]
-      }
-    ],
-    "Address": {
-      "FreeformAddress": "FreeformAddress 2",
-      "Country": "Country 2",
-      "CountryCode": "CountryCode 2",
-      "Street": "Street 2",
-      "BuildingNumber": "BuildingNumber 2",
-      "PostalCode": "PostalCode 2"
-    }
-  },
-  {
-    "Id": "a9a17e0d-9588-4152-9c54-b79db16fce2b",
-    "Content": [],
-    "Address": {
-      "FreeformAddress": "FreeformAddress 1",
-      "Country": "Country 1",
-      "CountryCode": "CountryCode 1",
-      "Street": "Street 1",
-      "BuildingNumber": "BuildingNumber 1",
-      "PostalCode": "PostalCode 1"
-    }
-  }
-]
+[{ Id = b5a21dc6-8a84-4ce2-8563-74a118449693
+   Content =
+            [Owned
+               { Id = c894880c-4f74-423f-b0eb-80381e586ea9
+                 Registri =
+                           { Id = e8f5df8f-b8a5-461b-880a-facac7670848
+                             ISBN = "9781680502541"
+                             Title =
+                                    "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition"
+                             Authors = ["Scott Wlaschin "]
+                             Recenzos = []
+                             Summary =
+                                      "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.
+Domain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.
+Model a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have "compile-time unit tests," and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.
+Solve real problems by focusing on real-world requirements for your software."
+                             ImageURL =
+                                       https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg }
+                 Logbook =
+                          ["Creation { TimeStamp = 21.03.2020 11:59:32
+           Creator = UzantoID "3066398b-0c9e-49a6-8e83-1d7c8ff48662" }"]
+                 Owner = 3066398b-0c9e-49a6-8e83-1d7c8ff48662 }]
+   Address = { FreeformAddress = "FreeformAddress 2"
+               Country = "Country 2"
+               CountryCode = "CountryCode 2"
+               Street = "Street 2"
+               BuildingNumber = "BuildingNumber 2"
+               PostalCode = "PostalCode 2" } };
+ { Id = a9a17e0d-9588-4152-9c54-b79db16fce2b
+   Content = []
+   Address = { FreeformAddress = "FreeformAddress 1"
+               Country = "Country 1"
+               CountryCode = "CountryCode 1"
+               Street = "Street 1"
+               BuildingNumber = "BuildingNumber 1"
+               PostalCode = "PostalCode 1" } }]
 
 ---------------------------------------------
 setReaction mutation:
 ---------------------------------------------
 
-{
-  "Id": "e8f5df8f-b8a5-461b-880a-facac7670848",
-  "Recenzorer": "0d1be854-5dd6-42f1-9860-4c3c937d1048",
-  "Content": {
-    "Case": "Reaction",
-    "Fields": [
-      3
-    ]
-  }
-}
+{ Id = e8f5df8f-b8a5-461b-880a-facac7670848
+  Recenzorer = "cda957c8-2505-4c25-be69-01afcc16027a"
+  Content = Reaction Gripping }
 
 ---------------------------------------------
 setComment mutation:
 ---------------------------------------------
 
-{
-  "Id": "e8f5df8f-b8a5-461b-880a-facac7670848",
-  "Recenzorer": "2a3849b1-5d3a-47d5-8837-66ca0137c542",
-  "Content": {
-    "Case": "Comment",
-    "Fields": [
-      {}
-    ]
-  }
-}
+{ Id = e8f5df8f-b8a5-461b-880a-facac7670848
+  Recenzorer = "234075b3-eeee-43e9-86a0-41a67c65ff50"
+  Content = Comment Comment "It is so gripping and cool" }
 
 ---------------------------------------------
 Registris - after setReaction/setComment mutations:
 ---------------------------------------------
 
-[
-  {
-    "Id": "e8f5df8f-b8a5-461b-880a-facac7670848",
-    "ISBN": "9781680502541",
-    "Title": "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition",    "Authors": [
-      "Scott Wlaschin "
-    ],
-    "Summary": "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.\r\nDomain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.\r\nModel a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have \"compile-time unit tests,\" and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.\r\nSolve real problems by focusing on real-world requirements for your software.",
-    "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg"
-  },
-  {
-    "Id": "a42cef54-b82a-4e87-8067-b8d87e2b7877",
-    "ISBN": "9781617291326",
-    "Title": "F# Deep Dives",
-    "Authors": [
-      "Tomas Petricek",
-      "Phil Trelford"
-    ],
-    "Summary": "F# Deep Dives presents a collection of real-world F# techniques, each written by expert practitioners. Each chapter presents a new use case where you'll read how the author used F# to solve a complex problem more effectively than would have been possible using a traditional approach. You'll not only see how a specific solution works in a specific domain, you'll also learn how F# developers approach problems, what concepts they use to solve them, and how they integrate F# into existing systems and environments.",
-    "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/41gsVLt5ZgL._SX396_BO1,204,203,200_.jpg"
-  }
-]
+[{ Id = e8f5df8f-b8a5-461b-880a-facac7670848
+   ISBN = "9781680502541"
+   Title =
+          "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition"
+   Authors = ["Scott Wlaschin "]
+   Recenzos =
+             [{ Id = e8f5df8f-b8a5-461b-880a-facac7670848
+                Recenzorer = "234075b3-eeee-43e9-86a0-41a67c65ff50"
+                Content =
+                         ReactionAndComment
+                           (Gripping,Comment "It is so gripping and cool") }]
+   Summary =
+            "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.
+Domain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.
+Model a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have "compile-time unit tests," and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.
+Solve real problems by focusing on real-world requirements for your software."
+   ImageURL =
+             https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg };
+ { Id = a42cef54-b82a-4e87-8067-b8d87e2b7877
+   ISBN = "9781617291326"
+   Title = "F# Deep Dives"
+   Authors = ["Tomas Petricek"; "Phil Trelford"]
+   Recenzos = []
+   Summary =
+            "F# Deep Dives presents a collection of real-world F# techniques, each written by expert practitioners. Each chapter presents a new use case where you'll read how the author used F# to solve a complex problem more effectively than would have been possible using a traditional approach. You'll not only see how a specific solution works in a specific domain, you'll also learn how F# developers approach problems, what concepts they use to solve them, and how they integrate F# into existing systems and environments."
+   ImageURL =
+             https://images-na.ssl-images-amazon.com/images/I/41gsVLt5ZgL._SX396_BO1,204,203,200_.jpg }]
 
 ---------------------------------------------
 Bibliotekos - After setReaction/setComment mutations:
 ---------------------------------------------
 
-[
-  {
-    "Id": "b5a21dc6-8a84-4ce2-8563-74a118449693",
-    "Content": [
-      {
-        "Case": "Owned",
-        "Fields": [
-          {
-            "Id": "c894880c-4f74-423f-b0eb-80381e586ea9",
-            "Registri": {
-              "Id": "e8f5df8f-b8a5-461b-880a-facac7670848",
-              "ISBN": "9781680502541",
-              "Title": "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition",
-              "Authors": [
-                "Scott Wlaschin "
-              ],
-              "Summary": "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.\r\nDomain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.\r\nModel a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have \"compile-time unit tests,\" and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.\r\nSolve real problems by focusing on real-world requirements for your software.",
-              "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg"
-            },
-            "Logbook": [
-              "Creation { TimeStamp = 21.03.2020 11:05:22\n           Creator = UzantoID \"29c6b743-d2b2-4619-b0cb-9d76c593633c\" }"
-            ],
-            "Owner": "29c6b743-d2b2-4619-b0cb-9d76c593633c"
-          }
-        ]
-      }
-    ],
-    "Address": {
-      "FreeformAddress": "FreeformAddress 2",
-      "Country": "Country 2",
-      "CountryCode": "CountryCode 2",
-      "Street": "Street 2",
-      "BuildingNumber": "BuildingNumber 2",
-      "PostalCode": "PostalCode 2"
-    }
-  },
-  {
-    "Id": "a9a17e0d-9588-4152-9c54-b79db16fce2b",
-    "Content": [],
-    "Address": {
-      "FreeformAddress": "FreeformAddress 1",
-      "Country": "Country 1",
-      "CountryCode": "CountryCode 1",
-      "Street": "Street 1",
-      "BuildingNumber": "BuildingNumber 1",
-      "PostalCode": "PostalCode 1"
-    }
-  }
-]
+[{ Id = b5a21dc6-8a84-4ce2-8563-74a118449693
+   Content =
+            [Owned
+               { Id = c894880c-4f74-423f-b0eb-80381e586ea9
+                 Registri =
+                           { Id = e8f5df8f-b8a5-461b-880a-facac7670848
+                             ISBN = "9781680502541"
+                             Title =
+                                    "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition"
+                             Authors = ["Scott Wlaschin "]
+                             Recenzos =
+                                       [{ Id =
+                                              e8f5df8f-b8a5-461b-880a-facac7670848
+                                          Recenzorer =
+                                                      "234075b3-eeee-43e9-86a0-41a67c65ff50"
+                                          Content =
+                                                   ReactionAndComment
+                                                     (Gripping,
+                                                      Comment "It is so gripping and cool") }]
+                             Summary =
+                                      "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.
+Domain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.
+Model a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have "compile-time unit tests," and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.
+Solve real problems by focusing on real-world requirements for your software."
+                             ImageURL =
+                                       https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg }
+                 Logbook =
+                          ["Creation { TimeStamp = 21.03.2020 11:59:32
+           Creator = UzantoID "3066398b-0c9e-49a6-8e83-1d7c8ff48662" }"]
+                 Owner = 3066398b-0c9e-49a6-8e83-1d7c8ff48662 }]
+   Address = { FreeformAddress = "FreeformAddress 2"
+               Country = "Country 2"
+               CountryCode = "CountryCode 2"
+               Street = "Street 2"
+               BuildingNumber = "BuildingNumber 2"
+               PostalCode = "PostalCode 2" } };
+ { Id = a9a17e0d-9588-4152-9c54-b79db16fce2b
+   Content = []
+   Address = { FreeformAddress = "FreeformAddress 1"
+               Country = "Country 1"
+               CountryCode = "CountryCode 1"
+               Street = "Street 1"
+               BuildingNumber = "BuildingNumber 1"
+               PostalCode = "PostalCode 1" } }]
 
 ---------------------------------------------
 removeReaction mutation:
@@ -270,82 +216,78 @@ true
 Registris - after removeReaction mutation:
 ---------------------------------------------
 
-[
-  {
-    "Id": "e8f5df8f-b8a5-461b-880a-facac7670848",
-    "ISBN": "9781680502541",
-    "Title": "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition",    "Authors": [
-      "Scott Wlaschin "
-    ],
-    "Summary": "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.\r\nDomain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.\r\nModel a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have \"compile-time unit tests,\" and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.\r\nSolve real problems by focusing on real-world requirements for your software.",
-    "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg"
-  },
-  {
-    "Id": "a42cef54-b82a-4e87-8067-b8d87e2b7877",
-    "ISBN": "9781617291326",
-    "Title": "F# Deep Dives",
-    "Authors": [
-      "Tomas Petricek",
-      "Phil Trelford"
-    ],
-    "Summary": "F# Deep Dives presents a collection of real-world F# techniques, each written by expert practitioners. Each chapter presents a new use case where you'll read how the author used F# to solve a complex problem more effectively than would have been possible using a traditional approach. You'll not only see how a specific solution works in a specific domain, you'll also learn how F# developers approach problems, what concepts they use to solve them, and how they integrate F# into existing systems and environments.",
-    "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/41gsVLt5ZgL._SX396_BO1,204,203,200_.jpg"
-  }
-]
+[{ Id = e8f5df8f-b8a5-461b-880a-facac7670848
+   ISBN = "9781680502541"
+   Title =
+          "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition"
+   Authors = ["Scott Wlaschin "]
+   Recenzos = [{ Id = e8f5df8f-b8a5-461b-880a-facac7670848
+                 Recenzorer = "234075b3-eeee-43e9-86a0-41a67c65ff50"
+                 Content = Comment Comment "It is so gripping and cool" }]
+   Summary =
+            "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.
+Domain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.
+Model a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have "compile-time unit tests," and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.
+Solve real problems by focusing on real-world requirements for your software."
+   ImageURL =
+             https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg };
+ { Id = a42cef54-b82a-4e87-8067-b8d87e2b7877
+   ISBN = "9781617291326"
+   Title = "F# Deep Dives"
+   Authors = ["Tomas Petricek"; "Phil Trelford"]
+   Recenzos = []
+   Summary =
+            "F# Deep Dives presents a collection of real-world F# techniques, each written by expert practitioners. Each chapter presents a new use case where you'll read how the author used F# to solve a complex problem more effectively than would have been possible using a traditional approach. You'll not only see how a specific solution works in a specific domain, you'll also learn how F# developers approach problems, what concepts they use to solve them, and how they integrate F# into existing systems and environments."
+   ImageURL =
+             https://images-na.ssl-images-amazon.com/images/I/41gsVLt5ZgL._SX396_BO1,204,203,200_.jpg }]
 
 ---------------------------------------------
 Bibliotekos - After removeReaction mutation:
 ---------------------------------------------
 
-[
-  {
-    "Id": "b5a21dc6-8a84-4ce2-8563-74a118449693",
-    "Content": [
-      {
-        "Case": "Owned",
-        "Fields": [
-          {
-            "Id": "c894880c-4f74-423f-b0eb-80381e586ea9",
-            "Registri": {
-              "Id": "e8f5df8f-b8a5-461b-880a-facac7670848",
-              "ISBN": "9781680502541",
-              "Title": "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition",
-              "Authors": [
-                "Scott Wlaschin "
-              ],
-              "Summary": "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.\r\nDomain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.\r\nModel a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have \"compile-time unit tests,\" and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.\r\nSolve real problems by focusing on real-world requirements for your software.",
-              "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg"
-            },
-            "Logbook": [
-              "Creation { TimeStamp = 21.03.2020 11:05:22\n           Creator = UzantoID \"29c6b743-d2b2-4619-b0cb-9d76c593633c\" }"
-            ],
-            "Owner": "29c6b743-d2b2-4619-b0cb-9d76c593633c"
-          }
-        ]
-      }
-    ],
-    "Address": {
-      "FreeformAddress": "FreeformAddress 2",
-      "Country": "Country 2",
-      "CountryCode": "CountryCode 2",
-      "Street": "Street 2",
-      "BuildingNumber": "BuildingNumber 2",
-      "PostalCode": "PostalCode 2"
-    }
-  },
-  {
-    "Id": "a9a17e0d-9588-4152-9c54-b79db16fce2b",
-    "Content": [],
-    "Address": {
-      "FreeformAddress": "FreeformAddress 1",
-      "Country": "Country 1",
-      "CountryCode": "CountryCode 1",
-      "Street": "Street 1",
-      "BuildingNumber": "BuildingNumber 1",
-      "PostalCode": "PostalCode 1"
-    }
-  }
-]
+[{ Id = b5a21dc6-8a84-4ce2-8563-74a118449693
+   Content =
+            [Owned
+               { Id = c894880c-4f74-423f-b0eb-80381e586ea9
+                 Registri =
+                           { Id = e8f5df8f-b8a5-461b-880a-facac7670848
+                             ISBN = "9781680502541"
+                             Title =
+                                    "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition"
+                             Authors = ["Scott Wlaschin "]
+                             Recenzos =
+                                       [{ Id =
+                                              e8f5df8f-b8a5-461b-880a-facac7670848
+                                          Recenzorer =
+                                                      "234075b3-eeee-43e9-86a0-41a67c65ff50"
+                                          Content =
+                                                   Comment
+                                                     Comment "It is so gripping and cool" }]
+                             Summary =
+                                      "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.
+Domain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.
+Model a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have "compile-time unit tests," and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.
+Solve real problems by focusing on real-world requirements for your software."
+                             ImageURL =
+                                       https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg }
+                 Logbook =
+                          ["Creation { TimeStamp = 21.03.2020 11:59:32
+           Creator = UzantoID "3066398b-0c9e-49a6-8e83-1d7c8ff48662" }"]
+                 Owner = 3066398b-0c9e-49a6-8e83-1d7c8ff48662 }]
+   Address = { FreeformAddress = "FreeformAddress 2"
+               Country = "Country 2"
+               CountryCode = "CountryCode 2"
+               Street = "Street 2"
+               BuildingNumber = "BuildingNumber 2"
+               PostalCode = "PostalCode 2" } };
+ { Id = a9a17e0d-9588-4152-9c54-b79db16fce2b
+   Content = []
+   Address = { FreeformAddress = "FreeformAddress 1"
+               Country = "Country 1"
+               CountryCode = "CountryCode 1"
+               Street = "Street 1"
+               BuildingNumber = "BuildingNumber 1"
+               PostalCode = "PostalCode 1" } }]
 
 ---------------------------------------------
 removeComment mutation:
@@ -357,79 +299,66 @@ true
 Registris - after removeReaction/removeComment mutations:
 ---------------------------------------------
 
-[
-  {
-    "Id": "e8f5df8f-b8a5-461b-880a-facac7670848",
-    "ISBN": "9781680502541",
-    "Title": "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition",    "Authors": [
-      "Scott Wlaschin "
-    ],
-    "Summary": "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.\r\nDomain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.\r\nModel a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have \"compile-time unit tests,\" and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.\r\nSolve real problems by focusing on real-world requirements for your software.",
-    "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg"
-  },
-  {
-    "Id": "a42cef54-b82a-4e87-8067-b8d87e2b7877",
-    "ISBN": "9781617291326",
-    "Title": "F# Deep Dives",
-    "Authors": [
-      "Tomas Petricek",
-      "Phil Trelford"
-    ],
-    "Summary": "F# Deep Dives presents a collection of real-world F# techniques, each written by expert practitioners. Each chapter presents a new use case where you'll read how the author used F# to solve a complex problem more effectively than would have been possible using a traditional approach. You'll not only see how a specific solution works in a specific domain, you'll also learn how F# developers approach problems, what concepts they use to solve them, and how they integrate F# into existing systems and environments.",
-    "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/41gsVLt5ZgL._SX396_BO1,204,203,200_.jpg"
-  }
-]
+[{ Id = e8f5df8f-b8a5-461b-880a-facac7670848
+   ISBN = "9781680502541"
+   Title =
+          "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition"
+   Authors = ["Scott Wlaschin "]
+   Recenzos = []
+   Summary =
+            "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.
+Domain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.
+Model a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have "compile-time unit tests," and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.
+Solve real problems by focusing on real-world requirements for your software."
+   ImageURL =
+             https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg };
+ { Id = a42cef54-b82a-4e87-8067-b8d87e2b7877
+   ISBN = "9781617291326"
+   Title = "F# Deep Dives"
+   Authors = ["Tomas Petricek"; "Phil Trelford"]
+   Recenzos = []
+   Summary =
+            "F# Deep Dives presents a collection of real-world F# techniques, each written by expert practitioners. Each chapter presents a new use case where you'll read how the author used F# to solve a complex problem more effectively than would have been possible using a traditional approach. You'll not only see how a specific solution works in a specific domain, you'll also learn how F# developers approach problems, what concepts they use to solve them, and how they integrate F# into existing systems and environments."
+   ImageURL =
+             https://images-na.ssl-images-amazon.com/images/I/41gsVLt5ZgL._SX396_BO1,204,203,200_.jpg }]
 
 ---------------------------------------------
 Bibliotekos - After removeReaction/removeComment mutations:
 ---------------------------------------------
 
-[
-  {
-    "Id": "b5a21dc6-8a84-4ce2-8563-74a118449693",
-    "Content": [
-      {
-        "Case": "Owned",
-        "Fields": [
-          {
-            "Id": "c894880c-4f74-423f-b0eb-80381e586ea9",
-            "Registri": {
-              "Id": "e8f5df8f-b8a5-461b-880a-facac7670848",
-              "ISBN": "9781680502541",
-              "Title": "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition",
-              "Authors": [
-                "Scott Wlaschin "
-              ],
-              "Summary": "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.\r\nDomain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.\r\nModel a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have \"compile-time unit tests,\" and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.\r\nSolve real problems by focusing on real-world requirements for your software.",
-              "ImageURL": "https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg"
-            },
-            "Logbook": [
-              "Creation { TimeStamp = 21.03.2020 11:05:22\n           Creator = UzantoID \"29c6b743-d2b2-4619-b0cb-9d76c593633c\" }"
-            ],
-            "Owner": "29c6b743-d2b2-4619-b0cb-9d76c593633c"
-          }
-        ]
-      }
-    ],
-    "Address": {
-      "FreeformAddress": "FreeformAddress 2",
-      "Country": "Country 2",
-      "CountryCode": "CountryCode 2",
-      "Street": "Street 2",
-      "BuildingNumber": "BuildingNumber 2",
-      "PostalCode": "PostalCode 2"
-    }
-  },
-  {
-    "Id": "a9a17e0d-9588-4152-9c54-b79db16fce2b",
-    "Content": [],
-    "Address": {
-      "FreeformAddress": "FreeformAddress 1",
-      "Country": "Country 1",
-      "CountryCode": "CountryCode 1",
-      "Street": "Street 1",
-      "BuildingNumber": "BuildingNumber 1",
-      "PostalCode": "PostalCode 1"
-    }
-  }
-]
+[{ Id = b5a21dc6-8a84-4ce2-8563-74a118449693
+   Content =
+            [Owned
+               { Id = c894880c-4f74-423f-b0eb-80381e586ea9
+                 Registri =
+                           { Id = e8f5df8f-b8a5-461b-880a-facac7670848
+                             ISBN = "9781680502541"
+                             Title =
+                                    "Domain Modeling Made Functional: Tackle Software Complexity with Domain-Driven Design and F# 1st Edition"
+                             Authors = ["Scott Wlaschin "]
+                             Recenzos = []
+                             Summary =
+                                      "You want increased customer satisfaction, faster development cycles, and less wasted work. Domain-driven design (DDD) combined with functional programming is the innovative combo that will get you there. In this pragmatic, down-to-earth guide, you'll see how applying the core principles of functional programming can result in software designs that model real-world requirements both elegantly and concisely - often more so than an object-oriented approach. Practical examples in the open-source F# functional language, and examples from familiar business domains, show you how to apply these techniques to build software that is business-focused, flexible, and high quality.
+Domain-driven design is a well-established approach to designing software that ensures that domain experts and developers work together effectively to create high-quality software. This registri is the first to combine DDD with techniques from statically typed functional programming. This registri is perfect for newcomers to DDD or functional programming - all the techniques you need will be introduced and explained.
+Model a complex domain accurately using the F# type system, creating compilable code that is also readable documentation---ensuring that the code and design never get out of sync. Encode business rules in the design so that you have "compile-time unit tests," and eliminate many potential bugs by making illegal states unrepresentable. Assemble a series of small, testable functions into a complete use case, and compose these individual scenarios into a large-scale design. Discover why the combination of functional programming and DDD leads naturally to service-oriented and hexagonal architectures. Finally, create a functional domain model that works with traditional databases, NoSQL, and event stores, and safely expose your domain via a website or API.
+Solve real problems by focusing on real-world requirements for your software."
+                             ImageURL =
+                                       https://images-na.ssl-images-amazon.com/images/I/511O5zAOJiL._SX415_BO1,204,203,200_.jpg }
+                 Logbook =
+                          ["Creation { TimeStamp = 21.03.2020 11:59:32
+           Creator = UzantoID "3066398b-0c9e-49a6-8e83-1d7c8ff48662" }"]
+                 Owner = 3066398b-0c9e-49a6-8e83-1d7c8ff48662 }]
+   Address = { FreeformAddress = "FreeformAddress 2"
+               Country = "Country 2"
+               CountryCode = "CountryCode 2"
+               Street = "Street 2"
+               BuildingNumber = "BuildingNumber 2"
+               PostalCode = "PostalCode 2" } };
+ { Id = a9a17e0d-9588-4152-9c54-b79db16fce2b
+   Content = []
+   Address = { FreeformAddress = "FreeformAddress 1"
+               Country = "Country 1"
+               CountryCode = "CountryCode 1"
+               Street = "Street 1"
+               BuildingNumber = "BuildingNumber 1"
+               PostalCode = "PostalCode 1" } }]
