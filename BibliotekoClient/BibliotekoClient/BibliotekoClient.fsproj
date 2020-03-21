@@ -31,7 +31,9 @@
     <Content Include="responses\addpetskribo_response.json" />
     <Content Include="responses\getregistri_response.json" />
     <Compile Include="Domain.fs" />
-    <Compile Include="GraphQLProviderRequests.fs" />
+    <Compile Include="GraphQLProviderCommon.fs" />
+    <Compile Include="GraphQLProviderMutations.fs" />
+    <Compile Include="GraphQLProviderQueries.fs" />
     <Compile Include="GraphQLClientRequests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
