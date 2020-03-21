@@ -21,8 +21,8 @@ module Main =
         printfn "---------------------------------------------"
         GraphQLProviderQueries.asyncQueryRegistriByIsbn "978-1617291326" 
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -31,8 +31,8 @@ module Main =
         printfn ""
         GraphQLProviderQueries.asyncQueryRegistris ()
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -41,8 +41,8 @@ module Main =
         printfn ""
         GraphQLProviderQueries.asyncQueryBibliotekos ()
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -55,8 +55,8 @@ module Main =
                             isbn = "978-1680502541")
         GraphQLProviderMutations.asyncAddPetskriboToBiblioteko bibliotekoId petskribo
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -65,8 +65,8 @@ module Main =
         printfn ""
         GraphQLProviderQueries.asyncQueryBibliotekos ()
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -78,8 +78,8 @@ module Main =
         let recenzoKind = BiblProvider.Types.ReactionEnum.Gripping
         GraphQLProviderMutations.asyncSetReaction isbn recenzoId recenzoKind
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -91,8 +91,8 @@ module Main =
         let comment = "It is so gripping and cool"
         GraphQLProviderMutations.asyncSetComment isbn recenzoId comment
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -101,8 +101,8 @@ module Main =
         printfn ""
         GraphQLProviderQueries.asyncQueryRegistris ()
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -111,8 +111,8 @@ module Main =
         printfn ""
         GraphQLProviderQueries.asyncQueryBibliotekos ()
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -131,8 +131,8 @@ module Main =
         printfn ""
         GraphQLProviderQueries.asyncQueryRegistris ()
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -141,8 +141,8 @@ module Main =
         printfn ""
         GraphQLProviderQueries.asyncQueryBibliotekos ()
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -152,8 +152,8 @@ module Main =
         let recenzoId = "e8f5df8f-b8a5-461b-880a-facac7670848"
         GraphQLProviderMutations.asyncRemoveComment recenzoId
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
         
         printfn ""
         printfn "---------------------------------------------"
@@ -162,8 +162,8 @@ module Main =
         printfn ""
         GraphQLProviderQueries.asyncQueryRegistris ()
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
         printfn ""
         printfn "---------------------------------------------"
@@ -172,8 +172,8 @@ module Main =
         printfn ""
         GraphQLProviderQueries.asyncQueryBibliotekos ()
             |> Async.RunSynchronously 
-            |> prettifyJson 
-            |> printfn "%s"
+            //|> prettifyJson 
+            |> printfn "%A"
 
 
     let callViaGraphQLClient () =
@@ -182,22 +182,22 @@ module Main =
         printfn "---------------------------------------------"
         printfn ""
         printfn "Registri By ISBN:"
-        GraphQLClientRequests.asyncQueryRegistriByIsbn "978-1617291326" |> Async.RunSynchronously |> prettifyJson |> printfn "%s"
+        GraphQLClientRequests.asyncQueryRegistriByIsbn "978-1617291326" |> Async.RunSynchronously //|> prettifyJson |> printfn "%A"
 
         printfn "Registries:"
-        GraphQLClientRequests.asyncQueryRegistries () |> Async.RunSynchronously |> prettifyJson |> printfn "%s"
+        GraphQLClientRequests.asyncQueryRegistries () |> Async.RunSynchronously //|> prettifyJson |> printfn "%A"
 
         printfn "Bibliotekos - before addPetskribo mutation:"
-        GraphQLClientRequests.asyncQueryBibliotekos () |> Async.RunSynchronously |> prettifyJson |> printfn "%s"
+        GraphQLClientRequests.asyncQueryBibliotekos () |> Async.RunSynchronously //|> prettifyJson |> printfn "%A"
 
         let bibliotekoId = System.Guid "b5a21dc6-8a84-4ce2-8563-74a118449693"
         let petskribo = { isbn = "978-1680502541"
                           id = System.Guid "c894880c-4f74-423f-b0eb-80381e586ea9" }
         printfn "Add Petskribo %A to Biblioteko with id %s:" petskribo (bibliotekoId.ToString())
-        GraphQLClientRequests.asyncAddPetskriboToBiblioteko bibliotekoId petskribo |> Async.RunSynchronously |> prettifyJson |> printfn "%s"
+        GraphQLClientRequests.asyncAddPetskriboToBiblioteko bibliotekoId petskribo |> Async.RunSynchronously //|> prettifyJson |> printfn "%A"
 
         printfn "Bibliotekos - after addPetskribo mutation:"
-        GraphQLClientRequests.asyncQueryBibliotekos () |> Async.RunSynchronously |> prettifyJson |> printfn "%s"
+        GraphQLClientRequests.asyncQueryBibliotekos () |> Async.RunSynchronously //|> prettifyJson |> printfn "%A"
 
 
     [<EntryPoint>]

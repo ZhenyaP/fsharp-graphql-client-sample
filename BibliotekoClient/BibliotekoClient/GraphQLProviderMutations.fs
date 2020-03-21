@@ -17,7 +17,7 @@ module GraphQLProviderMutations =
 
     let asyncAddPetskriboToBiblioteko (bibliotekoId : string) 
                                       (petskribo : BiblProvider.Types.InputPetskribo) 
-                                      : Async<Petskribo> =
+                                      : Async<bool> =
         async {
             use runtimeContext = getContext()            
             let! result = addPetskriboOperation.AsyncRun(runtimeContext,
@@ -29,26 +29,27 @@ module GraphQLProviderMutations =
                                             //            isbn = "978-1680502541"),
                                             uzantoId = ""
                                            )
-            let petskriboEntity = result.Data.Value.AddPetskribo.Value
-            let registriEntity = petskriboEntity.Registri
-            let registri = 
-                {   
-                    Id = registriEntity.Id |> System.Guid.Parse
-                    ISBN = registriEntity.Isbn
-                    Title = registriEntity.Title
-                    Authors = registriEntity.Authors |> Array.toList
-                    Summary = registriEntity.Summary
-                    ImageURL = registriEntity.Imageurl 
-                }
-            let petskribo = 
-                {
-                    Id = petskriboEntity.Id |> System.Guid.Parse
-                    Registri = registri
-                    Logbook = petskriboEntity.Logbook |> Array.toList
-                    Owner = petskriboEntity.Owner |> System.Guid.Parse
-                }
+            return true
+            //let petskriboEntity = result.Data.Value.AddPetskribo.Value
+            //let registriEntity = petskriboEntity.Registri
+            //let registri = 
+            //    {   
+            //        Id = registriEntity.Id |> System.Guid.Parse
+            //        ISBN = registriEntity.Isbn
+            //        Title = registriEntity.Title
+            //        Authors = registriEntity.Authors |> Array.toList
+            //        Summary = registriEntity.Summary
+            //        ImageURL = registriEntity.Imageurl 
+            //    }
+            //let petskribo = 
+            //    {
+            //        Id = petskriboEntity.Id |> System.Guid.Parse
+            //        Registri = registri
+            //        Logbook = petskriboEntity.Logbook |> Array.toList
+            //        Owner = petskriboEntity.Owner |> System.Guid.Parse
+            //    }
 
-            return petskribo
+            //return petskribo
         }
 
     let asyncSetReaction (isbn : string) 
@@ -99,7 +100,7 @@ module GraphQLProviderMutations =
                 { 
                     Id = recenzoEntity.Id |> System.Guid.Parse
                     Recenzorer = recenzoEntity.Recenzorer
-                    Content = Reaction reaction
+                    Content = RecenzoContent.Reaction reaction
                 }
                 
             return recenzo

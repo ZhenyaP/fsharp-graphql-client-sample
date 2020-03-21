@@ -5,11 +5,23 @@ open Chessie.ErrorHandling.Trial
 
 module Domain =
 
+    [<Struct>]
+    type Comment = private Comment of string // TODO: Add string min length restrictions
+
+    module Comment =
+
+        let create text =
+            // TODO: add validation logic
+            ok (Comment text)
+
+        let value (Comment text) = text
+
     type Registri =
         { Id : System.Guid
           ISBN : string
           Title : string
           Authors : string list
+          Recenzos : Recenzo list
           Summary : string
           ImageURL : System.Uri }
           with
@@ -18,11 +30,29 @@ module Domain =
                                       ISBN = ""
                                       Title = ""
                                       Authors = list.Empty
+                                      Recenzos = list.Empty
                                       Summary = ""
                                       ImageURL = null }
     and BaseDomainType = interface end
 
-    type Reaction =
+    and Recenzo =
+        { Id : System.Guid
+          /// Reviewer
+          Recenzorer : string
+          Content : RecenzoContent }    
+
+    /// <remarks>
+    /// a review can be either
+    /// (a) both reaction and comment
+    /// (b) only reaction
+    /// (c) only comment
+    /// </remarks>
+    and RecenzoContent =
+        | Reaction of Reaction : Reaction
+        | Comment of Comment : Comment
+        | ReactionAndComment of Reaction : Reaction * Comment : Comment
+
+    and Reaction =
         | Undefined = 0
         | LoveIt = 1
         | Boring = 2
@@ -31,16 +61,10 @@ module Domain =
         | Inspiring = 5
         | Classic = 6
     
-    [<Struct>]
-    type Comment = private Comment of string // TODO: Add string min length restrictions
-    
-    module Comment =
-    
+    module Reaction =
         let create text =
-            // TODO: add validation logic
-            ok (Comment text)
-    
-        let value (Comment text) = text
+            let reaction = System.Enum.Parse(typedefof<Reaction>, text) :?> Reaction
+            reaction
 
     type PetskriboPossession =
         | Borrowed of Petskribo
@@ -65,22 +89,4 @@ module Domain =
         { Id : System.Guid
           Content : PetskriboPossession list
           Address : Address }
-
-    /// Recenzo is a review
-    and Recenzo =
-        { Id : System.Guid
-          /// Reviewer
-          Recenzorer : string
-          Content : RecenzoContent }    
-
-    /// <remarks>
-    /// a review can be either
-    /// (a) both reaction and comment
-    /// (b) only reaction
-    /// (c) only comment
-    /// </remarks>
-    and RecenzoContent =
-        | Reaction of Reaction : Reaction
-        | Comment of Comment : Comment
-        | ReactionAndComment of Reaction : Reaction * Comment : Comment
 

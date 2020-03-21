@@ -54,6 +54,7 @@ module GraphQLClientRequests =
                              ISBN = registriEntity.Isbn.ToString()
                              Title = registriEntity.Title
                              Authors = registriEntity.Authors |> Array.toList
+                             Recenzos = []
                              Summary = registriEntity.Summary
                              ImageURL = registriEntity.Imageurl |> System.Uri }
 
@@ -87,6 +88,7 @@ module GraphQLClientRequests =
                              ISBN = registri.Isbn.ToString()
                              Title = registri.Title
                              Authors = registri.Authors |> Array.toList
+                             Recenzos = []
                              Summary = registri.Summary
                              ImageURL = registri.Imageurl |> System.Uri }) |> Array.toList
 
@@ -190,6 +192,7 @@ fragment lentFields on Lent {
                                                                 ISBN = c.Registri.Isbn.ToString()
                                                                 Title = c.Registri.Title
                                                                 Authors = c.Registri.Authors |> Array.toList
+                                                                Recenzos = []
                                                                 Summary = c.Registri.Summary
                                                                 ImageURL = c.Registri.Imageurl |> System.Uri
                                                             }

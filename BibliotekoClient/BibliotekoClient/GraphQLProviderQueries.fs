@@ -6,12 +6,67 @@ open Newtonsoft.Json
 open System
 open Domain
 open GraphQLProviderCommon
+open Chessie.ErrorHandling
 
 module GraphQLProviderQueries =
 
     let getBibliotekosOperation = BiblProvider.Operation<"queries/getBibliotekos.graphql">()
     let getRegistriOperation = BiblProvider.Operation<"queries/getRegistri.graphql">()
     let getRegistrisOperation = BiblProvider.Operation<"queries/getRegistris.graphql">()  
+
+    let getRecenzoContentFromRecenzoEntityForGetBibliotekos
+        (recenzoEntity: BiblProvider.Operations.GetBibliotekos.Types.BibliotekosFields.ContentFields.RegistriFields.RecenzosFields.Recenzo) 
+        : RecenzoContent =
+        let recenzoContent: RecenzoContent =
+            match recenzoEntity.Content.IsReaction(), recenzoEntity.Content.IsComment(), recenzoEntity.Content.IsReactionAndComment() with
+                | (true, _, _) -> 
+                    let reactionName = recenzoEntity.Content.AsReaction().Reaction.GetValue()
+                    RecenzoContent.Reaction (Reaction.create reactionName)
+                | (_, true, _) ->
+                    let comment = recenzoEntity.Content.AsComment().Comment
+                    Comment (Comment.create comment |> returnOrFail)
+                | (_, _, true) ->
+                    let reactionAndCommentEntity = recenzoEntity.Content.AsReactionAndComment()
+                    let reactionName = reactionAndCommentEntity.Reaction.GetValue()
+                    let comment = Comment.create reactionAndCommentEntity.Comment |> returnOrFail
+                    ReactionAndComment (Reaction.create reactionName, comment)
+        recenzoContent
+
+    let getRecenzoContentFromRecenzoEntityForGetRegistriByIsbn
+        (recenzoEntity: BiblProvider.Operations.GetRegistriByIsbn.Types.RegistriFields.RecenzosFields.Recenzo) 
+        : RecenzoContent =
+        let recenzoContent: RecenzoContent =
+            match recenzoEntity.Content.IsReaction(), recenzoEntity.Content.IsComment(), recenzoEntity.Content.IsReactionAndComment() with
+                | (true, _, _) -> 
+                    let reactionName = recenzoEntity.Content.AsReaction().Reaction.GetValue()
+                    RecenzoContent.Reaction (Reaction.create reactionName)
+                | (_, true, _) ->
+                    let comment = recenzoEntity.Content.AsComment().Comment
+                    Comment (Comment.create comment |> returnOrFail)
+                | (_, _, true) ->
+                    let reactionAndCommentEntity = recenzoEntity.Content.AsReactionAndComment()
+                    let reactionName = reactionAndCommentEntity.Reaction.GetValue()
+                    let comment = Comment.create reactionAndCommentEntity.Comment |> returnOrFail
+                    ReactionAndComment (Reaction.create reactionName, comment)
+        recenzoContent
+
+    let getRecenzoContentFromRecenzoEntityForGetRegistris
+        (recenzoEntity: BiblProvider.Operations.GetRegistris.Types.RegistrisFields.RecenzosFields.Recenzo) 
+        : RecenzoContent =
+        let recenzoContent: RecenzoContent =
+            match recenzoEntity.Content.IsReaction(), recenzoEntity.Content.IsComment(), recenzoEntity.Content.IsReactionAndComment() with
+                | (true, _, _) -> 
+                    let reactionName = recenzoEntity.Content.AsReaction().Reaction.GetValue()
+                    RecenzoContent.Reaction (Reaction.create reactionName)
+                | (_, true, _) ->
+                    let comment = recenzoEntity.Content.AsComment().Comment
+                    Comment (Comment.create comment |> returnOrFail)
+                | (_, _, true) ->
+                    let reactionAndCommentEntity = recenzoEntity.Content.AsReactionAndComment()
+                    let reactionName = reactionAndCommentEntity.Reaction.GetValue()
+                    let comment = Comment.create reactionAndCommentEntity.Comment |> returnOrFail
+                    ReactionAndComment (Reaction.create reactionName, comment)
+        recenzoContent
 
     let asyncQueryRegistriByIsbn (isbn: string) : Async<Registri> =
         async {
@@ -28,6 +83,15 @@ module GraphQLProviderQueries =
                              ISBN = registriEntity.Isbn
                              Title = registriEntity.Title
                              Authors = registriEntity.Authors |> Array.toList
+                             Recenzos = registriEntity.Recenzos 
+                             |> Array.map(
+                                 fun recenzoEntity ->
+                                     {
+                                         Id = recenzoEntity.Id |> System.Guid.Parse
+                                         /// Reviewer
+                                         Recenzorer = recenzoEntity.Recenzorer
+                                         Content = getRecenzoContentFromRecenzoEntityForGetRegistriByIsbn recenzoEntity
+                                     }) |> Array.toList
                              Summary = registriEntity.Summary
                              ImageURL = registriEntity.Imageurl }
 
@@ -47,12 +111,22 @@ module GraphQLProviderQueries =
                                 ISBN = registriEntity.Isbn
                                 Title = registriEntity.Title
                                 Authors = registriEntity.Authors |> Array.toList
+                                Recenzos = registriEntity.Recenzos 
+                                |> Array.map(
+                                    fun recenzoEntity ->
+                                        {
+                                            Id = recenzoEntity.Id |> System.Guid.Parse
+                                            /// Reviewer
+                                            Recenzorer = recenzoEntity.Recenzorer
+                                            Content = getRecenzoContentFromRecenzoEntityForGetRegistris recenzoEntity
+                                        }) |> Array.toList
                                 Summary = registriEntity.Summary
                                 ImageURL = registriEntity.Imageurl }) |> Array.toList
 
             return registries
             }
 
+    
     let asyncQueryBibliotekos () : Async<Biblioteko list> =
         async {
             use runtimeContext = getContext()
@@ -79,6 +153,15 @@ module GraphQLProviderQueries =
                                                         ISBN = registriEntity.Isbn
                                                         Title = registriEntity.Title
                                                         Authors = registriEntity.Authors |> Array.toList
+                                                        Recenzos = registriEntity.Recenzos 
+                                                                    |> Array.map(
+                                                                        fun recenzoEntity ->
+                                                                            {
+                                                                                Id = recenzoEntity.Id |> System.Guid.Parse
+                                                                                /// Reviewer
+                                                                                Recenzorer = recenzoEntity.Recenzorer
+                                                                                Content = getRecenzoContentFromRecenzoEntityForGetBibliotekos recenzoEntity
+                                                                            }) |> Array.toList
                                                         Summary = registriEntity.Summary
                                                         ImageURL = registriEntity.Imageurl 
                                                     }
