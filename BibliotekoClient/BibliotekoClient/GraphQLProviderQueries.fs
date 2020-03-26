@@ -4,6 +4,7 @@ namespace BibliotekoClient
 open Domain
 open GraphQLProviderCommon
 open Chessie.ErrorHandling
+open BibliotekoClient.Helpers
 
 module GraphQLProviderQueries =
 
@@ -72,7 +73,7 @@ module GraphQLProviderQueries =
                                                         isbn = isbn
                                                             //isbn = "978-1617291326"
                                                         )
-            if result.Errors.Length > 0 then failwith (sprintf "getRegistriByIsbn query operation failed with error: %A\n" result.Errors)
+            checkForErrors result "getRegistri"
             let registriEntity = result.Data.Value.Registri
             //TODO: Make GraphQLProvider generate Guid .NET type for GraphQL field with ID type
             // to avoid casting string to Guid
@@ -95,10 +96,11 @@ module GraphQLProviderQueries =
             return registri
             }
 
-    let asyncQueryRegistris () : Async<Registri list> =
+    let asyncQueryRegistrij () : Async<Registri list> =
         async {
             use runtimeContext = getContext()
             let! result = getRegistrijOperation.AsyncRun(runtimeContext)
+            checkForErrors result "getRegistrij"
             if result.Errors.Length > 0 then failwith (sprintf "getRegistris query operation failed with error: %A\n" result.Errors)
             let registriEntities = result.Data.Value.Registrij
             let registries = registriEntities |> Array.map(fun registriEntity ->
@@ -122,12 +124,12 @@ module GraphQLProviderQueries =
 
             return registries
             }
-
     
     let asyncQueryBibliotekoj () : Async<Biblioteko list> =
         async {
             use runtimeContext = getContext()
             let! result = getBibliotekojOperation.AsyncRun(runtimeContext)
+            checkForErrors result "getBibliotekoj"
             let bibliotekos = result.Data.Value.Bibliotekoj |> Array.map(fun bibliotekoEntity ->
                             {   
                                 Id = bibliotekoEntity.Id |> System.Guid.Parse

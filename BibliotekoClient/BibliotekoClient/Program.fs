@@ -116,7 +116,7 @@ module Main =
         printfn "Registries:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderQueries.asyncQueryRegistris ()
+        GraphQLProviderQueries.asyncQueryRegistrij ()
             |> Async.RunSynchronously 
             //|> prettifyJson 
             |> printfn "%A"
@@ -186,7 +186,7 @@ module Main =
         printfn "Registris - after setReaction/setComment mutations:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderQueries.asyncQueryRegistris ()
+        GraphQLProviderQueries.asyncQueryRegistrij ()
             |> Async.RunSynchronously 
             //|> prettifyJson 
             |> printfn "%A"
@@ -216,7 +216,7 @@ module Main =
         printfn "Registris - after removeReaction mutation:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderQueries.asyncQueryRegistris ()
+        GraphQLProviderQueries.asyncQueryRegistrij ()
             |> Async.RunSynchronously 
             //|> prettifyJson 
             |> printfn "%A"
@@ -247,7 +247,7 @@ module Main =
         printfn "Registris - after removeReaction/removeComment mutations:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderQueries.asyncQueryRegistris ()
+        GraphQLProviderQueries.asyncQueryRegistrij ()
             |> Async.RunSynchronously 
             //|> prettifyJson 
             |> printfn "%A"

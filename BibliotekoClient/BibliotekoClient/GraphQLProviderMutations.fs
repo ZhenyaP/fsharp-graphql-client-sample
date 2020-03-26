@@ -5,6 +5,7 @@ open System
 open GraphQLProviderCommon
 open Domain
 open Chessie.ErrorHandling
+open BibliotekoClient.Helpers
 
 module GraphQLProviderMutations =
 
@@ -25,8 +26,7 @@ module GraphQLProviderMutations =
                                             petskribo = petskribo,
                                             uzantoId = ""
                                            )
-            if result.Errors.Length > 0 then failwith (sprintf "addPetskribo query operation failed with error: %A\n" result.Errors)
-            if result.CustomData.Count > 0 then failwith (sprintf "addPetskribo query operation failed with error: %A\n" result.CustomData)
+            checkForErrors result "addPetskribo"
             return true
             //let petskriboEntity = result.Data.Value.AddPetskribo.Value
             //let registriEntity = petskriboEntity.Registri
@@ -61,6 +61,7 @@ module GraphQLProviderMutations =
                                                         recenzoId = recenzoId,
                                                         reactionKind = reactionKind,
                                                         uzantoId = "")  //userId variable value is set in GraphQL server
+            checkForErrors result "setReaction"
             let recenzoEntity = result.Data.Value.SetReaction
             let reactionName = 
                 match recenzoEntity.Content with
@@ -90,6 +91,7 @@ module GraphQLProviderMutations =
                                                         recenzoId = recenzoId,
                                                         comment = comment,
                                                         uzantoId = "")  //userId variable value is set in GraphQL server
+            checkForErrors result "setComment"
             let recenzoEntity = result.Data.Value.SetComment
             let commentText = 
                 match recenzoEntity.Content with
@@ -114,9 +116,10 @@ module GraphQLProviderMutations =
             let! result = removeReactionOperation.AsyncRun(runtimeContext,
                             recenzoId = recenzoId
             )
-            
+            checkForErrors result "removeReaction"
             return result.Data.Value.RemoveReaction
         }
+
 
     let asyncRemoveComment (recenzoId: string) : Async<bool> =
         async {
@@ -124,7 +127,7 @@ module GraphQLProviderMutations =
             let! result = removeCommentOperation.AsyncRun(runtimeContext,
                                     recenzoId = recenzoId
                                     )
-            
+            checkForErrors result "removeComment"
             return result.Data.Value.RemoveComment
         }
 
@@ -134,6 +137,6 @@ module GraphQLProviderMutations =
             let! result = removeRecenzoOperation.AsyncRun(runtimeContext,
                                     recenzoId = recenzoId
                                     )
-            
+            checkForErrors result "removeRecenzo"
             return result.Data.Value.RemoveRecenzo
         }

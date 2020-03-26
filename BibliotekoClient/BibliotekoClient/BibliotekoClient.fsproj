@@ -30,6 +30,7 @@
     <Content Include="responses\getregistris_response.json" />
     <Content Include="responses\addpetskribo_response.json" />
     <Content Include="responses\getregistri_response.json" />
+    <Compile Include="Helpers.fs" />
     <Compile Include="Domain.fs" />
     <Compile Include="GraphQLProviderCommon.fs" />
     <Compile Include="GraphQLProviderMutations.fs" />
