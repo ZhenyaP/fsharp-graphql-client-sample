@@ -39,7 +39,7 @@ module Main =
         printfn "Bibliotekos - Before addPetskribo mutation:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderQueries.asyncQueryBibliotekos ()
+        GraphQLProviderQueries.asyncQueryBibliotekoj ()
             |> Async.RunSynchronously 
             //|> prettifyJson 
             |> printfn "%A"
@@ -63,7 +63,7 @@ module Main =
         printfn "Bibliotekos - After addPetskribo mutation:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderQueries.asyncQueryBibliotekos ()
+        GraphQLProviderQueries.asyncQueryBibliotekoj ()
             |> Async.RunSynchronously 
             //|> prettifyJson 
             |> printfn "%A"
@@ -109,7 +109,7 @@ module Main =
         printfn "Bibliotekos - After setReaction/setComment mutations:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderQueries.asyncQueryBibliotekos ()
+        GraphQLProviderQueries.asyncQueryBibliotekoj ()
             |> Async.RunSynchronously 
             //|> prettifyJson 
             |> printfn "%A"
@@ -139,7 +139,7 @@ module Main =
         printfn "Bibliotekos - After removeReaction mutation:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderQueries.asyncQueryBibliotekos ()
+        GraphQLProviderQueries.asyncQueryBibliotekoj ()
             |> Async.RunSynchronously 
             //|> prettifyJson 
             |> printfn "%A"
@@ -170,7 +170,7 @@ module Main =
         printfn "Bibliotekos - After removeReaction/removeComment mutations:"
         printfn "---------------------------------------------"
         printfn ""
-        GraphQLProviderQueries.asyncQueryBibliotekos ()
+        GraphQLProviderQueries.asyncQueryBibliotekoj ()
             |> Async.RunSynchronously 
             //|> prettifyJson 
             |> printfn "%A"

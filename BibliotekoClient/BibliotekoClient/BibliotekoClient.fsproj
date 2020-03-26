@@ -9,9 +9,9 @@
     <None Include="Script.fsx" />
     <Content Include="json\introspection.json" />
     <None Include="queries\addPetskribo.graphql" />
-    <None Include="queries\getBibliotekos.graphql" />
+    <None Include="queries\getBibliotekoj.graphql" />
     <None Include="queries\getRegistri.graphql" />
-    <None Include="queries\getRegistris.graphql" />
+    <None Include="queries\getRegistrij.graphql" />
     <None Include="queries\removeComment.graphql" />
     <None Include="queries\removeReaction.graphql" />
     <None Include="queries\removeRecenzo.graphql" />

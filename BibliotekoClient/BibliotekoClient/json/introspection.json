@@ -923,7 +923,7 @@
           "description": null,
           "fields": [
             {
-              "name": "bibliotekos",
+              "name": "bibliotekoj",
               "description": "Gets all libraries",
               "args": [],
               "type": {
@@ -966,15 +966,19 @@
                 }
               ],
               "type": {
-                "kind": "OBJECT",
-                "name": "Registri",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Registri",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "registris",
+              "name": "registrij",
               "description": "Gets all book definitions",
               "args": [],
               "type": {
@@ -1364,7 +1368,7 @@
               "deprecationReason": null
             },
             {
-              "name": "recenzos",
+              "name": "recenzoj",
               "description": "Book definition reviews",
               "args": [],
               "type": {
@@ -1873,9 +1877,13 @@
                 }
               ],
               "type": {
-                "kind": "OBJECT",
-                "name": "Petskribo",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Petskribo",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2035,9 +2043,13 @@
                 }
               ],
               "type": {
-                "kind": "OBJECT",
-                "name": "Recenzo",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Recenzo",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2104,9 +2116,13 @@
                 }
               ],
               "type": {
-                "kind": "OBJECT",
-                "name": "Recenzo",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Recenzo",
+                  "ofType": null
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null
@@ -2319,6 +2335,6 @@
       ]
     }
   },
-  "documentId": 2029955939,
+  "documentId": -418112501,
   "requestType": "Classic"
 }

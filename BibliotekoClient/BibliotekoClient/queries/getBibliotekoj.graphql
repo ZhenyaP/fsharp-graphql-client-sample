@@ -1,5 +1,5 @@
 ﻿query getBibliotekos {
-  bibliotekos {
+  bibliotekoj {
     id
     content {
         ...borrowedFields
@@ -49,7 +49,7 @@ fragment registriFields on Registri {
     isbn
     title
     authors
-    recenzos {
+    recenzoj {
         id
         recenzorer
         content {

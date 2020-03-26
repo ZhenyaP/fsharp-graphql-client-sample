@@ -1,10 +1,10 @@
 ﻿query getRegistris {
-    registris {
+    registrij {
         id
         isbn
         title
         authors
-        recenzos {
+        recenzoj {
             id
             recenzorer
             content {

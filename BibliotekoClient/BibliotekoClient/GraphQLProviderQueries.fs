@@ -10,9 +10,9 @@ open Chessie.ErrorHandling
 
 module GraphQLProviderQueries =
 
-    let getBibliotekosOperation = BiblProvider.Operation<"queries/getBibliotekos.graphql">()
+    let getBibliotekojOperation = BiblProvider.Operation<"queries/getBibliotekoj.graphql">()
     let getRegistriOperation = BiblProvider.Operation<"queries/getRegistri.graphql">()
-    let getRegistrisOperation = BiblProvider.Operation<"queries/getRegistris.graphql">()  
+    let getRegistrijOperation = BiblProvider.Operation<"queries/getRegistrij.graphql">()  
 
     let getRecenzoContentFromRecenzoEntityForGetBibliotekos
         (recenzoEntity: BiblProvider.Operations.GetBibliotekos.Types.BibliotekosFields.ContentFields.RegistriFields.RecenzosFields.Recenzo) 
@@ -101,7 +101,7 @@ module GraphQLProviderQueries =
     let asyncQueryRegistris () : Async<Registri list> =
         async {
             use runtimeContext = getContext()
-            let! result = getRegistrisOperation.AsyncRun(runtimeContext)
+            let! result = getRegistrijOperation.AsyncRun(runtimeContext)
             if result.Errors.Length > 0 then failwith (sprintf "getRegistris query operation failed with error: %A\n" result.Errors)
             let registriEntities = result.Data.Value.Registris
             let registries = registriEntities |> Array.map(fun registriEntity ->
@@ -127,10 +127,10 @@ module GraphQLProviderQueries =
             }
 
     
-    let asyncQueryBibliotekos () : Async<Biblioteko list> =
+    let asyncQueryBibliotekoj () : Async<Biblioteko list> =
         async {
             use runtimeContext = getContext()
-            let! result = getBibliotekosOperation.AsyncRun(runtimeContext)
+            let! result = getBibliotekojOperation.AsyncRun(runtimeContext)
             let bibliotekos = result.Data.Value.Bibliotekos |> Array.map(fun bibliotekoEntity ->
                             {   
                                 Id = bibliotekoEntity.Id |> System.Guid.Parse

@@ -16,7 +16,7 @@
             isbn
             title
             authors
-            recenzos {
+            recenzoj {
                 id
                 recenzorer
                 content {
