@@ -4,7 +4,7 @@
         isbn
         title
         authors
-        recenzos {
+        recenzoj {
             id
             recenzorer
             content {
@@ -26,6 +26,16 @@
 }
 
 Variables:
+{
+  "isbn": "978-1617291326"
+}
+
+Invalid Variables 1:
+{
+  "isbn": "971-1617291326"
+}
+
+Invalid Variables 2:
 {
   "isbn": "978-1617291326"
 }

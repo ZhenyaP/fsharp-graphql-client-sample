@@ -26,6 +26,7 @@ module GraphQLProviderMutations =
                                             uzantoId = ""
                                            )
             if result.Errors.Length > 0 then failwith (sprintf "addPetskribo query operation failed with error: %A\n" result.Errors)
+            if result.CustomData.Count > 0 then failwith (sprintf "addPetskribo query operation failed with error: %A\n" result.CustomData)
             return true
             //let petskriboEntity = result.Data.Value.AddPetskribo.Value
             //let registriEntity = petskriboEntity.Registri

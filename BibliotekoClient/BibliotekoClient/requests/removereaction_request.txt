@@ -7,3 +7,13 @@ Variables:
 {
   "recenzoId": "e8f5df8f-b8a5-461b-880a-facac7670848"
 }
+
+Invalid Variables 1:
+{
+  "recenzoId": "ed45df8f-b8a5-461b-880a-facac7670848"
+}
+
+Invalid Variables 2:
+{
+  "recenzoId": "abb"
+}

@@ -49,3 +49,17 @@ Variables 3:
   "recenzoId": "c36126b4-b641-4051-a0d1-2188335b2586",
   "reactionKind": "Inspiring"
 }
+
+Invalid Variables 1:
+{
+  "isbn": "974-1617291326",
+  "recenzoId": "c36126b4-b641-4051-a0d1-2188335b2586",
+  "reactionKind": "aaa"
+}
+
+Invalid Variables 2:
+{
+  "isbn": "924-1617291326",
+  "recenzoId": "c36126b4-b641-4051-a0d1-2188335b2586",
+  "reactionKind": "Inspiring"
+}

@@ -2224,13 +2224,13 @@
           "inputFields": [
             {
               "name": "id",
-              "description": null,
+              "description": "ID of the registri",
               "type": {
                 "kind": "SCALAR",
                 "name": "ID",
                 "ofType": null
               },
-              "defaultValue": "ID of the registri"
+              "defaultValue": "00000000-0000-0000-0000-000000000000"
             },
             {
               "name": "isbn",
@@ -2335,6 +2335,6 @@
       ]
     }
   },
-  "documentId": -418112501,
+  "documentId": 1199437780,
   "requestType": "Classic"
 }
