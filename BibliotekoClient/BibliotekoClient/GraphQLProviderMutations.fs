@@ -20,11 +20,12 @@ module GraphQLProviderMutations =
                                       : Async<bool> =
         async {
             use runtimeContext = getContext()            
-            let! _ = addPetskriboOperation.AsyncRun(runtimeContext,
+            let! result = addPetskriboOperation.AsyncRun(runtimeContext,
                                             bibliotekoId = bibliotekoId,
                                             petskribo = petskribo,
                                             uzantoId = ""
                                            )
+            if result.Errors.Length > 0 then failwith (sprintf "addPetskribo query operation failed with error: %A\n" result.Errors)
             return true
             //let petskriboEntity = result.Data.Value.AddPetskribo.Value
             //let registriEntity = petskriboEntity.Registri

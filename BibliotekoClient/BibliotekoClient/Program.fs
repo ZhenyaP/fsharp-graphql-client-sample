@@ -11,6 +11,93 @@ module Main =
     let prettifyJson (object:obj) =
         let json = JsonConvert.SerializeObject(object, Formatting.Indented)
         json
+    
+    let getRegistriByIsbn (isbn:string) =
+        printfn ""
+        printfn "Registri By ISBN:"
+        printfn "---------------------------------------------"
+        GraphQLProviderQueries.asyncQueryRegistriByIsbn isbn 
+        |> Async.RunSynchronously 
+        |> printfn "%A"
+
+    let addPetskribo (bibliotekoId:string) (petskribo: BiblProvider.Types.InputPetskribo) =
+        printfn ""
+        printfn "---------------------------------------------"
+        printfn "addPetskribo mutation:"
+        printfn "---------------------------------------------"
+        printfn ""
+        GraphQLProviderMutations.asyncAddPetskriboToBiblioteko bibliotekoId petskribo
+        |> Async.RunSynchronously 
+        //|> prettifyJson 
+        |> printfn "%A"
+
+    let setReaction(isbn:string) (recenzoId:string) (recenzoKind:BiblProvider.Types.ReactionEnum) =
+        printfn ""
+        printfn "---------------------------------------------"
+        printfn "setReaction mutation:"
+        printfn "---------------------------------------------"
+        printfn ""
+        GraphQLProviderMutations.asyncSetReaction isbn recenzoId recenzoKind
+        |> Async.RunSynchronously 
+        //|> prettifyJson 
+        |> printfn "%A"
+
+    let setComment(isbn:string) (recenzoId:string) (comment:string) =
+        printfn ""
+        printfn "---------------------------------------------"
+        printfn "setComment mutation:"
+        printfn "---------------------------------------------"
+        printfn ""
+        GraphQLProviderMutations.asyncSetComment isbn recenzoId comment
+        |> Async.RunSynchronously 
+        //|> prettifyJson 
+        |> printfn "%A"
+
+    let removeReaction (recenzoId:string) =
+        printfn ""
+        printfn "---------------------------------------------"
+        printfn "removeReaction mutation:"
+        printfn "---------------------------------------------"
+        printfn ""
+        GraphQLProviderMutations.asyncRemoveReaction recenzoId
+            |> Async.RunSynchronously
+            |> printfn "%A"
+
+    let removeComment (recenzoId:string) =
+        printfn ""
+        printfn "---------------------------------------------"
+        printfn "removeComment mutation:"
+        printfn "---------------------------------------------"
+        printfn ""
+        GraphQLProviderMutations.asyncRemoveComment recenzoId
+            |> Async.RunSynchronously 
+            //|> prettifyJson 
+            |> printfn "%A"
+
+    let invalidCallsViaGraphQLProvider () =
+        printfn "---------------------------------------------"
+        printfn "Invalid calls Via GraphQLProvider:"
+        printfn "---------------------------------------------"
+        
+        //getRegistriByIsbn "123"
+        
+        let bibliotekoId = "aaa"
+        let petskribo = BiblProvider.Types.InputPetskribo(id = "111", isbn = "222")
+        addPetskribo bibliotekoId petskribo
+        
+        let isbn = "123"
+        let recenzoId = "e3f5df8f-b8a5-461b-880a-facac7670848"
+        let recenzoKind = BiblProvider.Types.ReactionEnum.Classic
+        setReaction isbn recenzoId recenzoKind
+        
+        let isbn = "111"
+        let recenzoId = "e8f5df8f-b8a5-461b-880a-facac7670848"
+        let comment = "It is so gripping and cool"
+        setComment isbn recenzoId comment
+
+        let recenzoId = "123"
+        removeComment recenzoId
+        removeReaction recenzoId
 
     let callViaGraphQLProvider () =
         printfn "---------------------------------------------"
@@ -202,7 +289,8 @@ module Main =
 
     [<EntryPoint>]
     let main argv =
-          callViaGraphQLProvider ()
+          invalidCallsViaGraphQLProvider()
+          //callViaGraphQLProvider ()
           //callViaGraphQLClient ()
           System.Console.ReadKey () |> ignore
           0 // return an integer exit code
