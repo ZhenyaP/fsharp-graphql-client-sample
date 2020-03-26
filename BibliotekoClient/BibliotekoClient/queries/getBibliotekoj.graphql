@@ -1,4 +1,4 @@
-﻿query getBibliotekos {
+﻿query getBibliotekoj {
   bibliotekoj {
     id
     content {

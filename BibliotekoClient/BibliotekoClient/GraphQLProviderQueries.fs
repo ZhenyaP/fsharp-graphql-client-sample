@@ -1,9 +1,6 @@
 ﻿ //Learn more about F# at http://fsharp.org
 namespace BibliotekoClient
 
-open Newtonsoft.Json.Linq
-open Newtonsoft.Json
-open System
 open Domain
 open GraphQLProviderCommon
 open Chessie.ErrorHandling
@@ -15,7 +12,7 @@ module GraphQLProviderQueries =
     let getRegistrijOperation = BiblProvider.Operation<"queries/getRegistrij.graphql">()  
 
     let getRecenzoContentFromRecenzoEntityForGetBibliotekos
-        (recenzoEntity: BiblProvider.Operations.GetBibliotekos.Types.BibliotekosFields.ContentFields.RegistriFields.RecenzosFields.Recenzo) 
+        (recenzoEntity: BiblProvider.Operations.GetBibliotekoj.Types.BibliotekojFields.ContentFields.RegistriFields.RecenzojFields.Recenzo) 
         : RecenzoContent =
         let recenzoContent: RecenzoContent =
             match recenzoEntity.Content.IsReaction(), recenzoEntity.Content.IsComment(), recenzoEntity.Content.IsReactionAndComment() with
@@ -33,7 +30,7 @@ module GraphQLProviderQueries =
         recenzoContent
 
     let getRecenzoContentFromRecenzoEntityForGetRegistriByIsbn
-        (recenzoEntity: BiblProvider.Operations.GetRegistriByIsbn.Types.RegistriFields.RecenzosFields.Recenzo) 
+        (recenzoEntity: BiblProvider.Operations.GetRegistriByIsbn.Types.RegistriFields.RecenzojFields.Recenzo) 
         : RecenzoContent =
         let recenzoContent: RecenzoContent =
             match recenzoEntity.Content.IsReaction(), recenzoEntity.Content.IsComment(), recenzoEntity.Content.IsReactionAndComment() with
@@ -51,7 +48,7 @@ module GraphQLProviderQueries =
         recenzoContent
 
     let getRecenzoContentFromRecenzoEntityForGetRegistris
-        (recenzoEntity: BiblProvider.Operations.GetRegistris.Types.RegistrisFields.RecenzosFields.Recenzo) 
+        (recenzoEntity: BiblProvider.Operations.GetRegistrij.Types.RegistrijFields.RecenzojFields.Recenzo) 
         : RecenzoContent =
         let recenzoContent: RecenzoContent =
             match recenzoEntity.Content.IsReaction(), recenzoEntity.Content.IsComment(), recenzoEntity.Content.IsReactionAndComment() with
@@ -76,14 +73,14 @@ module GraphQLProviderQueries =
                                                             //isbn = "978-1617291326"
                                                         )
             if result.Errors.Length > 0 then failwith (sprintf "getRegistriByIsbn query operation failed with error: %A\n" result.Errors)
-            let registriEntity = result.Data.Value.Registri.Value
+            let registriEntity = result.Data.Value.Registri
             //TODO: Make GraphQLProvider generate Guid .NET type for GraphQL field with ID type
             // to avoid casting string to Guid
             let registri = { Id = registriEntity.Id |> System.Guid.Parse
                              ISBN = registriEntity.Isbn
                              Title = registriEntity.Title
                              Authors = registriEntity.Authors |> Array.toList
-                             Recenzos = registriEntity.Recenzos 
+                             Recenzos = registriEntity.Recenzoj 
                              |> Array.map(
                                  fun recenzoEntity ->
                                      {
@@ -103,7 +100,7 @@ module GraphQLProviderQueries =
             use runtimeContext = getContext()
             let! result = getRegistrijOperation.AsyncRun(runtimeContext)
             if result.Errors.Length > 0 then failwith (sprintf "getRegistris query operation failed with error: %A\n" result.Errors)
-            let registriEntities = result.Data.Value.Registris
+            let registriEntities = result.Data.Value.Registrij
             let registries = registriEntities |> Array.map(fun registriEntity ->
             //TODO: Make GraphQLProvider generate Guid .NET type for GraphQL field with ID type
             // to avoid casting string to Guid
@@ -111,7 +108,7 @@ module GraphQLProviderQueries =
                                 ISBN = registriEntity.Isbn
                                 Title = registriEntity.Title
                                 Authors = registriEntity.Authors |> Array.toList
-                                Recenzos = registriEntity.Recenzos 
+                                Recenzos = registriEntity.Recenzoj 
                                 |> Array.map(
                                     fun recenzoEntity ->
                                         {
@@ -131,7 +128,7 @@ module GraphQLProviderQueries =
         async {
             use runtimeContext = getContext()
             let! result = getBibliotekojOperation.AsyncRun(runtimeContext)
-            let bibliotekos = result.Data.Value.Bibliotekos |> Array.map(fun bibliotekoEntity ->
+            let bibliotekos = result.Data.Value.Bibliotekoj |> Array.map(fun bibliotekoEntity ->
                             {   
                                 Id = bibliotekoEntity.Id |> System.Guid.Parse
                                 Address = { 
@@ -153,7 +150,7 @@ module GraphQLProviderQueries =
                                                         ISBN = registriEntity.Isbn
                                                         Title = registriEntity.Title
                                                         Authors = registriEntity.Authors |> Array.toList
-                                                        Recenzos = registriEntity.Recenzos 
+                                                        Recenzos = registriEntity.Recenzoj 
                                                                     |> Array.map(
                                                                         fun recenzoEntity ->
                                                                             {

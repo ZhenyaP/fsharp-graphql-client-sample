@@ -1,4 +1,4 @@
-﻿query getRegistris {
+﻿query getRegistrij {
     registrij {
         id
         isbn
