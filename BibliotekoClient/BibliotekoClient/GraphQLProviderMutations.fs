@@ -20,13 +20,9 @@ module GraphQLProviderMutations =
                                       : Async<bool> =
         async {
             use runtimeContext = getContext()            
-            let! result = addPetskriboOperation.AsyncRun(runtimeContext,
+            let! _ = addPetskriboOperation.AsyncRun(runtimeContext,
                                             bibliotekoId = bibliotekoId,
                                             petskribo = petskribo,
-                                            //bibliotekoId = "b5a21dc6-8a84-4ce2-8563-74a118449693",
-                                            //petskribo = BiblProvider.Types.InputPetskribo(
-                                            //            id = "c894880c-4f74-423f-b0eb-80381e586ea9",
-                                            //            isbn = "978-1680502541"),
                                             uzantoId = ""
                                            )
             return true
@@ -62,40 +58,15 @@ module GraphQLProviderMutations =
                                                         isbn = isbn,
                                                         recenzoId = recenzoId,
                                                         reactionKind = reactionKind,
-                                                        //isbn = "978-1617291326",
-                                                        //recenzoId = "67e8d007-002c-4541-9ca8-0983780cc4d6",
-                                                        //reactionKind = BiblProvider.Types.ReactionEnum.LoveIt,
                                                         uzantoId = "")  //userId variable value is set in GraphQL server
             let recenzoEntity = result.Data.Value.SetReaction
-            //let reactionName = recenzoEntity.Content.AsReaction().Reaction.GetName()
-            let reactionName = recenzoEntity.Content.AsReaction().Reaction.GetValue()
+            let reactionName = 
+                match recenzoEntity.Content with
+                | c when c.IsReaction() -> c.AsReaction().Reaction.GetValue()
+                | c when c.IsReactionAndComment() -> c.AsReactionAndComment().Reaction.GetValue()
+                | _ -> raise <| System.NotSupportedException ()
             let reaction = Enum.Parse(typedefof<Reaction>, reactionName) :?> Reaction
 
-                //match recenzoEntity.Content with 
-                //    | c when c.IsComment() -> 
-                //        let result = Comment (Comment.create (c.AsComment().Comment) |> returnOrFail)
-                //        result
-                //    | c when c.IsReaction() ->
-                //        let reactionName = c.AsReaction().Reaction.GetName()
-                //        let reaction = Enum.Parse(typedefof<Reaction>, reactionName) :?> Reaction
-                //            //match reactionEntity.GetName() with
-                //            //    | BiblProvider.Types.ReactionEnum.Boring -> Reaction.Boring
-                //            //    | BiblProvider.Types.ReactionEnum.Classic -> Reaction.Classic
-                //            //    | BiblProvider.Types.ReactionEnum.Gripping -> Reaction.Gripping
-                //            //    | BiblProvider.Types.ReactionEnum.Inspiring -> Reaction.Inspiring
-                //            //    | BiblProvider.Types.ReactionEnum.LoveIt -> Reaction.LoveIt
-                //            //    | BiblProvider.Types.ReactionEnum.Moving -> Reaction.Moving
-                //        let result = Reaction reaction
-
-                //        result
-                //    | c when c.IsReactionAndComment() ->
-                //        let reactionAndCommentEntity = c.AsReactionAndComment()
-                //        let comment = Comment.create (reactionAndCommentEntity.Comment) |> returnOrFail
-                //        let reactionName = reactionAndCommentEntity.Reaction.GetName()
-                //        let reaction = Enum.Parse(typedefof<Reaction>, reactionName) :?> Reaction
-                //        let result = ReactionAndComment (reaction, comment)
-
-                //        result
             let recenzo = 
                 { 
                     Id = recenzoEntity.Id |> System.Guid.Parse
@@ -118,7 +89,12 @@ module GraphQLProviderMutations =
                                                         comment = comment,
                                                         uzantoId = "")  //userId variable value is set in GraphQL server
             let recenzoEntity = result.Data.Value.SetComment
-            let comment = Comment.create (recenzoEntity.Content.AsComment().Comment) |> returnOrFail
+            let commentText = 
+                match recenzoEntity.Content with
+                | c when c.IsComment() -> c.AsComment().Comment
+                | c when c.IsReactionAndComment() -> c.AsReactionAndComment().Comment
+                | _ -> raise <| System.NotSupportedException ()
+            let comment = Comment.create commentText |> returnOrFail
 
             let recenzo = 
                 { 
@@ -135,7 +111,6 @@ module GraphQLProviderMutations =
             use runtimeContext = getContext()
             let! result = removeReactionOperation.AsyncRun(runtimeContext,
                             recenzoId = recenzoId
-                            //recenzoId = "67e8d007-002c-4541-9ca8-0983780cc4d6"
             )
             
             return result.Data.Value.RemoveReaction
@@ -146,7 +121,6 @@ module GraphQLProviderMutations =
             use runtimeContext = getContext()
             let! result = removeCommentOperation.AsyncRun(runtimeContext,
                                     recenzoId = recenzoId
-                                    //recenzoId = "67e8d007-002c-4541-9ca8-0983780cc4d6"
                                     )
             
             return result.Data.Value.RemoveComment
@@ -157,7 +131,6 @@ module GraphQLProviderMutations =
             use runtimeContext = getContext()
             let! result = removeRecenzoOperation.AsyncRun(runtimeContext,
                                     recenzoId = recenzoId
-                                    //recenzoId = "67e8d007-002c-4541-9ca8-0983780cc4d6"
                                     )
             
             return result.Data.Value.RemoveRecenzo
