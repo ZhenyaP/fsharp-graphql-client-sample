@@ -5,9 +5,14 @@ open Newtonsoft.Json
 
 module Helpers =
 
-    let checkForErrors(result:OperationResultBase) (operationName:string) =
-        if result.Errors.Length > 0 then printf "%s operation failed with error: %A\n" operationName result.Errors
-        if result.CustomData.Count > 0 then printf "%s operation failed with error: %A\n" operationName result.CustomData
+    let checkForErrors(result:OperationResultBase) (operationName:string) : bool =
+        if result.Errors.Length > 0 then 
+            printf "%s operation failed with error: %A\n" operationName result.Errors
+            true
+        elif result.CustomData.Count > 0 then 
+            printf "%s operation failed with error: %A\n" operationName result.CustomData
+            true
+        else false
 
     let prettifyJson (object:obj) =
         let json = JsonConvert.SerializeObject(object, Formatting.Indented)

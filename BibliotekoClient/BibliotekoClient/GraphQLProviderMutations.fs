@@ -18,7 +18,7 @@ module GraphQLProviderMutations =
 
     let asyncAddPetskriboToBiblioteko (bibliotekoId : string) 
                                       (petskribo : BiblProvider.Types.InputPetskribo) 
-                                      : Async<bool> =
+                                      : Async<bool voption> =
         async {
             use runtimeContext = getContext()            
             let! result = addPetskriboOperation.AsyncRun(runtimeContext,
@@ -26,34 +26,14 @@ module GraphQLProviderMutations =
                                             petskribo = petskribo,
                                             uzantoId = ""
                                            )
-            checkForErrors result "addPetskribo"
-            return true
-            //let petskriboEntity = result.Data.Value.AddPetskribo.Value
-            //let registriEntity = petskriboEntity.Registri
-            //let registri = 
-            //    {   
-            //        Id = registriEntity.Id |> System.Guid.Parse
-            //        ISBN = registriEntity.Isbn
-            //        Title = registriEntity.Title
-            //        Authors = registriEntity.Authors |> Array.toList
-            //        Summary = registriEntity.Summary
-            //        ImageURL = registriEntity.Imageurl 
-            //    }
-            //let petskribo = 
-            //    {
-            //        Id = petskriboEntity.Id |> System.Guid.Parse
-            //        Registri = registri
-            //        Logbook = petskriboEntity.Logbook |> Array.toList
-            //        Owner = petskriboEntity.Owner |> System.Guid.Parse
-            //    }
-
-            //return petskribo
+            if checkForErrors result "addPetskribo" then return ValueNone
+            else return ValueSome true
         }
 
     let asyncSetReaction (isbn : string) 
                          (recenzoId : string) 
                          (reactionKind : BiblProvider.Types.ReactionEnum)
-                         : Async<Recenzo> =
+                         : Async<Recenzo voption> =
         async {
             use runtimeContext = getContext()
             let! result = setReactionOperation.AsyncRun(runtimeContext,
@@ -61,23 +41,24 @@ module GraphQLProviderMutations =
                                                         recenzoId = recenzoId,
                                                         reactionKind = reactionKind,
                                                         uzantoId = "")  //userId variable value is set in GraphQL server
-            checkForErrors result "setReaction"
-            let recenzoEntity = result.Data.Value.SetReaction
-            let reactionName = 
-                match recenzoEntity.Content with
-                | c when c.IsReaction() -> c.AsReaction().Reaction.GetValue()
-                | c when c.IsReactionAndComment() -> c.AsReactionAndComment().Reaction.GetValue()
-                | _ -> raise <| System.NotSupportedException ()
-            let reaction = Enum.Parse(typedefof<Reaction>, reactionName) :?> Reaction
+            if checkForErrors result "setReaction" then return ValueNone
+            else
+                let recenzoEntity = result.Data.Value.SetReaction
+                let reactionName = 
+                    match recenzoEntity.Content with
+                    | c when c.IsReaction() -> c.AsReaction().Reaction.GetValue()
+                    | c when c.IsReactionAndComment() -> c.AsReactionAndComment().Reaction.GetValue()
+                    | _ -> raise <| System.NotSupportedException ()
+                let reaction = Enum.Parse(typedefof<Reaction>, reactionName) :?> Reaction
 
-            let recenzo = 
-                { 
-                    Id = recenzoEntity.Id |> System.Guid.Parse
-                    Recenzorer = recenzoEntity.Recenzorer
-                    Content = RecenzoContent.Reaction reaction
-                }
+                let recenzo = 
+                    { 
+                        Id = recenzoEntity.Id |> System.Guid.Parse
+                        Recenzorer = recenzoEntity.Recenzorer
+                        Content = RecenzoContent.Reaction reaction
+                    }
                 
-            return recenzo
+                return ValueSome recenzo
         }
 
     let asyncSetComment (isbn: string) 

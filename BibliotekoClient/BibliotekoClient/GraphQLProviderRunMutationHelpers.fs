@@ -21,8 +21,7 @@ module GraphQLProviderRunMutationHelpers =
         printfn "---------------------------------------------"
         printfn ""
         GraphQLProviderMutations.asyncSetReaction isbn recenzoId recenzoKind
-        |> Async.RunSynchronously 
-        
+        |> Async.RunSynchronously
         |> printfn "%A"
 
     let setComment(isbn:string) (recenzoId:string) (comment:string) =
