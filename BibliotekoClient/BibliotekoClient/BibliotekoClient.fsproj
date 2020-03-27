@@ -36,6 +36,8 @@
     <Compile Include="GraphQLProviderMutations.fs" />
     <Compile Include="GraphQLProviderQueries.fs" />
     <Compile Include="GraphQLClientRequests.fs" />
+    <Compile Include="GraphQLProviderRunQueryHelpers.fs" />
+    <Compile Include="GraphQLProviderRunMutationHelpers.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
