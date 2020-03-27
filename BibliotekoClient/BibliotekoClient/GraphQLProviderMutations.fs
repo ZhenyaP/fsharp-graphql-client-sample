@@ -64,7 +64,7 @@ module GraphQLProviderMutations =
     let asyncSetComment (isbn: string) 
                         (recenzoId: string) 
                         (comment: string) 
-                        : Async<Recenzo> =
+                        : Async<Recenzo voption> =
         async {
             use runtimeContext = getContext()
             let! result = setCommentOperation.AsyncRun(runtimeContext,
@@ -72,52 +72,53 @@ module GraphQLProviderMutations =
                                                         recenzoId = recenzoId,
                                                         comment = comment,
                                                         uzantoId = "")  //userId variable value is set in GraphQL server
-            checkForErrors result "setComment"
-            let recenzoEntity = result.Data.Value.SetComment
-            let commentText = 
-                match recenzoEntity.Content with
-                | c when c.IsComment() -> c.AsComment().Comment
-                | c when c.IsReactionAndComment() -> c.AsReactionAndComment().Comment
-                | _ -> raise <| System.NotSupportedException ()
-            let comment = Comment.create commentText |> returnOrFail
+            if checkForErrors result "setComment" then return ValueNone
+            else
+                let recenzoEntity = result.Data.Value.SetComment
+                let commentText = 
+                    match recenzoEntity.Content with
+                    | c when c.IsComment() -> c.AsComment().Comment
+                    | c when c.IsReactionAndComment() -> c.AsReactionAndComment().Comment
+                    | _ -> raise <| System.NotSupportedException ()
+                let comment = Comment.create commentText |> returnOrFail
 
-            let recenzo = 
-                { 
-                    Id = recenzoEntity.Id |> System.Guid.Parse
-                    Recenzorer = recenzoEntity.Recenzorer
-                    Content = Comment comment 
-                }
+                let recenzo = 
+                    { 
+                        Id = recenzoEntity.Id |> System.Guid.Parse
+                        Recenzorer = recenzoEntity.Recenzorer
+                        Content = Comment comment 
+                    }
                 
-            return recenzo
+                return ValueSome recenzo
         }
 
-    let asyncRemoveReaction (recenzoId: string) : Async<bool> =
+    let asyncRemoveReaction (recenzoId: string) : Async<bool voption> =
         async {
             use runtimeContext = getContext()
             let! result = removeReactionOperation.AsyncRun(runtimeContext,
                             recenzoId = recenzoId
             )
-            checkForErrors result "removeReaction"
-            return result.Data.Value.RemoveReaction
+            if checkForErrors result "removeReaction" then return ValueNone
+            else return ValueSome result.Data.Value.RemoveReaction
         }
 
 
-    let asyncRemoveComment (recenzoId: string) : Async<bool> =
+    let asyncRemoveComment (recenzoId: string) : Async<bool voption> =
         async {
             use runtimeContext = getContext()
             let! result = removeCommentOperation.AsyncRun(runtimeContext,
                                     recenzoId = recenzoId
                                     )
-            checkForErrors result "removeComment"
-            return result.Data.Value.RemoveComment
+            if checkForErrors result "removeComment" then return ValueNone
+            else return ValueSome result.Data.Value.RemoveComment
         }
 
-    let asyncRemoveRecenzo (recenzoId: string) : Async<bool> =
+    let asyncRemoveRecenzo (recenzoId: string) : Async<bool voption> =
         async {
             use runtimeContext = getContext()
             let! result = removeRecenzoOperation.AsyncRun(runtimeContext,
                                     recenzoId = recenzoId
                                     )
-            checkForErrors result "removeRecenzo"
-            return result.Data.Value.RemoveRecenzo
+            if checkForErrors result "removeRecenzo" then return ValueNone
+            else return ValueSome result.Data.Value.RemoveRecenzo
         }
