@@ -6,13 +6,20 @@ open Newtonsoft.Json
 module Helpers =
 
     let checkForErrors(result:OperationResultBase) (operationName:string) : bool =
+        let customDataErrorKey (result: OperationResultBase) =
+            let errorKey = result.CustomData
+                           |> Map.tryFindKey (fun k _ -> k.StartsWith("Error "))
+            errorKey
+
         if result.Errors.Length > 0 then
             printf "%s operation failed with error: %A\n" operationName result.Errors
             true
-        elif result.CustomData.Count > 0 then
-            printf "%s operation failed with error: %A\n" operationName result.CustomData
-            true
-        else false
+        else
+            let errorKey = customDataErrorKey result
+            if errorKey.IsSome then
+                printf "%s operation failed with error: %A\n" operationName result.CustomData
+                true
+            else false
 
     let prettifyJson (object:obj) =
         let json = JsonConvert.SerializeObject(object, Formatting.Indented)

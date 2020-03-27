@@ -10,14 +10,14 @@ open Helpers
 
 module Main =
 
-    let [<Literal>] beforeAddPetskribo = "Before addPetskribo mutation"
-    let [<Literal>] afterAddPetskribo = "After addPetskribo mutation"
-    let [<Literal>] afterSetReaction = "After setReaction mutation"
-    let [<Literal>] afterSetComment = "After setComment mutations"
-    let [<Literal>] afterSetReactionAndComment = "After setReaction/setComment mutations"
-    let [<Literal>] afterRemoveReaction = "After removeReaction mutation"
-    let [<Literal>] afterRemoveComment = "After removeComment mutation"
-    let [<Literal>] afterRemoveRecenzo = "After removeRecenzo mutation"
+    let [<Literal>] beforeAddPetskribo = " - before addPetskribo mutation"
+    let [<Literal>] afterAddPetskribo = " - after addPetskribo mutation"
+    let [<Literal>] afterSetReaction = " - after setReaction mutation"
+    let [<Literal>] afterSetComment = " - after setComment mutations"
+    let [<Literal>] afterSetReactionAndComment = " - after setReaction/setComment mutations"
+    let [<Literal>] afterRemoveReaction = " - after removeReaction mutation"
+    let [<Literal>] afterRemoveComment = " - after removeComment mutation"
+    let [<Literal>] afterRemoveRecenzo = " - after removeRecenzo mutation"
 
     let invalidCallsViaGraphQLProvider () =
         printHeader "Invalid calls Via GraphQLProvider:"
@@ -141,8 +141,8 @@ module Main =
 
     [<EntryPoint>]
     let main argv =
-          invalidCallsViaGraphQLProvider()
-          //callViaGraphQLProvider ()
+          //invalidCallsViaGraphQLProvider()
+          callViaGraphQLProvider ()
           //callViaGraphQLClient ()
           System.Console.ReadKey () |> ignore
           0 // return an integer exit code
