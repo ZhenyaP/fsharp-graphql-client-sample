@@ -6,10 +6,10 @@ open Newtonsoft.Json
 module Helpers =
 
     let checkForErrors(result:OperationResultBase) (operationName:string) : bool =
-        if result.Errors.Length > 0 then 
+        if result.Errors.Length > 0 then
             printf "%s operation failed with error: %A\n" operationName result.Errors
             true
-        elif result.CustomData.Count > 0 then 
+        elif result.CustomData.Count > 0 then
             printf "%s operation failed with error: %A\n" operationName result.CustomData
             true
         else false
@@ -18,7 +18,7 @@ module Helpers =
         let json = JsonConvert.SerializeObject(object, Formatting.Indented)
         json
 
-    let printHeader (headerText : string) = 
+    let printHeader (headerText : string) =
         printfn "---------------------------------------------"
         printfn "%s" headerText
         printfn "---------------------------------------------"

@@ -16,11 +16,11 @@ module GraphQLProviderMutations =
     let removeCommentOperation = BiblProvider.Operation<"queries/removeComment.graphql">()
     let removeRecenzoOperation = BiblProvider.Operation<"queries/removeRecenzo.graphql">()
 
-    let asyncAddPetskriboToBiblioteko (bibliotekoId : string) 
-                                      (petskribo : BiblProvider.Types.InputPetskribo) 
+    let asyncAddPetskriboToBiblioteko (bibliotekoId : string)
+                                      (petskribo : BiblProvider.Types.InputPetskribo)
                                       : Async<bool voption> =
         async {
-            use runtimeContext = getContext()            
+            use runtimeContext = getContext()
             let! result = addPetskriboOperation.AsyncRun(runtimeContext,
                                             bibliotekoId = bibliotekoId,
                                             petskribo = petskribo,
@@ -30,8 +30,8 @@ module GraphQLProviderMutations =
             else return ValueSome true
         }
 
-    let asyncSetReaction (isbn : string) 
-                         (recenzoId : string) 
+    let asyncSetReaction (isbn : string)
+                         (recenzoId : string)
                          (reactionKind : BiblProvider.Types.ReactionEnum)
                          : Async<Recenzo voption> =
         async {
@@ -44,26 +44,26 @@ module GraphQLProviderMutations =
             if checkForErrors result "setReaction" then return ValueNone
             else
                 let recenzoEntity = result.Data.Value.SetReaction
-                let reactionName = 
+                let reactionName =
                     match recenzoEntity.Content with
                     | c when c.IsReaction() -> c.AsReaction().Reaction.GetValue()
                     | c when c.IsReactionAndComment() -> c.AsReactionAndComment().Reaction.GetValue()
                     | _ -> raise <| System.NotSupportedException ()
                 let reaction = Enum.Parse(typedefof<Reaction>, reactionName) :?> Reaction
 
-                let recenzo = 
-                    { 
+                let recenzo =
+                    {
                         Id = recenzoEntity.Id |> System.Guid.Parse
                         Recenzorer = recenzoEntity.Recenzorer
                         Content = RecenzoContent.Reaction reaction
                     }
-                
+
                 return ValueSome recenzo
         }
 
-    let asyncSetComment (isbn: string) 
-                        (recenzoId: string) 
-                        (comment: string) 
+    let asyncSetComment (isbn: string)
+                        (recenzoId: string)
+                        (comment: string)
                         : Async<Recenzo voption> =
         async {
             use runtimeContext = getContext()
@@ -75,20 +75,20 @@ module GraphQLProviderMutations =
             if checkForErrors result "setComment" then return ValueNone
             else
                 let recenzoEntity = result.Data.Value.SetComment
-                let commentText = 
+                let commentText =
                     match recenzoEntity.Content with
                     | c when c.IsComment() -> c.AsComment().Comment
                     | c when c.IsReactionAndComment() -> c.AsReactionAndComment().Comment
                     | _ -> raise <| System.NotSupportedException ()
                 let comment = Comment.create commentText |> returnOrFail
 
-                let recenzo = 
-                    { 
+                let recenzo =
+                    {
                         Id = recenzoEntity.Id |> System.Guid.Parse
                         Recenzorer = recenzoEntity.Recenzorer
-                        Content = Comment comment 
+                        Content = Comment comment
                     }
-                
+
                 return ValueSome recenzo
         }
 

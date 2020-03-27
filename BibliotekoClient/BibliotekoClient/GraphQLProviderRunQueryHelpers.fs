@@ -1,31 +1,23 @@
 ﻿namespace BibliotekoClient
 
+open Helpers
+
 module GraphQLProviderRunQueryHelpers =
 
-    let getRegistriByIsbn (isbn:string) =
-        printfn ""
-        printfn "Registri By ISBN:"
-        printfn "---------------------------------------------"
-        GraphQLProviderQueries.asyncQueryRegistriByIsbn isbn 
-        |> Async.RunSynchronously 
+    let getRegistriByIsbn (isbn:string) (extraHeaderText: string) =
+        printHeader (sprintf "Registri query%s:" extraHeaderText)
+        GraphQLProviderQueries.asyncQueryRegistriByIsbn isbn
+        |> Async.RunSynchronously
         |> printfn "%A"
 
-    let getRegistrij () =
-        printfn ""
-        printfn "---------------------------------------------"
-        printfn "Registrij:"
-        printfn "---------------------------------------------"
-        printfn ""
+    let getRegistrij (extraHeaderText: string) =
+        printHeader (sprintf "Registrij query%s:" extraHeaderText)
         GraphQLProviderQueries.asyncQueryRegistrij ()
         |> Async.RunSynchronously
         |> printfn "%A"
 
-    let getBibliotekoj () =
-        printfn ""
-        printfn "---------------------------------------------"
-        printfn "Bibliotekos - Before addPetskribo mutation:"
-        printfn "---------------------------------------------"
-        printfn ""
+    let getBibliotekoj (extraHeaderText: string) =
+        printHeader (sprintf "Bibliotekoj query%s:" extraHeaderText)
         GraphQLProviderQueries.asyncQueryBibliotekoj ()
             |> Async.RunSynchronously
             |> printfn "%A"
