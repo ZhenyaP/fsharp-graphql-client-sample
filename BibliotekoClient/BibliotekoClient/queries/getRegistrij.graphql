@@ -15,7 +15,7 @@
                     comment
                 }
                 ... on ReactionAndComment {
-                    reaction 
+                    reaction
                     comment
                 }
             }

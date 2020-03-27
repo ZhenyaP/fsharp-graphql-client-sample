@@ -958,7 +958,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "String",
+                      "name": "ISBN",
                       "ofType": null
                     }
                   },
@@ -1360,7 +1360,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "String",
+                  "name": "ISBN",
                   "ofType": null
                 }
               },
@@ -1426,6 +1426,16 @@
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "ISBN",
+          "description": "Bar code value (ISBN) of the book definition",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
         },
@@ -1912,7 +1922,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Boolean",
+                  "name": "Unit",
                   "ofType": null
                 }
               },
@@ -1943,7 +1953,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Boolean",
+                  "name": "Unit",
                   "ofType": null
                 }
               },
@@ -1974,7 +1984,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Boolean",
+                  "name": "Unit",
                   "ofType": null
                 }
               },
@@ -1993,7 +2003,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "String",
+                      "name": "ISBN",
                       "ofType": null
                     }
                   },
@@ -2066,7 +2076,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "String",
+                      "name": "ISBN",
                       "ofType": null
                     }
                   },
@@ -2234,15 +2244,29 @@
             },
             {
               "name": "isbn",
-              "description": null,
+              "description": "ISBN of the registri",
               "type": {
-                "kind": "SCALAR",
-                "name": "String",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "ISBN",
+                  "ofType": null
+                }
               },
-              "defaultValue": "ISBN of the registri"
+              "defaultValue": null
             }
           ],
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Unit",
+          "description": "Unit type",
+          "fields": null,
+          "inputFields": null,
           "interfaces": null,
           "enumValues": null,
           "possibleTypes": null
@@ -2335,6 +2359,6 @@
       ]
     }
   },
-  "documentId": 1295341504,
+  "documentId": 583751783,
   "requestType": "Classic"
 }

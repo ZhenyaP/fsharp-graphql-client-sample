@@ -60,7 +60,7 @@ fragment registriFields on Registri {
                 comment
             }
             ... on ReactionAndComment {
-                reaction 
+                reaction
                 comment
             }
         }

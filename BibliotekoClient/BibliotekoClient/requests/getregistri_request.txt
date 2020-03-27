@@ -1,4 +1,4 @@
-﻿query getRegistriByIsbn($isbn: String!) {
+﻿query getRegistriByIsbn($isbn: ISBN!) {
     registri(isbn: $isbn) {
         id
         isbn
@@ -15,7 +15,7 @@
                     comment
                 }
                 ... on ReactionAndComment {
-                    reaction 
+                    reaction
                     comment
                 }
             }

@@ -1,5 +1,5 @@
 ﻿mutation setComment(
-    $isbn: String!
+    $isbn: ISBN!
     $recenzoId: ID!
     $comment: String!
     $uzantoId: String!
@@ -10,7 +10,7 @@
         recenzoId: $recenzoId
         comment: $comment
         uzantoId: $uzantoId
-    ) 
+    )
     {
         id
         recenzorer
@@ -22,7 +22,7 @@
                 comment
             }
             ... on ReactionAndComment {
-                reaction 
+                reaction
                 comment
             }
         }
