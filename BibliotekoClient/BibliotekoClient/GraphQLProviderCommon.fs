@@ -8,5 +8,7 @@ module GraphQLProviderCommon =
     type BiblProvider = GraphQLProvider<"json/introspection.json">
 
     let getContext() =
-        let context = BiblProvider.GetContext(serverUrl = "http://localhost:7071/GraphQL")
+        let context = BiblProvider.GetContext(serverUrl = "https://bibliotekofunctions20200328112914.azurewebsites.net/GraphQL")
+        //let context = BiblProvider.GetContext(serverUrl = "https://brzfrebo.azurewebsites.net/GraphQL")
+        //let context = BiblProvider.GetContext(serverUrl = "http://localhost:7071/GraphQL")
         context
