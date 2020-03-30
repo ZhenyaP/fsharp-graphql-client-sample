@@ -2,13 +2,13 @@
     $bibliotekoId: String!
     $petskribo: InputPetskribo!
     $uzantoId: String!
-) 
+)
 {
     addPetskribo(
         bibliotekoId: $bibliotekoId
         petskribo: $petskribo
         uzantoId: $uzantoId
-    ) 
+    )
     {
         id
         registri {
@@ -27,7 +27,7 @@
                         comment
                     }
                     ... on ReactionAndComment {
-                        reaction 
+                        reaction
                         comment
                     }
                 }
