@@ -92,7 +92,7 @@ module GraphQLProviderMutations =
                 return ValueSome recenzo
         }
 
-    let asyncRemoveReaction (recenzoId: string) : Async<string voption> =
+    let asyncRemoveReaction (recenzoId: string) : Async<bool voption> =
         async {
             use runtimeContext = getContext()
             let! result = removeReactionOperation.AsyncRun(runtimeContext,
@@ -103,7 +103,7 @@ module GraphQLProviderMutations =
         }
 
 
-    let asyncRemoveComment (recenzoId: string) : Async<string voption> =
+    let asyncRemoveComment (recenzoId: string) : Async<bool voption> =
         async {
             use runtimeContext = getContext()
             let! result = removeCommentOperation.AsyncRun(runtimeContext,
@@ -113,7 +113,7 @@ module GraphQLProviderMutations =
             else return ValueSome result.Data.Value.RemoveComment
         }
 
-    let asyncRemoveRecenzo (recenzoId: string) : Async<string voption> =
+    let asyncRemoveRecenzo (recenzoId: string) : Async<bool voption> =
         async {
             use runtimeContext = getContext()
             let! result = removeRecenzoOperation.AsyncRun(runtimeContext,

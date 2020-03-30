@@ -1,5 +1,5 @@
 ﻿mutation setReaction(
-    $isbn: ISBN!
+    $isbn: String!
     $recenzoId: ID!
     $reactionKind: ReactionEnum!
     $uzantoId: String!

@@ -1,4 +1,4 @@
-﻿query getRegistriByIsbn($isbn: ISBN!) {
+﻿query getRegistriByIsbn($isbn: String!) {
     registri(isbn: $isbn) {
         id
         isbn
