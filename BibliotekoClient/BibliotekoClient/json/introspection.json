@@ -1,11 +1,96 @@
 ﻿{
   "data": {
     "__schema": {
-      "queryType": {
-        "name": "Query"
-      },
+      "directives": [
+        {
+          "name": "include",
+          "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
+          "args": [
+            {
+              "name": "if",
+              "description": "Included when true.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ]
+        },
+        {
+          "name": "skip",
+          "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
+          "args": [
+            {
+              "name": "if",
+              "description": "Skipped when true.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ],
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ]
+        },
+        {
+          "name": "defer",
+          "description": "Defers the resolution of this field or fragment",
+          "args": [],
+          "locations": [
+            "FIELD",
+            "FRAGMENT_DEFINITION",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ]
+        },
+        {
+          "name": "stream",
+          "description": "Streams the resolution of this field or fragment",
+          "args": [],
+          "locations": [
+            "FIELD",
+            "FRAGMENT_DEFINITION",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ]
+        },
+        {
+          "name": "live",
+          "description": "Subscribes for live updates of this field or fragment",
+          "args": [],
+          "locations": [
+            "FIELD",
+            "FRAGMENT_DEFINITION",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ]
+        }
+      ],
       "mutationType": {
         "name": "Mutation"
+      },
+      "queryType": {
+        "name": "Query"
       },
       "subscriptionType": null,
       "types": [
@@ -2271,94 +2356,9 @@
           "enumValues": null,
           "possibleTypes": null
         }
-      ],
-      "directives": [
-        {
-          "name": "include",
-          "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
-          "args": [
-            {
-              "name": "if",
-              "description": "Included when true.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "locations": [
-            "FIELD",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ]
-        },
-        {
-          "name": "skip",
-          "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
-          "args": [
-            {
-              "name": "if",
-              "description": "Skipped when true.",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              },
-              "defaultValue": null
-            }
-          ],
-          "locations": [
-            "FIELD",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ]
-        },
-        {
-          "name": "defer",
-          "description": "Defers the resolution of this field or fragment",
-          "args": [],
-          "locations": [
-            "FIELD",
-            "FRAGMENT_DEFINITION",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ]
-        },
-        {
-          "name": "stream",
-          "description": "Streams the resolution of this field or fragment",
-          "args": [],
-          "locations": [
-            "FIELD",
-            "FRAGMENT_DEFINITION",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ]
-        },
-        {
-          "name": "live",
-          "description": "Subscribes for live updates of this field or fragment",
-          "args": [],
-          "locations": [
-            "FIELD",
-            "FRAGMENT_DEFINITION",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ]
-        }
       ]
     }
   },
-  "documentId": -475556320,
+  "documentId": 1219006483,
   "requestType": "Classic"
 }
