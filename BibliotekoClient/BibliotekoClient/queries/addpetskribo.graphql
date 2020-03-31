@@ -1,7 +1,7 @@
 ﻿mutation addPetskriboToBiblioteko(
-    $bibliotekoId: String!
+    $bibliotekoId: BibliotekoID!
     $petskribo: InputPetskribo!
-    $uzantoId: String!
+    $uzantoId: UzantoID!
 )
 {
     addPetskribo(

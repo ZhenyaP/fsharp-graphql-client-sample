@@ -1,8 +1,8 @@
 ﻿mutation setComment(
     $isbn: ISBN!
-    $recenzoId: ID!
-    $comment: String!
-    $uzantoId: String!
+    $recenzoId: RecenzoID!
+    $comment: Comment!
+    $uzantoId: UzantoID!
 )
 {
     setComment(

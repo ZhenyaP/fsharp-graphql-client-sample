@@ -1,4 +1,4 @@
-﻿mutation removeComment($recenzoId: ID!)
+﻿mutation removeComment($recenzoId: RecenzoID!)
 {
     removeComment(recenzoId: $recenzoId)
 }
