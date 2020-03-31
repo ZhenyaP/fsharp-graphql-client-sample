@@ -16,12 +16,12 @@ module GraphQLProviderQueries =
         (recenzoEntity: BiblProvider.Operations.GetBibliotekoj.Types.BibliotekojFields.ContentFields.RegistriFields.RecenzojFields.Recenzo)
         : RecenzoContent =
         let recenzoContent: RecenzoContent =
-            match recenzoEntity.Content.IsReaction(), recenzoEntity.Content.IsComment(), recenzoEntity.Content.IsReactionAndComment() with
+            match recenzoEntity.Content.IsReaction(), recenzoEntity.Content.IsCommentOnly(), recenzoEntity.Content.IsReactionAndComment() with
                 | (true, _, _) ->
                     let reactionName = recenzoEntity.Content.AsReaction().Reaction.GetValue()
                     RecenzoContent.Reaction (Reaction.create reactionName)
                 | (_, true, _) ->
-                    let comment = recenzoEntity.Content.AsComment().Comment
+                    let comment = recenzoEntity.Content.AsCommentOnly().Comment
                     Comment (Comment.create comment |> returnOrFail)
                 | (_, _, true) ->
                     let reactionAndCommentEntity = recenzoEntity.Content.AsReactionAndComment()
@@ -34,12 +34,12 @@ module GraphQLProviderQueries =
         (recenzoEntity: BiblProvider.Operations.GetRegistriByIsbn.Types.RegistriFields.RecenzojFields.Recenzo)
         : RecenzoContent =
         let recenzoContent: RecenzoContent =
-            match recenzoEntity.Content.IsReaction(), recenzoEntity.Content.IsComment(), recenzoEntity.Content.IsReactionAndComment() with
+            match recenzoEntity.Content.IsReaction(), recenzoEntity.Content.IsCommentOnly(), recenzoEntity.Content.IsReactionAndComment() with
                 | (true, _, _) ->
                     let reactionName = recenzoEntity.Content.AsReaction().Reaction.GetValue()
                     RecenzoContent.Reaction (Reaction.create reactionName)
                 | (_, true, _) ->
-                    let comment = recenzoEntity.Content.AsComment().Comment
+                    let comment = recenzoEntity.Content.AsCommentOnly().Comment
                     Comment (Comment.create comment |> returnOrFail)
                 | (_, _, true) ->
                     let reactionAndCommentEntity = recenzoEntity.Content.AsReactionAndComment()
@@ -52,12 +52,12 @@ module GraphQLProviderQueries =
         (recenzoEntity: BiblProvider.Operations.GetRegistrij.Types.RegistrijFields.RecenzojFields.Recenzo)
         : RecenzoContent =
         let recenzoContent: RecenzoContent =
-            match recenzoEntity.Content.IsReaction(), recenzoEntity.Content.IsComment(), recenzoEntity.Content.IsReactionAndComment() with
+            match recenzoEntity.Content.IsReaction(), recenzoEntity.Content.IsCommentOnly(), recenzoEntity.Content.IsReactionAndComment() with
                 | (true, _, _) ->
                     let reactionName = recenzoEntity.Content.AsReaction().Reaction.GetValue()
                     RecenzoContent.Reaction (Reaction.create reactionName)
                 | (_, true, _) ->
-                    let comment = recenzoEntity.Content.AsComment().Comment
+                    let comment = recenzoEntity.Content.AsCommentOnly().Comment
                     Comment (Comment.create comment |> returnOrFail)
                 | (_, _, true) ->
                     let reactionAndCommentEntity = recenzoEntity.Content.AsReactionAndComment()

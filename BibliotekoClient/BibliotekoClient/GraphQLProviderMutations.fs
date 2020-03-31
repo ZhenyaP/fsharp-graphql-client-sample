@@ -77,7 +77,7 @@ module GraphQLProviderMutations =
                 let recenzoEntity = result.Data.Value.SetComment
                 let commentText =
                     match recenzoEntity.Content with
-                    | c when c.IsComment() -> c.AsComment().Comment
+                    | c when c.IsCommentOnly() -> c.AsCommentOnly().Comment
                     | c when c.IsReactionAndComment() -> c.AsReactionAndComment().Comment
                     | _ -> raise <| System.NotSupportedException ()
                 let comment = Comment.create commentText |> returnOrFail
