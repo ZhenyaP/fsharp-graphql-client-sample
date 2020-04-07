@@ -2,14 +2,12 @@
     $isbn: ISBN!
     $recenzoId: RecenzoID!
     $comment: Comment!
-    $uzantoId: UzantoID!
 )
 {
     setComment(
         isbn: $isbn
         recenzoId: $recenzoId
         comment: $comment
-        uzantoId: $uzantoId
     )
     {
         id

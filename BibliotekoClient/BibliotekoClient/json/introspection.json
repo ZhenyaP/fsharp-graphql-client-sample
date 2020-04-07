@@ -1,179 +1,93 @@
 ﻿{
   "data": {
     "__schema": {
-      "directives": [
-        {
-          "args": [
-            {
-              "defaultValue": null,
-              "description": "Included when true.",
-              "name": "if",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              }
-            }
-          ],
-          "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
-          "locations": [
-            "FIELD",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ],
-          "name": "include"
-        },
-        {
-          "args": [
-            {
-              "defaultValue": null,
-              "description": "Skipped when true.",
-              "name": "if",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Boolean",
-                  "ofType": null
-                }
-              }
-            }
-          ],
-          "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
-          "locations": [
-            "FIELD",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ],
-          "name": "skip"
-        },
-        {
-          "args": [],
-          "description": "Defers the resolution of this field or fragment",
-          "locations": [
-            "FIELD",
-            "FRAGMENT_DEFINITION",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ],
-          "name": "defer"
-        },
-        {
-          "args": [],
-          "description": "Streams the resolution of this field or fragment",
-          "locations": [
-            "FIELD",
-            "FRAGMENT_DEFINITION",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ],
-          "name": "stream"
-        },
-        {
-          "args": [],
-          "description": "Subscribes for live updates of this field or fragment",
-          "locations": [
-            "FIELD",
-            "FRAGMENT_DEFINITION",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ],
-          "name": "live"
-        }
-      ],
-      "mutationType": {
-        "name": "Mutation"
-      },
       "queryType": {
         "name": "Query"
+      },
+      "mutationType": {
+        "name": "Mutation"
       },
       "subscriptionType": null,
       "types": [
         {
-          "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
-          "enumValues": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
           "kind": "SCALAR",
           "name": "Int",
-          "possibleTypes": null
-        },
-        {
-          "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
-          "enumValues": null,
+          "description": "The `Int` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "SCALAR",
           "name": "String",
-          "possibleTypes": null
-        },
-        {
-          "description": "The `Boolean` scalar type represents `true` or `false`.",
-          "enumValues": null,
+          "description": "The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "SCALAR",
           "name": "Boolean",
-          "possibleTypes": null
-        },
-        {
-          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point).",
-          "enumValues": null,
+          "description": "The `Boolean` scalar type represents `true` or `false`.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "SCALAR",
           "name": "Float",
-          "possibleTypes": null
-        },
-        {
-          "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
-          "enumValues": null,
+          "description": "The `Float` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point).",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "SCALAR",
           "name": "ID",
-          "possibleTypes": null
-        },
-        {
-          "description": "The `Date` scalar type represents a Date value with Time component. The Date type appears in a JSON response as a String representation compatible with ISO-8601 format.",
-          "enumValues": null,
+          "description": "The `ID` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as `\"4\"`) or integer (such as `4`) input value will be accepted as an ID.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "SCALAR",
           "name": "Date",
-          "possibleTypes": null
-        },
-        {
-          "description": "The `URI` scalar type represents a string resource identifier compatible with URI standard. The URI type appears in a JSON response as a String.",
-          "enumValues": null,
+          "description": "The `Date` scalar type represents a Date value with Time component. The Date type appears in a JSON response as a String representation compatible with ISO-8601 format.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
-          "kind": "SCALAR",
-          "name": "URI",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
-          "description": "A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all available types and directives on the server, as well as the entry points for query, mutation, and subscription operations.",
+          "kind": "SCALAR",
+          "name": "URI",
+          "description": "The `URI` scalar type represents a string resource identifier compatible with URI standard. The URI type appears in a JSON response as a String.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "__Schema",
+          "description": "A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all available types and directives on the server, as well as the entry points for query, mutation, and subscription operations.",
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "A list of all directives supported by this server.",
-              "isDeprecated": false,
               "name": "directives",
+              "description": "A list of all directives supported by this server.",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -190,26 +104,26 @@
                     }
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "If this server supports mutation, the type that mutation operations will be rooted at.",
-              "isDeprecated": false,
               "name": "mutationType",
+              "description": "If this server supports mutation, the type that mutation operations will be rooted at.",
+              "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "__Type",
                 "ofType": null
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "The type that query operations will be rooted at.",
-              "isDeprecated": false,
               "name": "queryType",
+              "description": "The type that query operations will be rooted at.",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -218,26 +132,26 @@
                   "name": "__Type",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "If this server support subscription, the type that subscription operations will be rooted at.",
-              "isDeprecated": false,
               "name": "subscriptionType",
+              "description": "If this server support subscription, the type that subscription operations will be rooted at.",
+              "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "__Type",
                 "ofType": null
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "A list of all types supported by this server.",
-              "isDeprecated": false,
               "name": "types",
+              "description": "A list of all types supported by this server.",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -254,25 +168,25 @@
                     }
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "__Schema",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "__Directive",
           "description": "A Directive provides a way to describe alternate runtime execution and type validation behavior in a GraphQL document. In some cases, you need to provide options to alter GraphQL’s execution behavior in ways field arguments will not suffice, such as conditionally including or skipping a field. Directives provide this by describing additional information to the executor.",
-          "enumValues": null,
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "args",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -289,26 +203,26 @@
                     }
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "description",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "locations",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -325,14 +239,14 @@
                     }
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "name",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -341,14 +255,14 @@
                   "name": "String",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "onField",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -357,14 +271,14 @@
                   "name": "Boolean",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "onFragment",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -373,14 +287,14 @@
                   "name": "Boolean",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "onOperation",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -389,49 +303,49 @@
                   "name": "Boolean",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "__Directive",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "__InputValue",
           "description": "Arguments provided to Fields or Directives and the input fields of an InputObject are represented as Input Values which describe their type and optionally a default value.",
-          "enumValues": null,
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "defaultValue",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "description",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "name",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -440,14 +354,14 @@
                   "name": "String",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "type",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -456,48 +370,48 @@
                   "name": "__Type",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "__InputValue",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "__Type",
           "description": "The fundamental unit of any GraphQL Schema is the type. There are many kinds of types in GraphQL as represented by the `__TypeKind` enum. Depending on the kind of a type, certain fields describe information about that type. Scalar types provide no information beyond a name and description, while Enum types provide their values. Object and Interface types provide the fields they describe. Abstract types, Union and Interface, provide the Object types possible at runtime. List and NonNull types compose other types.",
-          "enumValues": null,
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "description",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
+              "name": "enumValues",
+              "description": null,
               "args": [
                 {
-                  "defaultValue": "False",
-                  "description": null,
                   "name": "includeDeprecated",
+                  "description": null,
                   "type": {
                     "kind": "SCALAR",
                     "name": "Boolean",
                     "ofType": null
-                  }
+                  },
+                  "defaultValue": "False"
                 }
               ],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
-              "name": "enumValues",
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -510,25 +424,25 @@
                     "ofType": null
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
+              "name": "fields",
+              "description": null,
               "args": [
                 {
-                  "defaultValue": "False",
-                  "description": null,
                   "name": "includeDeprecated",
+                  "description": null,
                   "type": {
                     "kind": "SCALAR",
                     "name": "Boolean",
                     "ofType": null
-                  }
+                  },
+                  "defaultValue": "False"
                 }
               ],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
-              "name": "fields",
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -541,14 +455,14 @@
                     "ofType": null
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "inputFields",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -561,14 +475,14 @@
                     "ofType": null
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "interfaces",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -581,14 +495,14 @@
                     "ofType": null
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "kind",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -597,38 +511,38 @@
                   "name": "__TypeKind",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "name",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "ofType",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "OBJECT",
                 "name": "__Type",
                 "ofType": null
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "possibleTypes",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "LIST",
                 "name": null,
@@ -641,49 +555,49 @@
                     "ofType": null
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "__Type",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "__EnumValue",
           "description": "One possible value for a given Enum. Enum values are unique values, not a placeholder for a string or numeric value. However an Enum value is returned in a JSON response as a string.",
-          "enumValues": null,
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "deprecationReason",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "description",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "isDeprecated",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -692,14 +606,14 @@
                   "name": "Boolean",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "name",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -708,25 +622,25 @@
                   "name": "String",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "__EnumValue",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "__Field",
           "description": "Object and Interface types are described by a list of Fields, each of which has a name, potentially a list of arguments, and a return type.",
-          "enumValues": null,
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "args",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -743,38 +657,38 @@
                     }
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "deprecationReason",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "description",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "SCALAR",
                 "name": "String",
                 "ofType": null
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "isDeprecated",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -783,14 +697,14 @@
                   "name": "Boolean",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "name",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -799,14 +713,14 @@
                   "name": "String",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": null,
-              "isDeprecated": false,
               "name": "type",
+              "description": null,
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -815,203 +729,203 @@
                   "name": "__Type",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "__Field",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
-          "description": "An enum describing what kind of type a given __Type is.",
-          "enumValues": [
-            {
-              "deprecationReason": null,
-              "description": "Indicates this type is a scalar.",
-              "isDeprecated": false,
-              "name": "SCALAR"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Indicates this type is an object. `fields` and `interfaces` are valid fields.",
-              "isDeprecated": false,
-              "name": "OBJECT"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Indicates this type is an interface. `fields` and `possibleTypes` are valid fields.",
-              "isDeprecated": false,
-              "name": "INTERFACE"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Indicates this type is a union. `possibleTypes` is a valid field.",
-              "isDeprecated": false,
-              "name": "UNION"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Indicates this type is an enum. `enumValues` is a valid field.",
-              "isDeprecated": false,
-              "name": "ENUM"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Indicates this type is an input object. `inputFields` is a valid field.",
-              "isDeprecated": false,
-              "name": "INPUT_OBJECT"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Indicates this type is a list. `ofType` is a valid field.",
-              "isDeprecated": false,
-              "name": "LIST"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Indicates this type is a non-null. `ofType` is a valid field.",
-              "isDeprecated": false,
-              "name": "NON_NULL"
-            }
-          ],
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
           "kind": "ENUM",
           "name": "__TypeKind",
-          "possibleTypes": null
-        },
-        {
-          "description": "A Directive can be adjacent to many parts of the GraphQL language, a __DirectiveLocation describes one such possible adjacencies.",
-          "enumValues": [
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to a query operation.",
-              "isDeprecated": false,
-              "name": "QUERY"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to a mutation operation.",
-              "isDeprecated": false,
-              "name": "MUTATION"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to a subscription operation.",
-              "isDeprecated": false,
-              "name": "SUBSCRIPTION"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to a field.",
-              "isDeprecated": false,
-              "name": "FIELD"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to a fragment definition.",
-              "isDeprecated": false,
-              "name": "FRAGMENT_DEFINITION"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to a fragment spread.",
-              "isDeprecated": false,
-              "name": "FRAGMENT_SPREAD"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to an inline fragment.",
-              "isDeprecated": false,
-              "name": "INLINE_FRAGMENT"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to a schema IDL definition.",
-              "isDeprecated": false,
-              "name": "SCHEMA"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to a scalar IDL definition.",
-              "isDeprecated": false,
-              "name": "SCALAR"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to an object IDL definition.",
-              "isDeprecated": false,
-              "name": "OBJECT"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to a field IDL definition.",
-              "isDeprecated": false,
-              "name": "FIELD_DEFINITION"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to a field argument IDL definition.",
-              "isDeprecated": false,
-              "name": "ARGUMENT_DEFINITION"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to an interface IDL definition.",
-              "isDeprecated": false,
-              "name": "INTERFACE"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to an union IDL definition.",
-              "isDeprecated": false,
-              "name": "UNION"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to an enum IDL definition.",
-              "isDeprecated": false,
-              "name": "ENUM"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to an enum value definition.",
-              "isDeprecated": false,
-              "name": "ENUM_VALUE"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to an input object IDL definition.",
-              "isDeprecated": false,
-              "name": "INPUT_OBJECT"
-            },
-            {
-              "deprecationReason": null,
-              "description": "Location adjacent to an input object field IDL definition.",
-              "isDeprecated": false,
-              "name": "INPUT_FIELD_DEFINITION"
-            }
-          ],
+          "description": "An enum describing what kind of type a given __Type is.",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
-          "kind": "ENUM",
-          "name": "__DirectiveLocation",
+          "enumValues": [
+            {
+              "name": "SCALAR",
+              "description": "Indicates this type is a scalar.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OBJECT",
+              "description": "Indicates this type is an object. `fields` and `interfaces` are valid fields.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INTERFACE",
+              "description": "Indicates this type is an interface. `fields` and `possibleTypes` are valid fields.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNION",
+              "description": "Indicates this type is a union. `possibleTypes` is a valid field.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ENUM",
+              "description": "Indicates this type is an enum. `enumValues` is a valid field.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INPUT_OBJECT",
+              "description": "Indicates this type is an input object. `inputFields` is a valid field.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "LIST",
+              "description": "Indicates this type is a list. `ofType` is a valid field.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "NON_NULL",
+              "description": "Indicates this type is a non-null. `ofType` is a valid field.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
           "possibleTypes": null
         },
         {
+          "kind": "ENUM",
+          "name": "__DirectiveLocation",
+          "description": "A Directive can be adjacent to many parts of the GraphQL language, a __DirectiveLocation describes one such possible adjacencies.",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "QUERY",
+              "description": "Location adjacent to a query operation.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "MUTATION",
+              "description": "Location adjacent to a mutation operation.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SUBSCRIPTION",
+              "description": "Location adjacent to a subscription operation.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FIELD",
+              "description": "Location adjacent to a field.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FRAGMENT_DEFINITION",
+              "description": "Location adjacent to a fragment definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FRAGMENT_SPREAD",
+              "description": "Location adjacent to a fragment spread.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INLINE_FRAGMENT",
+              "description": "Location adjacent to an inline fragment.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SCHEMA",
+              "description": "Location adjacent to a schema IDL definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "SCALAR",
+              "description": "Location adjacent to a scalar IDL definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "OBJECT",
+              "description": "Location adjacent to an object IDL definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "FIELD_DEFINITION",
+              "description": "Location adjacent to a field IDL definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ARGUMENT_DEFINITION",
+              "description": "Location adjacent to a field argument IDL definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INTERFACE",
+              "description": "Location adjacent to an interface IDL definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "UNION",
+              "description": "Location adjacent to an union IDL definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ENUM",
+              "description": "Location adjacent to an enum IDL definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "ENUM_VALUE",
+              "description": "Location adjacent to an enum value definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INPUT_OBJECT",
+              "description": "Location adjacent to an input object IDL definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "INPUT_FIELD_DEFINITION",
+              "description": "Location adjacent to an input object field IDL definition.",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Query",
           "description": null,
-          "enumValues": null,
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Gets all libraries",
-              "isDeprecated": false,
               "name": "bibliotekoj",
+              "description": "Gets all libraries",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1028,14 +942,17 @@
                     }
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
+              "name": "registri",
+              "description": "Gets a registri by ISBN",
               "args": [
                 {
-                  "defaultValue": null,
-                  "description": null,
                   "name": "isbn",
+                  "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -1044,13 +961,10 @@
                       "name": "ISBN",
                       "ofType": null
                     }
-                  }
+                  },
+                  "defaultValue": null
                 }
               ],
-              "deprecationReason": null,
-              "description": "Gets a registri by ISBN",
-              "isDeprecated": false,
-              "name": "registri",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1059,14 +973,14 @@
                   "name": "Registri",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Gets all book definitions",
-              "isDeprecated": false,
               "name": "registrij",
+              "description": "Gets all book definitions",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1083,25 +997,25 @@
                     }
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "Query",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "Biblioteko",
           "description": "A Library with books",
-          "enumValues": null,
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Biblioteko address",
-              "isDeprecated": false,
               "name": "address",
+              "description": "Biblioteko address",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1110,14 +1024,14 @@
                   "name": "Address",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Book possessions",
-              "isDeprecated": false,
               "name": "content",
+              "description": "Book possessions",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1134,14 +1048,14 @@
                     }
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "ID of the Library",
-              "isDeprecated": false,
               "name": "id",
+              "description": "ID of the Library",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1150,130 +1064,131 @@
                   "name": "BibliotekoID",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "Biblioteko",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
-          "description": "An address of the Library with books",
-          "enumValues": null,
-          "fields": [
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Building Number",
-              "isDeprecated": false,
-              "name": "buildingnumber",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Country",
-              "isDeprecated": false,
-              "name": "country",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Country Code",
-              "isDeprecated": false,
-              "name": "countrycode",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Freeform Address",
-              "isDeprecated": false,
-              "name": "freeformaddress",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Postal Code",
-              "isDeprecated": false,
-              "name": "postalcode",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Street",
-              "isDeprecated": false,
-              "name": "street",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "String",
-                  "ofType": null
-                }
-              }
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
           "kind": "OBJECT",
           "name": "Address",
+          "description": "An address of the Library with books",
+          "fields": [
+            {
+              "name": "buildingnumber",
+              "description": "Building Number",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "country",
+              "description": "Country",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "countrycode",
+              "description": "Country Code",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "freeformaddress",
+              "description": "Freeform Address",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "postalcode",
+              "description": "Postal Code",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "street",
+              "description": "Street",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "String",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
+          "kind": "UNION",
+          "name": "PetskriboPossession",
           "description": "Possession type of the physical book",
-          "enumValues": null,
           "fields": null,
           "inputFields": null,
           "interfaces": null,
-          "kind": "UNION",
-          "name": "PetskriboPossession",
+          "enumValues": null,
           "possibleTypes": [
             {
               "kind": "OBJECT",
@@ -1293,15 +1208,14 @@
           ]
         },
         {
+          "kind": "OBJECT",
+          "name": "Borrowed",
           "description": null,
-          "enumValues": null,
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "ID of the book",
-              "isDeprecated": false,
               "name": "id",
+              "description": "ID of the book",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1310,14 +1224,14 @@
                   "name": "PetskriboID",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "History of the book",
-              "isDeprecated": false,
               "name": "logbook",
+              "description": "History of the book",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1334,14 +1248,14 @@
                     }
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Owner of the book",
-              "isDeprecated": false,
               "name": "owner",
+              "description": "Owner of the book",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1350,14 +1264,14 @@
                   "name": "UzantoID",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Book info",
-              "isDeprecated": false,
               "name": "registri",
+              "description": "Book info",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1366,45 +1280,45 @@
                   "name": "Registri",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "Borrowed",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
-          "description": "ID of the book",
-          "enumValues": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
           "kind": "SCALAR",
           "name": "PetskriboID",
-          "possibleTypes": null
-        },
-        {
-          "description": "User ID",
-          "enumValues": null,
+          "description": "ID of the book",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
-          "kind": "SCALAR",
-          "name": "UzantoID",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
-          "description": "A book definition, not a physcial copy",
+          "kind": "SCALAR",
+          "name": "UzantoID",
+          "description": "User ID",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Registri",
+          "description": "A book definition, not a physcial copy",
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Authors of the book definition",
-              "isDeprecated": false,
               "name": "authors",
+              "description": "Authors of the book definition",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1421,14 +1335,14 @@
                     }
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "ID of the book definition",
-              "isDeprecated": false,
               "name": "id",
+              "description": "ID of the book definition",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1437,14 +1351,14 @@
                   "name": "RegistriID",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "URL of the book definition image",
-              "isDeprecated": false,
               "name": "imageurl",
+              "description": "URL of the book definition image",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1453,14 +1367,14 @@
                   "name": "URI",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "ISBN of the book definition",
-              "isDeprecated": false,
               "name": "isbn",
+              "description": "ISBN of the book definition",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1469,14 +1383,14 @@
                   "name": "ISBN",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Book definition reviews",
-              "isDeprecated": false,
               "name": "recenzoj",
+              "description": "Book definition reviews",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1493,14 +1407,14 @@
                     }
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Summary of the book definition",
-              "isDeprecated": false,
               "name": "summary",
+              "description": "Summary of the book definition",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1509,14 +1423,14 @@
                   "name": "String",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Title of the book definition",
-              "isDeprecated": false,
               "name": "title",
+              "description": "Title of the book definition",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1525,45 +1439,45 @@
                   "name": "String",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "Registri",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
-          "description": "ID of the book definition",
-          "enumValues": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
           "kind": "SCALAR",
           "name": "RegistriID",
-          "possibleTypes": null
-        },
-        {
-          "description": "Bar code value (ISBN) of the book definition",
-          "enumValues": null,
+          "description": "ID of the book definition",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
-          "kind": "SCALAR",
-          "name": "ISBN",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
-          "description": "A book review",
+          "kind": "SCALAR",
+          "name": "ISBN",
+          "description": "Bar code value (ISBN) of the book definition",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
           "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Recenzo",
+          "description": "A book review",
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Content",
-              "isDeprecated": false,
               "name": "content",
+              "description": "Content",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1572,14 +1486,14 @@
                   "name": "RecenzoContent",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "ID of the book definition review",
-              "isDeprecated": false,
               "name": "id",
+              "description": "ID of the book definition review",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1588,14 +1502,14 @@
                   "name": "RecenzoID",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Reviewer",
-              "isDeprecated": false,
               "name": "recenzorer",
+              "description": "Reviewer",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1604,23 +1518,24 @@
                   "name": "UzantoID",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "Recenzo",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
+          "kind": "UNION",
+          "name": "RecenzoContent",
           "description": "Review content type",
-          "enumValues": null,
           "fields": null,
           "inputFields": null,
           "interfaces": null,
-          "kind": "UNION",
-          "name": "RecenzoContent",
+          "enumValues": null,
           "possibleTypes": [
             {
               "kind": "OBJECT",
@@ -1640,142 +1555,14 @@
           ]
         },
         {
-          "description": null,
-          "enumValues": null,
-          "fields": [
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Reaction type",
-              "isDeprecated": false,
-              "name": "reaction",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "ENUM",
-                  "name": "ReactionEnum",
-                  "ofType": null
-                }
-              }
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
           "kind": "OBJECT",
           "name": "Reaction",
-          "possibleTypes": null
-        },
-        {
-          "description": "Reacton onto the book",
-          "enumValues": [
-            {
-              "deprecationReason": null,
-              "description": "The user loves the book",
-              "isDeprecated": false,
-              "name": "LoveIt"
-            },
-            {
-              "deprecationReason": null,
-              "description": "The book is boring",
-              "isDeprecated": false,
-              "name": "Boring"
-            },
-            {
-              "deprecationReason": null,
-              "description": "The book is gripping",
-              "isDeprecated": false,
-              "name": "Gripping"
-            },
-            {
-              "deprecationReason": null,
-              "description": "The book is moving",
-              "isDeprecated": false,
-              "name": "Moving"
-            },
-            {
-              "deprecationReason": null,
-              "description": "The book is inspiring",
-              "isDeprecated": false,
-              "name": "Inspiring"
-            },
-            {
-              "deprecationReason": null,
-              "description": "The book is classic",
-              "isDeprecated": false,
-              "name": "Classic"
-            }
-          ],
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "kind": "ENUM",
-          "name": "ReactionEnum",
-          "possibleTypes": null
-        },
-        {
           "description": null,
-          "enumValues": null,
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Comment",
-              "isDeprecated": false,
-              "name": "comment",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Comment",
-                  "ofType": null
-                }
-              }
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "kind": "OBJECT",
-          "name": "CommentOnly",
-          "possibleTypes": null
-        },
-        {
-          "description": "User comment",
-          "enumValues": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
-          "kind": "SCALAR",
-          "name": "Comment",
-          "possibleTypes": null
-        },
-        {
-          "description": null,
-          "enumValues": null,
-          "fields": [
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Comment",
-              "isDeprecated": false,
-              "name": "comment",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Comment",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Reaction",
-              "isDeprecated": false,
               "name": "reaction",
+              "description": "Reaction type",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -1784,211 +1571,341 @@
                   "name": "ReactionEnum",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "ENUM",
+          "name": "ReactionEnum",
+          "description": "Reacton onto the book",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": [
+            {
+              "name": "LoveIt",
+              "description": "The user loves the book",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "Boring",
+              "description": "The book is boring",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "Gripping",
+              "description": "The book is gripping",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "Moving",
+              "description": "The book is moving",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "Inspiring",
+              "description": "The book is inspiring",
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "Classic",
+              "description": "The book is classic",
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "CommentOnly",
+          "description": null,
+          "fields": [
+            {
+              "name": "comment",
+              "description": "Comment",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Comment",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "Comment",
+          "description": "User comment",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
           "kind": "OBJECT",
           "name": "ReactionAndComment",
+          "description": null,
+          "fields": [
+            {
+              "name": "comment",
+              "description": "Comment",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Comment",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "reaction",
+              "description": "Reaction",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "ENUM",
+                  "name": "ReactionEnum",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
           "possibleTypes": null
         },
         {
-          "description": "ID of the book definition",
-          "enumValues": null,
-          "fields": null,
-          "inputFields": null,
-          "interfaces": null,
           "kind": "SCALAR",
           "name": "RecenzoID",
-          "possibleTypes": null
-        },
-        {
-          "description": null,
-          "enumValues": null,
-          "fields": [
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "ID of the book",
-              "isDeprecated": false,
-              "name": "id",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "PetskriboID",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "History of the book",
-              "isDeprecated": false,
-              "name": "logbook",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Owner of the book",
-              "isDeprecated": false,
-              "name": "owner",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "UzantoID",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Book info",
-              "isDeprecated": false,
-              "name": "registri",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Registri",
-                  "ofType": null
-                }
-              }
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "kind": "OBJECT",
-          "name": "Owned",
-          "possibleTypes": null
-        },
-        {
-          "description": null,
-          "enumValues": null,
-          "fields": [
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "ID of the book",
-              "isDeprecated": false,
-              "name": "id",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "PetskriboID",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "History of the book",
-              "isDeprecated": false,
-              "name": "logbook",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Owner of the book",
-              "isDeprecated": false,
-              "name": "owner",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "UzantoID",
-                  "ofType": null
-                }
-              }
-            },
-            {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Book info",
-              "isDeprecated": false,
-              "name": "registri",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "Registri",
-                  "ofType": null
-                }
-              }
-            }
-          ],
-          "inputFields": null,
-          "interfaces": [],
-          "kind": "OBJECT",
-          "name": "Lent",
-          "possibleTypes": null
-        },
-        {
-          "description": "ID of the book",
-          "enumValues": null,
+          "description": "ID of the book definition",
           "fields": null,
           "inputFields": null,
           "interfaces": null,
-          "kind": "SCALAR",
-          "name": "BibliotekoID",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "Owned",
           "description": null,
-          "enumValues": null,
           "fields": [
             {
+              "name": "id",
+              "description": "ID of the book",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "PetskriboID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "logbook",
+              "description": "History of the book",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "owner",
+              "description": "Owner of the book",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "UzantoID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "registri",
+              "description": "Book info",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Registri",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Lent",
+          "description": null,
+          "fields": [
+            {
+              "name": "id",
+              "description": "ID of the book",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "PetskriboID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "logbook",
+              "description": "History of the book",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "owner",
+              "description": "Owner of the book",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "UzantoID",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "registri",
+              "description": "Book info",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "OBJECT",
+                  "name": "Registri",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            }
+          ],
+          "inputFields": null,
+          "interfaces": [],
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "SCALAR",
+          "name": "BibliotekoID",
+          "description": "ID of the book",
+          "fields": null,
+          "inputFields": null,
+          "interfaces": null,
+          "enumValues": null,
+          "possibleTypes": null
+        },
+        {
+          "kind": "OBJECT",
+          "name": "Mutation",
+          "description": null,
+          "fields": [
+            {
+              "name": "addPetskribo",
+              "description": "Adds physical book to a library",
               "args": [
                 {
-                  "defaultValue": null,
-                  "description": null,
                   "name": "bibliotekoId",
+                  "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -1997,12 +1914,12 @@
                       "name": "BibliotekoID",
                       "ofType": null
                     }
-                  }
+                  },
+                  "defaultValue": null
                 },
                 {
-                  "defaultValue": null,
-                  "description": null,
                   "name": "petskribo",
+                  "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -2011,27 +1928,10 @@
                       "name": "InputPetskribo",
                       "ofType": null
                     }
-                  }
-                },
-                {
-                  "defaultValue": null,
-                  "description": null,
-                  "name": "uzantoId",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "UzantoID",
-                      "ofType": null
-                    }
-                  }
+                  },
+                  "defaultValue": null
                 }
               ],
-              "deprecationReason": null,
-              "description": "Adds physical book to a library",
-              "isDeprecated": false,
-              "name": "addPetskribo",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2040,45 +1940,17 @@
                   "name": "Petskribo",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [
-                {
-                  "defaultValue": null,
-                  "description": null,
-                  "name": "recenzoId",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "RecenzoID",
-                      "ofType": null
-                    }
-                  }
-                }
-              ],
-              "deprecationReason": null,
-              "description": "Removes comment from a review",
-              "isDeprecated": false,
               "name": "removeComment",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Unit",
-                  "ofType": null
-                }
-              }
-            },
-            {
+              "description": "Removes comment from a review",
               "args": [
                 {
-                  "defaultValue": null,
-                  "description": null,
                   "name": "recenzoId",
+                  "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -2087,29 +1959,29 @@
                       "name": "RecenzoID",
                       "ofType": null
                     }
-                  }
+                  },
+                  "defaultValue": null
                 }
               ],
-              "deprecationReason": null,
-              "description": "Removes reaction from a review",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Unit",
+                  "ofType": null
+                }
+              },
               "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "removeReaction",
-              "type": {
-                "kind": "NON_NULL",
-                "name": null,
-                "ofType": {
-                  "kind": "SCALAR",
-                  "name": "Unit",
-                  "ofType": null
-                }
-              }
-            },
-            {
+              "description": "Removes reaction from a review",
               "args": [
                 {
-                  "defaultValue": null,
-                  "description": null,
                   "name": "recenzoId",
+                  "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -2118,13 +1990,10 @@
                       "name": "RecenzoID",
                       "ofType": null
                     }
-                  }
+                  },
+                  "defaultValue": null
                 }
               ],
-              "deprecationReason": null,
-              "description": "Removes review from a book definition",
-              "isDeprecated": false,
-              "name": "removeRecenzo",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2133,14 +2002,48 @@
                   "name": "Unit",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
+              "name": "removeRecenzo",
+              "description": "Removes review from a book definition",
               "args": [
                 {
-                  "defaultValue": null,
+                  "name": "recenzoId",
                   "description": null,
+                  "type": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "RecenzoID",
+                      "ofType": null
+                    }
+                  },
+                  "defaultValue": null
+                }
+              ],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Unit",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "setComment",
+              "description": "Upserts review comment to a book definition",
+              "args": [
+                {
                   "name": "isbn",
+                  "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -2149,12 +2052,12 @@
                       "name": "ISBN",
                       "ofType": null
                     }
-                  }
+                  },
+                  "defaultValue": null
                 },
                 {
-                  "defaultValue": null,
-                  "description": null,
                   "name": "recenzoId",
+                  "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -2163,12 +2066,12 @@
                       "name": "RecenzoID",
                       "ofType": null
                     }
-                  }
+                  },
+                  "defaultValue": null
                 },
                 {
-                  "defaultValue": null,
-                  "description": null,
                   "name": "comment",
+                  "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -2177,27 +2080,10 @@
                       "name": "Comment",
                       "ofType": null
                     }
-                  }
-                },
-                {
-                  "defaultValue": null,
-                  "description": null,
-                  "name": "uzantoId",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "UzantoID",
-                      "ofType": null
-                    }
-                  }
+                  },
+                  "defaultValue": null
                 }
               ],
-              "deprecationReason": null,
-              "description": "Upserts review comment to a book definition",
-              "isDeprecated": false,
-              "name": "setComment",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2206,14 +2092,17 @@
                   "name": "Recenzo",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
+              "name": "setReaction",
+              "description": "Upserts review reaction to a book definition",
               "args": [
                 {
-                  "defaultValue": null,
-                  "description": null,
                   "name": "isbn",
+                  "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -2222,12 +2111,12 @@
                       "name": "ISBN",
                       "ofType": null
                     }
-                  }
+                  },
+                  "defaultValue": null
                 },
                 {
-                  "defaultValue": null,
-                  "description": null,
                   "name": "recenzoId",
+                  "description": null,
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -2236,12 +2125,12 @@
                       "name": "RecenzoID",
                       "ofType": null
                     }
-                  }
+                  },
+                  "defaultValue": null
                 },
                 {
-                  "defaultValue": null,
-                  "description": "Reaction of the book definition",
                   "name": "reactionKind",
+                  "description": "Reaction of the book definition",
                   "type": {
                     "kind": "NON_NULL",
                     "name": null,
@@ -2250,27 +2139,10 @@
                       "name": "ReactionEnum",
                       "ofType": null
                     }
-                  }
-                },
-                {
-                  "defaultValue": null,
-                  "description": null,
-                  "name": "uzantoId",
-                  "type": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "UzantoID",
-                      "ofType": null
-                    }
-                  }
+                  },
+                  "defaultValue": null
                 }
               ],
-              "deprecationReason": null,
-              "description": "Upserts review reaction to a book definition",
-              "isDeprecated": false,
-              "name": "setReaction",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2279,25 +2151,25 @@
                   "name": "Recenzo",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "Mutation",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
+          "kind": "OBJECT",
+          "name": "Petskribo",
           "description": "A physical copy of a Book Definition (Catalog entry)",
-          "enumValues": null,
           "fields": [
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "ID of the book",
-              "isDeprecated": false,
               "name": "id",
+              "description": "ID of the book",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2306,14 +2178,14 @@
                   "name": "PetskriboID",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "History of the book",
-              "isDeprecated": false,
               "name": "logbook",
+              "description": "History of the book",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2330,14 +2202,14 @@
                     }
                   }
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Owner of the book",
-              "isDeprecated": false,
               "name": "owner",
+              "description": "Owner of the book",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2346,14 +2218,14 @@
                   "name": "UzantoID",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             },
             {
-              "args": [],
-              "deprecationReason": null,
-              "description": "Book info",
-              "isDeprecated": false,
               "name": "registri",
+              "description": "Book info",
+              "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2362,24 +2234,25 @@
                   "name": "Registri",
                   "ofType": null
                 }
-              }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
           "interfaces": [],
-          "kind": "OBJECT",
-          "name": "Petskribo",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
+          "kind": "INPUT_OBJECT",
+          "name": "InputPetskribo",
           "description": "A physical copy of a Registri (Catalog entry)",
-          "enumValues": null,
           "fields": null,
           "inputFields": [
             {
-              "defaultValue": null,
-              "description": "ID of the registri",
               "name": "id",
+              "description": "ID of the registri",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2388,12 +2261,12 @@
                   "name": "RegistriID",
                   "ofType": null
                 }
-              }
+              },
+              "defaultValue": null
             },
             {
-              "defaultValue": null,
-              "description": "ISBN of the registri",
               "name": "isbn",
+              "description": "ISBN of the registri",
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
@@ -2402,27 +2275,112 @@
                   "name": "ISBN",
                   "ofType": null
                 }
-              }
+              },
+              "defaultValue": null
             }
           ],
           "interfaces": null,
-          "kind": "INPUT_OBJECT",
-          "name": "InputPetskribo",
+          "enumValues": null,
           "possibleTypes": null
         },
         {
+          "kind": "SCALAR",
+          "name": "Unit",
           "description": "Unit type",
-          "enumValues": null,
           "fields": null,
           "inputFields": null,
           "interfaces": null,
-          "kind": "SCALAR",
-          "name": "Unit",
+          "enumValues": null,
           "possibleTypes": null
+        }
+      ],
+      "directives": [
+        {
+          "name": "include",
+          "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ],
+          "args": [
+            {
+              "name": "if",
+              "description": "Included when true.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ]
+        },
+        {
+          "name": "skip",
+          "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ],
+          "args": [
+            {
+              "name": "if",
+              "description": "Skipped when true.",
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "defaultValue": null
+            }
+          ]
+        },
+        {
+          "name": "defer",
+          "description": "Defers the resolution of this field or fragment",
+          "locations": [
+            "FIELD",
+            "FRAGMENT_DEFINITION",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ],
+          "args": []
+        },
+        {
+          "name": "stream",
+          "description": "Streams the resolution of this field or fragment",
+          "locations": [
+            "FIELD",
+            "FRAGMENT_DEFINITION",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ],
+          "args": []
+        },
+        {
+          "name": "live",
+          "description": "Subscribes for live updates of this field or fragment",
+          "locations": [
+            "FIELD",
+            "FRAGMENT_DEFINITION",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
+          ],
+          "args": []
         }
       ]
     }
   },
-  "documentId": 1953916537,
+  "documentId": -1569104400,
   "requestType": "Classic"
 }

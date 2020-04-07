@@ -2,14 +2,12 @@
     $isbn: ISBN!
     $recenzoId: RecenzoID!
     $reactionKind: ReactionEnum!
-    $uzantoId: UzantoID!
 )
 {
     setReaction(
         isbn: $isbn
         recenzoId: $recenzoId
         reactionKind: $reactionKind
-        uzantoId: $uzantoId
     )
     {
         id

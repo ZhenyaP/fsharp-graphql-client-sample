@@ -1,13 +1,11 @@
 ﻿mutation addPetskriboToBiblioteko(
     $bibliotekoId: BibliotekoID!
     $petskribo: InputPetskribo!
-    $uzantoId: UzantoID!
 )
 {
     addPetskribo(
         bibliotekoId: $bibliotekoId
         petskribo: $petskribo
-        uzantoId: $uzantoId
     )
     {
         id

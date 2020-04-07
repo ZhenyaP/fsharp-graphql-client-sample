@@ -23,9 +23,7 @@ module GraphQLProviderMutations =
             use runtimeContext = getContext()
             let! result = addPetskriboOperation.AsyncRun(runtimeContext,
                                             bibliotekoId = bibliotekoId,
-                                            petskribo = petskribo,
-                                            uzantoId = ""
-                                           )
+                                            petskribo = petskribo)
             if checkForErrors result "addPetskribo" then return ValueNone
             else return ValueSome true
         }
@@ -39,8 +37,7 @@ module GraphQLProviderMutations =
             let! result = setReactionOperation.AsyncRun(runtimeContext,
                                                         isbn = isbn,
                                                         recenzoId = recenzoId,
-                                                        reactionKind = reactionKind,
-                                                        uzantoId = "")  //userId variable value is set in GraphQL server
+                                                        reactionKind = reactionKind)
             if checkForErrors result "setReaction" then return ValueNone
             else
                 let recenzoEntity = result.Data.Value.SetReaction
@@ -70,8 +67,7 @@ module GraphQLProviderMutations =
             let! result = setCommentOperation.AsyncRun(runtimeContext,
                                                         isbn = isbn,
                                                         recenzoId = recenzoId,
-                                                        comment = comment,
-                                                        uzantoId = "")  //userId variable value is set in GraphQL server
+                                                        comment = comment)
             if checkForErrors result "setComment" then return ValueNone
             else
                 let recenzoEntity = result.Data.Value.SetComment
