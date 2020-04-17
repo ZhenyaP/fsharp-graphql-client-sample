@@ -9,7 +9,7 @@
     <None Include="Script.fsx" />
     <Content Include="json\introspection.json" />
     <None Include="queries\addPetskribo.graphql" />
-    <None Include="queries\getBibliotekoj.graphql" />
+    <None Include="queries\getBiblioteko.graphql" />
     <None Include="queries\getRegistri.graphql" />
     <None Include="queries\getRegistrij.graphql" />
     <None Include="queries\removeComment.graphql" />
@@ -31,8 +31,8 @@
     <Content Include="responses\addpetskribo_response.json" />
     <Content Include="responses\getregistri_response.json" />
     <Compile Include="Helpers.fs" />
-    <Compile Include="Domain.fs" />
     <Compile Include="GraphQLProviderCommon.fs" />
+    <Compile Include="Domain.fs" />
     <Compile Include="GraphQLProviderMutations.fs" />
     <Compile Include="GraphQLProviderQueries.fs" />
     <Compile Include="GraphQLClientRequests.fs" />

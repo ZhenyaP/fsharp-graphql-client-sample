@@ -2,6 +2,7 @@
 namespace BibliotekoClient
 
 open Chessie.ErrorHandling.Trial
+open GraphQLProviderCommon
 
 module Domain =
 
@@ -39,7 +40,7 @@ module Domain =
         { Id : System.Guid
           /// Reviewer
           Recenzorer : string
-          Content : RecenzoContent }    
+          Content : RecenzoContent }
 
     /// <remarks>
     /// a review can be either
@@ -60,11 +61,6 @@ module Domain =
         | Moving = 4
         | Inspiring = 5
         | Classic = 6
-    
-    module Reaction =
-        let create text =
-            let reaction = System.Enum.Parse(typedefof<Reaction>, text) :?> Reaction
-            reaction
 
     type PetskriboPossession =
         | Borrowed of Petskribo

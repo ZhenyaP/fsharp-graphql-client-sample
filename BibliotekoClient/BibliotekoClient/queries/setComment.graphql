@@ -12,6 +12,7 @@
     {
         id
         recenzorer
+        timeStamp
         content {
             ... on Reaction {
                 reaction

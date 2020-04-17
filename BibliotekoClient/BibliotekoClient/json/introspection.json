@@ -1,4 +1,5 @@
 ﻿{
+  "documentId": 1420782340,
   "data": {
     "__schema": {
       "queryType": {
@@ -923,24 +924,16 @@
           "description": null,
           "fields": [
             {
-              "name": "bibliotekoj",
-              "description": "Gets all libraries",
+              "name": "biblioteko",
+              "description": "Gets the library of the current user",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "OBJECT",
-                      "name": "Biblioteko",
-                      "ofType": null
-                    }
-                  }
+                  "kind": "OBJECT",
+                  "name": "Biblioteko",
+                  "ofType": null
                 }
               },
               "isDeprecated": false,
@@ -1080,7 +1073,7 @@
           "description": "An address of the Library with books",
           "fields": [
             {
-              "name": "buildingnumber",
+              "name": "buildingNumber",
               "description": "Building Number",
               "args": [],
               "type": {
@@ -1112,7 +1105,7 @@
               "deprecationReason": null
             },
             {
-              "name": "countrycode",
+              "name": "countryCode",
               "description": "Country Code",
               "args": [],
               "type": {
@@ -1128,7 +1121,7 @@
               "deprecationReason": null
             },
             {
-              "name": "freeformaddress",
+              "name": "freeformAddress",
               "description": "Freeform Address",
               "args": [],
               "type": {
@@ -1144,7 +1137,7 @@
               "deprecationReason": null
             },
             {
-              "name": "postalcode",
+              "name": "postalCode",
               "description": "Postal Code",
               "args": [],
               "type": {
@@ -1192,12 +1185,12 @@
           "possibleTypes": [
             {
               "kind": "OBJECT",
-              "name": "Borrowed",
+              "name": "Owned",
               "ofType": null
             },
             {
               "kind": "OBJECT",
-              "name": "Owned",
+              "name": "Borrowed",
               "ofType": null
             },
             {
@@ -1209,9 +1202,21 @@
         },
         {
           "kind": "OBJECT",
-          "name": "Borrowed",
+          "name": "Owned",
           "description": null,
           "fields": [
+            {
+              "name": "deleted",
+              "description": "Deleted info",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "id",
               "description": "ID of the book",
@@ -1229,32 +1234,24 @@
               "deprecationReason": null
             },
             {
-              "name": "logbook",
-              "description": "History of the book",
+              "name": "owner",
+              "description": "Owner of the book",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
+                  "kind": "SCALAR",
+                  "name": "UzantoID",
+                  "ofType": null
                 }
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "owner",
-              "description": "Owner of the book",
+              "name": "possessor",
+              "description": "Possessor of the book",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -1279,6 +1276,30 @@
                   "kind": "OBJECT",
                   "name": "Registri",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "transfers",
+              "description": "History of the book transfers",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
                 }
               },
               "isDeprecated": false,
@@ -1521,6 +1542,22 @@
               },
               "isDeprecated": false,
               "deprecationReason": null
+            },
+            {
+              "name": "timeStamp",
+              "description": "Change date and time",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Date",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
             }
           ],
           "inputFields": null,
@@ -1544,7 +1581,7 @@
             },
             {
               "kind": "OBJECT",
-              "name": "CommentOnly",
+              "name": "Comment",
               "ofType": null
             },
             {
@@ -1630,7 +1667,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "CommentOnly",
+          "name": "Comment",
           "description": null,
           "fields": [
             {
@@ -1642,7 +1679,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Comment",
+                  "name": "CommentText",
                   "ofType": null
                 }
               },
@@ -1657,7 +1694,7 @@
         },
         {
           "kind": "SCALAR",
-          "name": "Comment",
+          "name": "CommentText",
           "description": "User comment",
           "fields": null,
           "inputFields": null,
@@ -1679,7 +1716,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "SCALAR",
-                  "name": "Comment",
+                  "name": "CommentText",
                   "ofType": null
                 }
               },
@@ -1720,9 +1757,21 @@
         },
         {
           "kind": "OBJECT",
-          "name": "Owned",
+          "name": "Borrowed",
           "description": null,
           "fields": [
+            {
+              "name": "deleted",
+              "description": "Deleted info",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
             {
               "name": "id",
               "description": "ID of the book",
@@ -1740,32 +1789,24 @@
               "deprecationReason": null
             },
             {
-              "name": "logbook",
-              "description": "History of the book",
+              "name": "owner",
+              "description": "Owner of the book",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
+                  "kind": "SCALAR",
+                  "name": "UzantoID",
+                  "ofType": null
                 }
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "owner",
-              "description": "Owner of the book",
+              "name": "possessor",
+              "description": "Possessor of the book",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -1790,6 +1831,30 @@
                   "kind": "OBJECT",
                   "name": "Registri",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "transfers",
+              "description": "History of the book transfers",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
                 }
               },
               "isDeprecated": false,
@@ -1807,6 +1872,18 @@
           "description": null,
           "fields": [
             {
+              "name": "deleted",
+              "description": "Deleted info",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "ID of the book",
               "args": [],
@@ -1823,32 +1900,24 @@
               "deprecationReason": null
             },
             {
-              "name": "logbook",
-              "description": "History of the book",
+              "name": "owner",
+              "description": "Owner of the book",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
+                  "kind": "SCALAR",
+                  "name": "UzantoID",
+                  "ofType": null
                 }
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "owner",
-              "description": "Owner of the book",
+              "name": "possessor",
+              "description": "Possessor of the book",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -1873,6 +1942,30 @@
                   "kind": "OBJECT",
                   "name": "Registri",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "transfers",
+              "description": "History of the book transfers",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
                 }
               },
               "isDeprecated": false,
@@ -2077,7 +2170,7 @@
                     "name": null,
                     "ofType": {
                       "kind": "SCALAR",
-                      "name": "Comment",
+                      "name": "CommentText",
                       "ofType": null
                     }
                   },
@@ -2167,6 +2260,18 @@
           "description": "A physical copy of a Book Definition (Catalog entry)",
           "fields": [
             {
+              "name": "deleted",
+              "description": "Deleted info",
+              "args": [],
+              "type": {
+                "kind": "SCALAR",
+                "name": "String",
+                "ofType": null
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
               "name": "id",
               "description": "ID of the book",
               "args": [],
@@ -2183,32 +2288,24 @@
               "deprecationReason": null
             },
             {
-              "name": "logbook",
-              "description": "History of the book",
+              "name": "owner",
+              "description": "Owner of the book",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "LIST",
-                  "name": null,
-                  "ofType": {
-                    "kind": "NON_NULL",
-                    "name": null,
-                    "ofType": {
-                      "kind": "SCALAR",
-                      "name": "String",
-                      "ofType": null
-                    }
-                  }
+                  "kind": "SCALAR",
+                  "name": "UzantoID",
+                  "ofType": null
                 }
               },
               "isDeprecated": false,
               "deprecationReason": null
             },
             {
-              "name": "owner",
-              "description": "Owner of the book",
+              "name": "possessor",
+              "description": "Possessor of the book",
               "args": [],
               "type": {
                 "kind": "NON_NULL",
@@ -2233,6 +2330,30 @@
                   "kind": "OBJECT",
                   "name": "Registri",
                   "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "transfers",
+              "description": "History of the book transfers",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "NON_NULL",
+                    "name": null,
+                    "ofType": {
+                      "kind": "SCALAR",
+                      "name": "String",
+                      "ofType": null
+                    }
+                  }
                 }
               },
               "isDeprecated": false,
@@ -2298,11 +2419,6 @@
         {
           "name": "include",
           "description": "Directs the executor to include this field or fragment only when the `if` argument is true.",
-          "locations": [
-            "FIELD",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ],
           "args": [
             {
               "name": "if",
@@ -2318,16 +2434,16 @@
               },
               "defaultValue": null
             }
+          ],
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
           ]
         },
         {
           "name": "skip",
           "description": "Directs the executor to skip this field or fragment when the `if` argument is true.",
-          "locations": [
-            "FIELD",
-            "FRAGMENT_SPREAD",
-            "INLINE_FRAGMENT"
-          ],
           "args": [
             {
               "name": "if",
@@ -2343,44 +2459,48 @@
               },
               "defaultValue": null
             }
+          ],
+          "locations": [
+            "FIELD",
+            "FRAGMENT_SPREAD",
+            "INLINE_FRAGMENT"
           ]
         },
         {
           "name": "defer",
           "description": "Defers the resolution of this field or fragment",
+          "args": [],
           "locations": [
             "FIELD",
             "FRAGMENT_DEFINITION",
             "FRAGMENT_SPREAD",
             "INLINE_FRAGMENT"
-          ],
-          "args": []
+          ]
         },
         {
           "name": "stream",
           "description": "Streams the resolution of this field or fragment",
+          "args": [],
           "locations": [
             "FIELD",
             "FRAGMENT_DEFINITION",
             "FRAGMENT_SPREAD",
             "INLINE_FRAGMENT"
-          ],
-          "args": []
+          ]
         },
         {
           "name": "live",
           "description": "Subscribes for live updates of this field or fragment",
+          "args": [],
           "locations": [
             "FIELD",
             "FRAGMENT_DEFINITION",
             "FRAGMENT_SPREAD",
             "INLINE_FRAGMENT"
-          ],
-          "args": []
+          ]
         }
       ]
     }
   },
-  "documentId": -1569104400,
   "requestType": "Classic"
 }

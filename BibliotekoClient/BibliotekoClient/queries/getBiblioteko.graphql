@@ -1,5 +1,5 @@
-﻿query getBibliotekoj {
-  bibliotekoj {
+﻿query getBiblioteko {
+  biblioteko {
     id
     content {
         ...borrowedFields
@@ -22,8 +22,10 @@ fragment borrowedFields on Borrowed {
     registri {
         ...registriFields
     }
-    logbook
+    transfers
     owner
+    deleted
+    possessor
 }
 
 fragment ownedFields on Owned {
@@ -31,8 +33,10 @@ fragment ownedFields on Owned {
     registri {
         ...registriFields
     }
-    logbook
+    transfers
     owner
+    deleted
+    possessor
 }
 
 fragment lentFields on Lent {
@@ -40,8 +44,10 @@ fragment lentFields on Lent {
     registri {
         ...registriFields
     }
-    logbook
+    transfers
     owner
+    deleted
+    possessor
 }
 
 fragment registriFields on Registri {
@@ -52,6 +58,7 @@ fragment registriFields on Registri {
     recenzoj {
         id
         recenzorer
+        timeStamp
         content {
             ... on Reaction {
                 reaction
